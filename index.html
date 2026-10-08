@@ -1870,6 +1870,8 @@
       if (counts.volunteer > 0) breakdownList.push(`${counts.volunteer} Volunteer (${volunteerRole})`);
 
       const passSummaryStr = breakdownList.join(', ');
+      const paymentStatus = (totalCost === 0) ? 'Free Pass ($0)' : (selectedPaymentMethod === 'Venmo' ? 'Pending Venmo' : 'Pending Cash/Check');
+      const volunteerPreference = (counts.volunteer > 0) ? volunteerRole : 'None';
 
       const payload = {
         // Receipt ID in all common formats & header casings
@@ -2077,6 +2079,26 @@
         'Total Amount': totalCost,
         'Total Cost': totalCost,
 
+        // Exact 18 Spreadsheet Column Headers
+        'Timestamp': new Date().toLocaleString(),
+        'Receipt ID': orderId,
+        'Primary Contact': primaryName,
+        'Email': primaryEmail,
+        'Phone': primaryPhone,
+        'Payment Method': selectedPaymentMethod,
+        'Payment Status': paymentStatus,
+        'Troop Scout ($30)': counts.troop,
+        'AOL Cabin ($15)': counts.aol_cabin,
+        'Webelos Day ($0)': counts.aol_day,
+        'Banquet Guest ($10)': counts.banquet,
+        'Leader Camping ($0)': counts.leader,
+        'Parent Camping ($0)': counts.parent,
+        'Staff Helper ($0)': counts.volunteer,
+        'Volunteer Preference': volunteerPreference,
+        'Total Due ($)': totalCost,
+        'All Attendee Names': attendees,
+        'Dietary Restrictions': dietary || 'None specified',
+
         // Structured objects
         tickets: {
           troop: counts.troop,
@@ -2117,63 +2139,43 @@
           let requestUrl = GOOGLE_SCRIPT_WEBHOOK_URL;
           try {
             const u = new URL(GOOGLE_SCRIPT_WEBHOOK_URL);
-            u.searchParams.set('receiptId', orderId);
-            u.searchParams.set('receiptID', orderId);
+            // Exact 18 Spreadsheet Column Headers
+            u.searchParams.set('Timestamp', new Date().toLocaleString());
             u.searchParams.set('Receipt ID', orderId);
+            u.searchParams.set('Primary Contact', primaryName);
+            u.searchParams.set('Email', primaryEmail);
+            u.searchParams.set('Phone', primaryPhone);
+            u.searchParams.set('Payment Method', selectedPaymentMethod);
+            u.searchParams.set('Payment Status', paymentStatus);
+            u.searchParams.set('Troop Scout ($30)', counts.troop);
+            u.searchParams.set('AOL Cabin ($15)', counts.aol_cabin);
+            u.searchParams.set('Webelos Day ($0)', counts.aol_day);
+            u.searchParams.set('Banquet Guest ($10)', counts.banquet);
+            u.searchParams.set('Leader Camping ($0)', counts.leader);
+            u.searchParams.set('Parent Camping ($0)', counts.parent);
+            u.searchParams.set('Staff Helper ($0)', counts.volunteer);
+            u.searchParams.set('Volunteer Preference', volunteerPreference);
+            u.searchParams.set('Total Due ($)', totalCost);
+            u.searchParams.set('All Attendee Names', attendees);
+            u.searchParams.set('Dietary Restrictions', dietary || 'None specified');
+
+            // Additional standard aliases
+            u.searchParams.set('receiptId', orderId);
             u.searchParams.set('orderId', orderId);
-            u.searchParams.set('Order ID', orderId);
-
-            // Counts & summaries
-            u.searchParams.set('count', totalTickets);
-            u.searchParams.set('counts', passSummaryStr);
-            u.searchParams.set('Counts', passSummaryStr);
-            u.searchParams.set('numberOfPassOptions', totalTickets);
-            u.searchParams.set('number_of_pass_options', totalTickets);
-            u.searchParams.set('Number of Pass Options', totalTickets);
-            u.searchParams.set('numberOfPasses', totalTickets);
-            u.searchParams.set('totalPasses', totalTickets);
-            u.searchParams.set('totalTickets', totalTickets);
-            u.searchParams.set('Total Tickets', totalTickets);
-            u.searchParams.set('passOptions', passSummaryStr);
-            u.searchParams.set('Pass Options', passSummaryStr);
-            u.searchParams.set('passSummary', passSummaryStr);
-            u.searchParams.set('passes', passSummaryStr);
-
-            // Tier counts (current and legacy)
-            u.searchParams.set('troop', counts.troop);
-            u.searchParams.set('troopScout', counts.troop);
-            u.searchParams.set('Troop Scout Camping', counts.troop);
-            u.searchParams.set('Troop Camper', counts.troop);
-            u.searchParams.set('aol_cabin', counts.aol_cabin);
-            u.searchParams.set('aol', counts.aol_cabin + counts.aol_day);
-            u.searchParams.set('AOL / Webelos Cabin Camping', counts.aol_cabin);
-            u.searchParams.set('AOL / Webelos Cabin', counts.aol_cabin);
-            u.searchParams.set('aol_day', counts.aol_day);
-            u.searchParams.set('AOL / Webelos Saturday Day Only', counts.aol_day);
-            u.searchParams.set('banquet', counts.banquet);
-            u.searchParams.set('visitor', counts.banquet);
-            u.searchParams.set('Banquet-Only Guest', counts.banquet);
-            u.searchParams.set('Saturday Banquet Only', counts.banquet);
-            u.searchParams.set('leader', counts.leader);
-            u.searchParams.set('Registered Adult Leader Camping', counts.leader);
-            u.searchParams.set('parent', counts.parent);
-            u.searchParams.set('Parent Camping', counts.parent);
-            u.searchParams.set('volunteer', counts.volunteer);
-            u.searchParams.set('staff', counts.volunteer);
-            u.searchParams.set('Volunteer Support Staff', counts.volunteer);
-            u.searchParams.set('Staff & Leadership', counts.volunteer);
-            u.searchParams.set('volunteerRole', volunteerRole);
-
-            // Contact info
             u.searchParams.set('name', primaryName);
-            u.searchParams.set('email', primaryEmail);
-            u.searchParams.set('phone', primaryPhone);
             u.searchParams.set('total', totalCost);
             u.searchParams.set('totalCost', totalCost);
-            u.searchParams.set('paymentMethod', selectedPaymentMethod);
-            u.searchParams.set('attendees', attendees);
-            u.searchParams.set('affiliation', affiliation);
-            u.searchParams.set('dietary', dietary || 'None specified');
+            u.searchParams.set('count', totalTickets);
+            u.searchParams.set('counts', passSummaryStr);
+            u.searchParams.set('totalTickets', totalTickets);
+            u.searchParams.set('passOptions', passSummaryStr);
+            u.searchParams.set('troop', counts.troop);
+            u.searchParams.set('aol_cabin', counts.aol_cabin);
+            u.searchParams.set('aol_day', counts.aol_day);
+            u.searchParams.set('banquet', counts.banquet);
+            u.searchParams.set('leader', counts.leader);
+            u.searchParams.set('parent', counts.parent);
+            u.searchParams.set('volunteer', counts.volunteer);
             requestUrl = u.toString();
           } catch (urlErr) {
             requestUrl = GOOGLE_SCRIPT_WEBHOOK_URL;
