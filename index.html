@@ -4,6 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Troop 170 Year-End Celebration & Banquet 2026</title>
+  <link rel="icon" type="image/png" href="images/troop-170-logo.png">
+  <link rel="apple-touch-icon" href="images/troop-170-logo.png">
+  <meta name="description" content="Scouts BSA Troop 170 Annual Awards Banquet & Court of Honor 2026 - Unionville & Farmington, CT at Camp Workcoeman.">
+  <meta property="og:title" content="Troop 170 Year-End Celebration & Banquet 2026">
+  <meta property="og:description" content="Join Troop 170 for our 2026 Year-End Celebration of Scouting & Annual Banquet at Camp Workcoeman.">
+  <meta property="og:image" content="images/troop-170-logo.png">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -54,19 +61,54 @@
       gap: 12px;
       color: #fff;
       text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .brand:hover {
+      opacity: 0.95;
+    }
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4));
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+    .brand:hover .brand-logo {
+      transform: scale(1.06);
+    }
+    .brand-info {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+    .brand-name {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-family: 'Cinzel', serif;
       font-weight: 700;
       font-size: 1.25rem;
       letter-spacing: 0.5px;
+      color: #ffffff;
+    }
+    .brand-town {
+      font-size: 0.72rem;
+      color: #94a3b8;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
     }
     .brand-badge {
       background: var(--scout-gold);
       color: var(--scout-navy);
-      font-size: 0.8rem;
-      padding: 2px 8px;
+      font-size: 0.7rem;
+      padding: 2px 7px;
       border-radius: 4px;
       font-weight: 700;
       font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: 0.3px;
     }
     .nav-links {
       display: flex;
@@ -103,6 +145,29 @@
     .hero-content {
       max-width: 860px;
       margin: auto;
+    }
+    .hero-emblem-wrap {
+      margin-bottom: 1.5rem;
+      display: inline-flex;
+      justify-content: center;
+      position: relative;
+    }
+    .hero-logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(8px);
+      padding: 6px;
+      border: 3px solid rgba(207, 160, 82, 0.75);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(207, 160, 82, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .hero-logo:hover {
+      transform: scale(1.05) rotate(1deg);
+      border-color: var(--scout-gold);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 32px rgba(207, 160, 82, 0.4);
     }
     .hero-pill {
       display: inline-block;
@@ -391,15 +456,44 @@
     footer {
       background: var(--scout-navy);
       color: #94a3b8;
-      text-align: center;
-      padding: 2.5rem 1.5rem;
+      padding: 3rem 1.5rem;
       font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .footer-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      text-align: left;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.45));
+      flex-shrink: 0;
+    }
+    .footer-text h3 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+    .footer-text p {
+      color: #94a3b8;
+      font-size: 0.88rem;
     }
     footer a { color: var(--scout-gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
 
     @media (max-width: 768px) {
       .form-group-grid, .schedule-grid, .logistics-wrapper { grid-template-columns: 1fr; }
       .nav-links { display: none; }
+      .hero-logo { width: 110px; height: 110px; }
+      .footer-wrapper { text-align: center; flex-direction: column; gap: 1rem; }
     }
   </style>
 </head>
@@ -408,8 +502,14 @@
   <!-- Navigation -->
   <header>
     <div class="nav-container">
-      <a href="#" class="brand">
-        TROOP 170 <span class="brand-badge">EST. 1928</span>
+      <a href="#" class="brand" aria-label="Troop 170 Home">
+        <img src="images/troop-170-logo.png" alt="Troop 170 Logo" class="brand-logo" width="44" height="44">
+        <div class="brand-info">
+          <div class="brand-name">
+            TROOP 170 <span class="brand-badge">FOUNDED 1962</span>
+          </div>
+          <div class="brand-town">Unionville &bull; Farmington, CT</div>
+        </div>
       </a>
       <nav class="nav-links">
         <a href="#about">About</a>
@@ -424,8 +524,11 @@
   <!-- Hero Section -->
   <section class="hero" id="about">
     <div class="hero-content">
-      <div class="hero-pill">Annual Tradition & Court of Honor</div>
-      <h1>Year-End Celebration of Scouting & Annual Banquet</h1>
+      <div class="hero-emblem-wrap">
+        <img src="images/troop-170-logo.png" alt="Troop 170 Scouting America Emblem" class="hero-logo" width="140" height="140" fetchpriority="high">
+      </div>
+      <div class="hero-pill">Scouting America &bull; Unionville &amp; Farmington, CT</div>
+      <h1>Year-End Celebration of Scouting &amp; Annual Banquet 2026</h1>
       <p>Join us at historic Camp Workcoeman for our year-end fellowship feast, honoring the leadership, rank advancements, and adventures of our Scouts.</p>
 
       <div class="hero-meta-grid">
@@ -736,8 +839,14 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <p>Troop 170 • Farmington & Unionville, Connecticut</p>
-      <p style="margin-top:6px">For registration or dietary questions, contact <a href="mailto:leadership@troop170.org">Troop 170 Leadership</a>.</p>
+      <div class="footer-wrapper">
+        <img src="images/troop-170-logo.png" alt="Troop 170 Scouting America Emblem" class="footer-logo" width="68" height="68" loading="lazy">
+        <div class="footer-text">
+          <h3>Troop 170 &bull; Unionville &amp; Farmington, CT</h3>
+          <p>Scouting America &bull; Founded 1962</p>
+          <p style="margin-top:6px">For registration or dietary questions, contact <a href="mailto:leadership@troop170.org">Troop 170 Leadership</a>.</p>
+        </div>
+      </div>
     </div>
   </footer>
 
