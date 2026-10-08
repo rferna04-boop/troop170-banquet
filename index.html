@@ -1891,6 +1891,24 @@
         confirmationNumber: orderId,
         id: orderId,
 
+        // Count / Counts as total number and string
+        count: totalTickets,
+        Count: totalTickets,
+        counts: passSummaryStr,
+        Counts: passSummaryStr,
+        ticketCount: totalTickets,
+        'Ticket Count': totalTickets,
+        ticketCounts: passSummaryStr,
+        'Ticket Counts': passSummaryStr,
+        passCount: totalTickets,
+        'Pass Count': totalTickets,
+        passCounts: passSummaryStr,
+        'Pass Counts': passSummaryStr,
+        totalCount: totalTickets,
+        'Total Count': totalTickets,
+        totalCounts: totalTickets,
+        'Total Counts': totalTickets,
+
         // Number of Pass Options / Passes Count
         numberOfPassOptions: totalTickets,
         number_of_pass_options: totalTickets,
@@ -1905,6 +1923,10 @@
         number_of_passes: totalTickets,
         'Number of Passes': totalTickets,
         'number of passes': totalTickets,
+        numberOfTickets: totalTickets,
+        number_of_tickets: totalTickets,
+        'Number of Tickets': totalTickets,
+        'number of tickets': totalTickets,
         totalPasses: totalTickets,
         total_passes: totalTickets,
         'Total Passes': totalTickets,
@@ -1917,6 +1939,10 @@
         ticketCount: totalTickets,
         'Ticket Count': totalTickets,
         numPasses: totalTickets,
+        quantity: totalTickets,
+        Quantity: totalTickets,
+        totalQuantity: totalTickets,
+        'Total Quantity': totalTickets,
 
         // Pass Options Summary & Breakdown
         passOptions: passSummaryStr,
@@ -1930,48 +1956,89 @@
         'Passes': passSummaryStr,
         ticketSummary: passSummaryStr,
         'Ticket Summary': passSummaryStr,
+        ticketsSummary: passSummaryStr,
         passBreakdown: passSummaryStr,
         'Pass Breakdown': passSummaryStr,
 
-        // Breakdown by pass tier counts (numbers and strings)
+        // Breakdown by pass tier counts (both current and legacy names)
         troop: counts.troop,
+        Troop: counts.troop,
+        troopCount: counts.troop,
         troopScout: counts.troop,
         troopScouts: counts.troop,
+        troopCamper: counts.troop, // legacy
+        'Troop Camper': counts.troop, // legacy
+        'Troop Campers': counts.troop,
         'Troop Scout Camping': counts.troop,
+        'Troop Scout Camping (Fri–Sun)': counts.troop,
         'Troop Scout': counts.troop,
         'Troop Scouts': counts.troop,
 
         aol_cabin: counts.aol_cabin,
         aolCabin: counts.aol_cabin,
+        aol: counts.aol_cabin + counts.aol_day, // legacy
+        AOL: counts.aol_cabin + counts.aol_day,
+        aolCount: counts.aol_cabin,
+        'AOL / Webelos Cabin': counts.aol_cabin, // legacy
         'AOL / Webelos Cabin Camping': counts.aol_cabin,
+        'AOL / Webelos Cabin Camping (Fri–Sun)': counts.aol_cabin,
+        'AOL / Webelos Cabin Camping (Fri–Sun) [1 Parent Free]': counts.aol_cabin,
         'AOL Cabin': counts.aol_cabin,
+        'AOL Cabin Camping': counts.aol_cabin,
+        'AOL Scouts': counts.aol_cabin,
 
         aol_day: counts.aol_day,
         aolDay: counts.aol_day,
+        aolDayCount: counts.aol_day,
         'AOL / Webelos Saturday Day Only': counts.aol_day,
+        'AOL / Webelos Day Only': counts.aol_day,
+        'AOL Day Only': counts.aol_day,
         'AOL Day': counts.aol_day,
 
         banquet: counts.banquet,
+        Banquet: counts.banquet,
+        banquetCount: counts.banquet,
+        visitor: counts.banquet, // legacy
+        Visitor: counts.banquet, // legacy
+        visitors: counts.banquet,
         banquetGuest: counts.banquet,
         banquetGuests: counts.banquet,
+        'Saturday Banquet Only': counts.banquet, // legacy
         'Banquet-Only Guest': counts.banquet,
+        'Banquet-Only Guest (Sat 4–8 PM)': counts.banquet,
         'Banquet Guest': counts.banquet,
         'Banquet Guests': counts.banquet,
+        'Banquet Only': counts.banquet,
 
         leader: counts.leader,
+        Leader: counts.leader,
+        leaderCount: counts.leader,
         adultLeader: counts.leader,
+        adultLeaders: counts.leader,
         'Registered Adult Leader Camping': counts.leader,
         'Registered Adult Leader': counts.leader,
+        'Adult Leader': counts.leader,
+        'Adult Leaders': counts.leader,
 
         parent: counts.parent,
+        Parent: counts.parent,
+        parentCount: counts.parent,
         parentCamping: counts.parent,
+        parentCampers: counts.parent,
         'Parent Camping': counts.parent,
         'Parent Camper': counts.parent,
+        'Parent Campers': counts.parent,
 
         volunteer: counts.volunteer,
+        Volunteer: counts.volunteer,
+        volunteerCount: counts.volunteer,
+        staff: counts.volunteer, // legacy
+        Staff: counts.volunteer, // legacy
+        'Staff & Leadership': counts.volunteer, // legacy
         volunteerStaff: counts.volunteer,
         volunteerSupportStaff: counts.volunteer,
         'Volunteer Support Staff': counts.volunteer,
+        'Volunteer Staff': counts.volunteer,
         volunteerRole: volunteerRole,
         'Volunteer Role': volunteerRole,
 
@@ -2011,7 +2078,30 @@
         'Total Cost': totalCost,
 
         // Structured objects
-        tickets: { ...counts },
+        tickets: {
+          troop: counts.troop,
+          aol_cabin: counts.aol_cabin,
+          aol_day: counts.aol_day,
+          banquet: counts.banquet,
+          leader: counts.leader,
+          parent: counts.parent,
+          volunteer: counts.volunteer,
+          aol: counts.aol_cabin + counts.aol_day,
+          visitor: counts.banquet,
+          staff: counts.volunteer
+        },
+        countsObj: {
+          troop: counts.troop,
+          aol_cabin: counts.aol_cabin,
+          aol_day: counts.aol_day,
+          banquet: counts.banquet,
+          leader: counts.leader,
+          parent: counts.parent,
+          volunteer: counts.volunteer,
+          aol: counts.aol_cabin + counts.aol_day,
+          visitor: counts.banquet,
+          staff: counts.volunteer
+        },
         primaryContact: {
           name: primaryName,
           email: primaryEmail,
@@ -2032,14 +2122,49 @@
             u.searchParams.set('Receipt ID', orderId);
             u.searchParams.set('orderId', orderId);
             u.searchParams.set('Order ID', orderId);
+
+            // Counts & summaries
+            u.searchParams.set('count', totalTickets);
+            u.searchParams.set('counts', passSummaryStr);
+            u.searchParams.set('Counts', passSummaryStr);
             u.searchParams.set('numberOfPassOptions', totalTickets);
             u.searchParams.set('number_of_pass_options', totalTickets);
             u.searchParams.set('Number of Pass Options', totalTickets);
             u.searchParams.set('numberOfPasses', totalTickets);
             u.searchParams.set('totalPasses', totalTickets);
+            u.searchParams.set('totalTickets', totalTickets);
+            u.searchParams.set('Total Tickets', totalTickets);
             u.searchParams.set('passOptions', passSummaryStr);
             u.searchParams.set('Pass Options', passSummaryStr);
             u.searchParams.set('passSummary', passSummaryStr);
+            u.searchParams.set('passes', passSummaryStr);
+
+            // Tier counts (current and legacy)
+            u.searchParams.set('troop', counts.troop);
+            u.searchParams.set('troopScout', counts.troop);
+            u.searchParams.set('Troop Scout Camping', counts.troop);
+            u.searchParams.set('Troop Camper', counts.troop);
+            u.searchParams.set('aol_cabin', counts.aol_cabin);
+            u.searchParams.set('aol', counts.aol_cabin + counts.aol_day);
+            u.searchParams.set('AOL / Webelos Cabin Camping', counts.aol_cabin);
+            u.searchParams.set('AOL / Webelos Cabin', counts.aol_cabin);
+            u.searchParams.set('aol_day', counts.aol_day);
+            u.searchParams.set('AOL / Webelos Saturday Day Only', counts.aol_day);
+            u.searchParams.set('banquet', counts.banquet);
+            u.searchParams.set('visitor', counts.banquet);
+            u.searchParams.set('Banquet-Only Guest', counts.banquet);
+            u.searchParams.set('Saturday Banquet Only', counts.banquet);
+            u.searchParams.set('leader', counts.leader);
+            u.searchParams.set('Registered Adult Leader Camping', counts.leader);
+            u.searchParams.set('parent', counts.parent);
+            u.searchParams.set('Parent Camping', counts.parent);
+            u.searchParams.set('volunteer', counts.volunteer);
+            u.searchParams.set('staff', counts.volunteer);
+            u.searchParams.set('Volunteer Support Staff', counts.volunteer);
+            u.searchParams.set('Staff & Leadership', counts.volunteer);
+            u.searchParams.set('volunteerRole', volunteerRole);
+
+            // Contact info
             u.searchParams.set('name', primaryName);
             u.searchParams.set('email', primaryEmail);
             u.searchParams.set('phone', primaryPhone);
