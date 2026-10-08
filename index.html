@@ -1645,8 +1645,7 @@
   <!-- Application Logic -->
   <script>
     // Configuration: Google Apps Script Webhook Endpoint
-    // Paste your deployed Google Apps Script Web App URL below:
-    const GOOGLE_SCRIPT_WEBHOOK_URL = ""; 
+    const GOOGLE_SCRIPT_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbxhp7BKO1v8B9m3zHxOwSb3afIWxSNpGDUzHMAdjqiBqucodZLm9R8-jrQo7J8BaYLh/exec"; 
 
     // Pricing definitions
     const prices = {
@@ -1761,35 +1760,62 @@
       const dietary = document.getElementById('dietary').value.trim();
       const volunteerRole = counts.volunteer > 0 ? document.getElementById('volunteer-role').value : 'N/A';
 
+      // Build itemized summary string
+      let breakdownList = [];
+      if (counts.troop > 0) breakdownList.push(`${counts.troop} Troop Scout${counts.troop > 1 ? 's' : ''}`);
+      if (counts.aol_cabin > 0) breakdownList.push(`${counts.aol_cabin} AOL Cabin`);
+      if (counts.aol_day > 0) breakdownList.push(`${counts.aol_day} AOL Day Pass`);
+      if (counts.banquet > 0) breakdownList.push(`${counts.banquet} Banquet Guest${counts.banquet > 1 ? 's' : ''}`);
+      if (counts.leader > 0) breakdownList.push(`${counts.leader} Leader`);
+      if (counts.parent > 0) breakdownList.push(`${counts.parent} Parent Camper`);
+      if (counts.volunteer > 0) breakdownList.push(`${counts.volunteer} Volunteer (${volunteerRole})`);
+
       const payload = {
         orderId: orderId,
         timestamp: new Date().toISOString(),
-        primaryContact: {
-          name: primaryName,
-          email: primaryEmail,
-          phone: primaryPhone
-        },
+        name: primaryName,
+        primaryName: primaryName,
+        email: primaryEmail,
+        primaryEmail: primaryEmail,
+        phone: primaryPhone,
+        primaryPhone: primaryPhone,
+        unit: affiliation,
         affiliation: affiliation,
         attendees: attendees,
         dietary: dietary || 'None specified',
         paymentMethod: selectedPaymentMethod,
-        tickets: { ...counts },
         volunteerRole: volunteerRole,
-        totalCost: totalCost
+        total: totalCost,
+        totalCost: totalCost,
+        passSummary: breakdownList.join(', '),
+        // Breakdown by pass counts
+        troop: counts.troop,
+        aol_cabin: counts.aol_cabin,
+        aol_day: counts.aol_day,
+        banquet: counts.banquet,
+        leader: counts.leader,
+        parent: counts.parent,
+        volunteer: counts.volunteer,
+        tickets: { ...counts },
+        primaryContact: {
+          name: primaryName,
+          email: primaryEmail,
+          phone: primaryPhone
+        }
       };
 
       console.log("Submitting Registration Payload:", payload);
 
-      // Post JSON payload to Google Apps Script Webhook if configured
+      // Post JSON payload to Google Apps Script Webhook
       if (GOOGLE_SCRIPT_WEBHOOK_URL && GOOGLE_SCRIPT_WEBHOOK_URL.trim() !== '') {
         try {
           fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(payload)
           }).then(() => {
-            console.log("Registration successfully forwarded to Google Apps Script webhook.");
+            console.log("Registration successfully forwarded to Google Apps Script webhook:", payload);
           }).catch(err => {
             console.warn("Webhook dispatch error:", err);
           });
