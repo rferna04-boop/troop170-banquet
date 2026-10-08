@@ -1321,9 +1321,9 @@
           <div class="tier-desc">Full weekend cabin stay for AOL/Webelos Scout. <strong>Includes 1 accompanying parent FREE</strong> for both cabin &amp; banquet feast!</div>
           <div class="tier-note">★ 1 Parent Included Free</div>
           <div class="qty-control">
-            <button type="button" class="qty-btn" onclick="updateQty('aol_cabin', -1)" aria-label="Decrease AOL cabin count">-</button>
-            <span class="qty-display" id="qty-aol_cabin">0</span>
-            <button type="button" class="qty-btn" onclick="updateQty('aol_cabin', 1)" aria-label="Increase AOL cabin count">+</button>
+            <button type="button" class="qty-btn" onclick="updateQty('aolCabin', -1)" aria-label="Decrease AOL cabin count">-</button>
+            <span class="qty-display" id="qty-aolCabin">0</span>
+            <button type="button" class="qty-btn" onclick="updateQty('aolCabin', 1)" aria-label="Increase AOL cabin count">+</button>
           </div>
         </div>
 
@@ -1336,9 +1336,9 @@
           </div>
           <div class="tier-desc">Saturday bridging activities, outdoor pioneering games, Dutch oven demos, and Saturday evening banquet feast.</div>
           <div class="qty-control">
-            <button type="button" class="qty-btn" onclick="updateQty('aol_day', -1)" aria-label="Decrease AOL day count">-</button>
-            <span class="qty-display" id="qty-aol_day">0</span>
-            <button type="button" class="qty-btn" onclick="updateQty('aol_day', 1)" aria-label="Increase AOL day count">+</button>
+            <button type="button" class="qty-btn" onclick="updateQty('webelosDay', -1)" aria-label="Decrease AOL day count">-</button>
+            <span class="qty-display" id="qty-webelosDay">0</span>
+            <button type="button" class="qty-btn" onclick="updateQty('webelosDay', 1)" aria-label="Increase AOL day count">+</button>
           </div>
         </div>
 
@@ -1749,8 +1749,8 @@
     // Pricing definitions
     const prices = {
       troop: 30,
-      aol_cabin: 15,
-      aol_day: 0,
+      aolCabin: 15,
+      webelosDay: 0,
       banquet: 10,
       leader: 0,
       parent: 0,
@@ -1760,8 +1760,8 @@
     // Quantity state
     const counts = {
       troop: 0,
-      aol_cabin: 0,
-      aol_day: 0,
+      aolCabin: 0,
+      webelosDay: 0,
       banquet: 0,
       leader: 0,
       parent: 0,
@@ -1771,8 +1771,8 @@
     // Human-readable labels
     const tierLabels = {
       troop: 'Troop Scout Camping (Fri–Sun)',
-      aol_cabin: 'AOL / Webelos Cabin Camping (Fri–Sun) [1 Parent Free]',
-      aol_day: 'AOL / Webelos Saturday Day Only',
+      aolCabin: 'AOL / Webelos Cabin Camping (Fri–Sun) [1 Parent Free]',
+      webelosDay: 'AOL / Webelos Saturday Day Only',
       banquet: 'Banquet-Only Guest (Sat 4–8 PM)',
       leader: 'Registered Adult Leader Camping',
       parent: 'Parent Camping',
@@ -1791,15 +1791,33 @@
     }
 
     function updateQty(tier, delta) {
-      counts[tier] = Math.max(0, counts[tier] + delta);
-      document.getElementById(`qty-${tier}`).innerText = counts[tier];
+      // Normalize legacy tier names if passed
+      if (tier === 'aol_cabin') tier = 'aolCabin';
+      if (tier === 'aol_day') tier = 'webelosDay';
+
+      counts[tier] = Math.max(0, (counts[tier] || 0) + delta);
+      
+      // Update element
+      const el = document.getElementById(`qty-${tier}`);
+      if (el) el.innerText = counts[tier];
+
+      // Sync legacy IDs if present
+      if (tier === 'aolCabin') {
+        const legacyEl = document.getElementById('qty-aol_cabin');
+        if (legacyEl) legacyEl.innerText = counts[tier];
+      }
+      if (tier === 'webelosDay') {
+        const legacyEl = document.getElementById('qty-aol_day');
+        if (legacyEl) legacyEl.innerText = counts[tier];
+      }
+
       renderSummary();
     }
 
     function calculateTotal() {
       return (counts.troop * prices.troop) +
-             (counts.aol_cabin * prices.aol_cabin) +
-             (counts.aol_day * prices.aol_day) +
+             (counts.aolCabin * prices.aolCabin) +
+             (counts.webelosDay * prices.webelosDay) +
              (counts.banquet * prices.banquet) +
              (counts.leader * prices.leader) +
              (counts.parent * prices.parent) +
@@ -1807,7 +1825,13 @@
     }
 
     function calculateTotalTickets() {
-      return Object.values(counts).reduce((sum, val) => sum + val, 0);
+      return counts.troop +
+             counts.aolCabin +
+             counts.webelosDay +
+             counts.banquet +
+             counts.leader +
+             counts.parent +
+             counts.volunteer;
     }
 
     function renderSummary() {
@@ -1818,8 +1842,8 @@
 
       let breakdown = [];
       if (counts.troop > 0) breakdown.push(`${counts.troop} Troop Scout${counts.troop > 1 ? 's' : ''}`);
-      if (counts.aol_cabin > 0) breakdown.push(`${counts.aol_cabin} AOL Cabin (${counts.aol_cabin} Adult Free)`);
-      if (counts.aol_day > 0) breakdown.push(`${counts.aol_day} AOL Day Pass${counts.aol_day > 1 ? 'es' : ''}`);
+      if (counts.aolCabin > 0) breakdown.push(`${counts.aolCabin} AOL Cabin (${counts.aolCabin} Adult Free)`);
+      if (counts.webelosDay > 0) breakdown.push(`${counts.webelosDay} AOL Day Pass${counts.webelosDay > 1 ? 'es' : ''}`);
       if (counts.banquet > 0) breakdown.push(`${counts.banquet} Banquet Guest${counts.banquet > 1 ? 's' : ''}`);
       if (counts.leader > 0) breakdown.push(`${counts.leader} Leader${counts.leader > 1 ? 's' : ''}`);
       if (counts.parent > 0) breakdown.push(`${counts.parent} Parent Camper${counts.parent > 1 ? 's' : ''}`);
@@ -1862,8 +1886,8 @@
       // Build itemized summary string
       let breakdownList = [];
       if (counts.troop > 0) breakdownList.push(`${counts.troop} Troop Scout${counts.troop > 1 ? 's' : ''}`);
-      if (counts.aol_cabin > 0) breakdownList.push(`${counts.aol_cabin} AOL Cabin`);
-      if (counts.aol_day > 0) breakdownList.push(`${counts.aol_day} AOL Day Pass`);
+      if (counts.aolCabin > 0) breakdownList.push(`${counts.aolCabin} AOL Cabin`);
+      if (counts.webelosDay > 0) breakdownList.push(`${counts.webelosDay} AOL Day Pass`);
       if (counts.banquet > 0) breakdownList.push(`${counts.banquet} Banquet Guest${counts.banquet > 1 ? 's' : ''}`);
       if (counts.leader > 0) breakdownList.push(`${counts.leader} Leader`);
       if (counts.parent > 0) breakdownList.push(`${counts.parent} Parent Camper`);
@@ -1935,11 +1959,6 @@
         totalTickets: totalTickets,
         total_tickets: totalTickets,
         'Total Tickets': totalTickets,
-        passCount: totalTickets,
-        pass_count: totalTickets,
-        'Pass Count': totalTickets,
-        ticketCount: totalTickets,
-        'Ticket Count': totalTickets,
         numPasses: totalTickets,
         quantity: totalTickets,
         Quantity: totalTickets,
@@ -1968,44 +1987,50 @@
         troopCount: counts.troop,
         troopScout: counts.troop,
         troopScouts: counts.troop,
-        troopCamper: counts.troop, // legacy
-        'Troop Camper': counts.troop, // legacy
+        troopCamper: counts.troop,
+        'Troop Camper': counts.troop,
         'Troop Campers': counts.troop,
         'Troop Scout Camping': counts.troop,
         'Troop Scout Camping (Fri–Sun)': counts.troop,
         'Troop Scout': counts.troop,
         'Troop Scouts': counts.troop,
 
-        aol_cabin: counts.aol_cabin,
-        aolCabin: counts.aol_cabin,
-        aol: counts.aol_cabin + counts.aol_day, // legacy
-        AOL: counts.aol_cabin + counts.aol_day,
-        aolCount: counts.aol_cabin,
-        'AOL / Webelos Cabin': counts.aol_cabin, // legacy
-        'AOL / Webelos Cabin Camping': counts.aol_cabin,
-        'AOL / Webelos Cabin Camping (Fri–Sun)': counts.aol_cabin,
-        'AOL / Webelos Cabin Camping (Fri–Sun) [1 Parent Free]': counts.aol_cabin,
-        'AOL Cabin': counts.aol_cabin,
-        'AOL Cabin Camping': counts.aol_cabin,
-        'AOL Scouts': counts.aol_cabin,
+        // Explicit Webelos Day & AOL Cabin mappings
+        webelosDay: counts.webelosDay,
+        webelos_day: counts.webelosDay,
+        webelos: counts.webelosDay,
+        'Webelos Day': counts.webelosDay,
+        'Webelos Day ($0)': counts.webelosDay,
+        'Webelos Day Only': counts.webelosDay,
+        aol_day: counts.webelosDay,
+        aolDay: counts.webelosDay,
+        aolDayCount: counts.webelosDay,
+        'AOL / Webelos Saturday Day Only': counts.webelosDay,
+        'AOL / Webelos Day Only': counts.webelosDay,
+        'AOL Day Only': counts.webelosDay,
+        'AOL Day': counts.webelosDay,
 
-        aol_day: counts.aol_day,
-        aolDay: counts.aol_day,
-        aolDayCount: counts.aol_day,
-        'AOL / Webelos Saturday Day Only': counts.aol_day,
-        'AOL / Webelos Day Only': counts.aol_day,
-        'AOL Day Only': counts.aol_day,
-        'AOL Day': counts.aol_day,
+        aolCabin: counts.aolCabin,
+        aol_cabin: counts.aolCabin,
+        'AOL Cabin': counts.aolCabin,
+        'AOL Cabin ($15)': counts.aolCabin,
+        aolCount: counts.aolCabin,
+        'AOL / Webelos Cabin': counts.aolCabin,
+        'AOL / Webelos Cabin Camping': counts.aolCabin,
+        'AOL / Webelos Cabin Camping (Fri–Sun)': counts.aolCabin,
+        'AOL / Webelos Cabin Camping (Fri–Sun) [1 Parent Free]': counts.aolCabin,
+        'AOL Cabin Camping': counts.aolCabin,
+        'AOL Scouts': counts.aolCabin,
 
         banquet: counts.banquet,
         Banquet: counts.banquet,
         banquetCount: counts.banquet,
-        visitor: counts.banquet, // legacy
-        Visitor: counts.banquet, // legacy
+        visitor: counts.banquet,
+        Visitor: counts.banquet,
         visitors: counts.banquet,
         banquetGuest: counts.banquet,
         banquetGuests: counts.banquet,
-        'Saturday Banquet Only': counts.banquet, // legacy
+        'Saturday Banquet Only': counts.banquet,
         'Banquet-Only Guest': counts.banquet,
         'Banquet-Only Guest (Sat 4–8 PM)': counts.banquet,
         'Banquet Guest': counts.banquet,
@@ -2017,6 +2042,8 @@
         leaderCount: counts.leader,
         adultLeader: counts.leader,
         adultLeaders: counts.leader,
+        leaderCamping: counts.leader,
+        'Leader Camping': counts.leader,
         'Registered Adult Leader Camping': counts.leader,
         'Registered Adult Leader': counts.leader,
         'Adult Leader': counts.leader,
@@ -2026,17 +2053,19 @@
         Parent: counts.parent,
         parentCount: counts.parent,
         parentCamping: counts.parent,
-        parentCampers: counts.parent,
         'Parent Camping': counts.parent,
+        parentCampers: counts.parent,
         'Parent Camper': counts.parent,
         'Parent Campers': counts.parent,
 
         volunteer: counts.volunteer,
         Volunteer: counts.volunteer,
         volunteerCount: counts.volunteer,
-        staff: counts.volunteer, // legacy
-        Staff: counts.volunteer, // legacy
-        'Staff & Leadership': counts.volunteer, // legacy
+        staff: counts.volunteer,
+        Staff: counts.volunteer,
+        staffHelper: counts.volunteer,
+        'Staff Helper': counts.volunteer,
+        'Staff & Leadership': counts.volunteer,
         volunteerStaff: counts.volunteer,
         volunteerSupportStaff: counts.volunteer,
         'Volunteer Support Staff': counts.volunteer,
@@ -2075,7 +2104,9 @@
         'Payment Option': selectedPaymentMethod,
         total: totalCost,
         totalCost: totalCost,
+        totalDue: totalCost,
         'Total': totalCost,
+        'Total Due': totalCost,
         'Total Amount': totalCost,
         'Total Cost': totalCost,
 
@@ -2088,8 +2119,8 @@
         'Payment Method': selectedPaymentMethod,
         'Payment Status': paymentStatus,
         'Troop Scout ($30)': counts.troop,
-        'AOL Cabin ($15)': counts.aol_cabin,
-        'Webelos Day ($0)': counts.aol_day,
+        'AOL Cabin ($15)': counts.aolCabin,
+        'Webelos Day ($0)': counts.webelosDay,
         'Banquet Guest ($10)': counts.banquet,
         'Leader Camping ($0)': counts.leader,
         'Parent Camping ($0)': counts.parent,
@@ -2099,30 +2130,32 @@
         'All Attendee Names': attendees,
         'Dietary Restrictions': dietary || 'None specified',
 
-        // Structured objects
+        // Structured objects (explicitly includes webelosDay and aolCabin separately)
         tickets: {
+          webelosDay: counts.webelosDay,
+          aolCabin: counts.aolCabin,
           troop: counts.troop,
-          aol_cabin: counts.aol_cabin,
-          aol_day: counts.aol_day,
           banquet: counts.banquet,
           leader: counts.leader,
           parent: counts.parent,
           volunteer: counts.volunteer,
-          aol: counts.aol_cabin + counts.aol_day,
+          staff: counts.volunteer,
           visitor: counts.banquet,
-          staff: counts.volunteer
+          aol_cabin: counts.aolCabin,
+          aol_day: counts.webelosDay
         },
         countsObj: {
+          webelosDay: counts.webelosDay,
+          aolCabin: counts.aolCabin,
           troop: counts.troop,
-          aol_cabin: counts.aol_cabin,
-          aol_day: counts.aol_day,
           banquet: counts.banquet,
           leader: counts.leader,
           parent: counts.parent,
           volunteer: counts.volunteer,
-          aol: counts.aol_cabin + counts.aol_day,
+          staff: counts.volunteer,
           visitor: counts.banquet,
-          staff: counts.volunteer
+          aol_cabin: counts.aolCabin,
+          aol_day: counts.webelosDay
         },
         primaryContact: {
           name: primaryName,
@@ -2148,8 +2181,8 @@
             u.searchParams.set('Payment Method', selectedPaymentMethod);
             u.searchParams.set('Payment Status', paymentStatus);
             u.searchParams.set('Troop Scout ($30)', counts.troop);
-            u.searchParams.set('AOL Cabin ($15)', counts.aol_cabin);
-            u.searchParams.set('Webelos Day ($0)', counts.aol_day);
+            u.searchParams.set('AOL Cabin ($15)', counts.aolCabin);
+            u.searchParams.set('Webelos Day ($0)', counts.webelosDay);
             u.searchParams.set('Banquet Guest ($10)', counts.banquet);
             u.searchParams.set('Leader Camping ($0)', counts.leader);
             u.searchParams.set('Parent Camping ($0)', counts.parent);
@@ -2159,23 +2192,41 @@
             u.searchParams.set('All Attendee Names', attendees);
             u.searchParams.set('Dietary Restrictions', dietary || 'None specified');
 
+            // Explicit Webelos Day & AOL Cabin
+            u.searchParams.set('webelosDay', counts.webelosDay);
+            u.searchParams.set('Webelos Day', counts.webelosDay);
+            u.searchParams.set('aolCabin', counts.aolCabin);
+            u.searchParams.set('AOL Cabin', counts.aolCabin);
+
             // Additional standard aliases
+            u.searchParams.set('troopScout', counts.troop);
+            u.searchParams.set('Troop Scout', counts.troop);
+            u.searchParams.set('banquetGuest', counts.banquet);
+            u.searchParams.set('Banquet Guest', counts.banquet);
+            u.searchParams.set('leaderCamping', counts.leader);
+            u.searchParams.set('Leader Camping', counts.leader);
+            u.searchParams.set('parentCamping', counts.parent);
+            u.searchParams.set('Parent Camping', counts.parent);
+            u.searchParams.set('staffHelper', counts.volunteer);
+            u.searchParams.set('Staff Helper', counts.volunteer);
             u.searchParams.set('receiptId', orderId);
             u.searchParams.set('orderId', orderId);
             u.searchParams.set('name', primaryName);
             u.searchParams.set('total', totalCost);
             u.searchParams.set('totalCost', totalCost);
+            u.searchParams.set('totalDue', totalCost);
             u.searchParams.set('count', totalTickets);
             u.searchParams.set('counts', passSummaryStr);
             u.searchParams.set('totalTickets', totalTickets);
             u.searchParams.set('passOptions', passSummaryStr);
             u.searchParams.set('troop', counts.troop);
-            u.searchParams.set('aol_cabin', counts.aol_cabin);
-            u.searchParams.set('aol_day', counts.aol_day);
+            u.searchParams.set('aol_cabin', counts.aolCabin);
+            u.searchParams.set('aol_day', counts.webelosDay);
             u.searchParams.set('banquet', counts.banquet);
             u.searchParams.set('leader', counts.leader);
             u.searchParams.set('parent', counts.parent);
             u.searchParams.set('volunteer', counts.volunteer);
+            u.searchParams.set('staff', counts.volunteer);
             requestUrl = u.toString();
           } catch (urlErr) {
             requestUrl = GOOGLE_SCRIPT_WEBHOOK_URL;
