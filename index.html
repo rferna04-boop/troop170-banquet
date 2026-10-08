@@ -3,37 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Troop 170 Annual Banquet & Court of Honor 2026</title>
-  <meta name="description" content="Official microsite for the Scouts BSA Troop 170 Annual Banquet & Court of Honor 2026. Join us in celebrating a year of leadership, rank advancement, and high adventure.">
+  <title>Troop 170 • Annual Awards Gala & Court of Honor 2026</title>
+  <meta name="description" content="Official microsite for the Scouts BSA Troop 170 Annual Awards Gala & Court of Honor 2026. Celebrating backcountry leadership, rank advancement, and the Eagle Scout Class of 2026.">
+
+  <!-- Typography: Cinzel (Serif Headers) & Plus Jakarta Sans (UI & Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <style>
-    /* CSS Custom Properties & Design Tokens */
+    /* ==========================================================================
+       Design System & Tokens (Executive Gala / Luxury Retreat Palette)
+       ========================================================================== */
     :root {
-      --primary: #1b4332;
-      --primary-light: #2d6a4f;
-      --primary-dark: #081c15;
-      --secondary: #d4af37;
-      --secondary-light: #f3c959;
-      --secondary-dark: #aa841e;
-      --accent: #bc4749;
-      --accent-soft: #fdf0ed;
-      --navy: #1a2a3a;
-      --light-bg: #f8f9fa;
-      --card-bg: #ffffff;
-      --text-main: #2b2d42;
-      --text-muted: #6c757d;
-      --border-color: #e2e8f0;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      --font-serif: Georgia, "Times New Roman", Garamond, serif;
-      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
-      --radius-sm: 6px;
+      /* Atmospheric Primary Palette */
+      --navy: #0E2238;
+      --navy-dark: #071320;
+      --navy-surface: #132A44;
+      --evergreen: #1B3022;
+      --evergreen-dark: #0F1D15;
+      --evergreen-surface: #243E2D;
+
+      /* Refined Antique Gold Accents */
+      --gold: #CFA052;
+      --gold-light: #E0BC78;
+      --gold-dark: #B88B42;
+      --gold-glow: rgba(207, 160, 82, 0.22);
+      --gold-subtle: rgba(207, 160, 82, 0.10);
+      --gold-border: rgba(207, 160, 82, 0.28);
+
+      /* Neutral Surfaces & Grounds */
+      --slate-ground: #F8FAFC;
+      --card-white: #FFFFFF;
+      --card-hover: #FCFDFE;
+      --border-subtle: #E2E8F0;
+      --border-light: #EDF2F7;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-muted: #64748B;
+      --text-on-dark: #F1F5F9;
+
+      /* Typography */
+      --font-display: 'Cinzel', Georgia, 'Times New Roman', serif;
+      --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+      /* Spacing & Radii */
+      --section-pad-desktop: 80px;
+      --section-pad-mobile: 48px;
+      --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 18px;
-      --transition: all 0.25s ease-in-out;
+      --radius-xl: 24px;
+      --radius-pill: 9999px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 3px rgba(14, 34, 56, 0.05);
+      --shadow-card: 0 8px 24px -4px rgba(14, 34, 56, 0.06), 0 2px 6px -1px rgba(14, 34, 56, 0.03);
+      --shadow-hover: 0 20px 35px -8px rgba(14, 34, 56, 0.12), 0 6px 14px -3px rgba(14, 34, 56, 0.05);
+      --shadow-glow: 0 0 25px rgba(207, 160, 82, 0.35);
+
+      --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Reset & Base Styles */
+    /* Reset & Base */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -46,70 +78,72 @@
     }
 
     body {
-      font-family: var(--font-sans);
-      color: var(--text-main);
-      background-color: var(--light-bg);
-      line-height: 1.6;
+      font-family: var(--font-body);
+      color: var(--text-primary);
+      background-color: var(--slate-ground);
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
     a {
-      color: var(--primary-light);
+      color: var(--gold-dark);
       text-decoration: none;
       transition: var(--transition);
     }
     a:hover {
-      color: var(--secondary-dark);
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
+      color: var(--gold);
     }
 
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1220px;
       margin: 0 auto;
-      padding: 0 1.5rem;
+      padding: 0 1.75rem;
     }
 
     .section {
-      padding: 5rem 0;
+      padding: var(--section-pad-desktop) 0;
     }
 
+    /* Section Headers */
     .section-title {
       text-align: center;
       margin-bottom: 3.5rem;
+      position: relative;
     }
 
     .section-badge {
-      display: inline-block;
-      padding: 0.35rem 1rem;
-      background: rgba(212, 175, 55, 0.15);
-      color: var(--secondary-dark);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 1.15rem;
+      background: var(--gold-subtle);
+      border: 1px solid var(--gold-border);
+      color: var(--gold-dark);
       font-weight: 700;
-      font-size: 0.85rem;
-      letter-spacing: 1.5px;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      border-radius: 50px;
-      margin-bottom: 0.75rem;
-      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: var(--radius-pill);
+      margin-bottom: 0.85rem;
     }
 
     .section-title h2 {
-      font-family: var(--font-serif);
-      font-size: 2.5rem;
-      color: var(--primary-dark);
-      margin-bottom: 1rem;
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.85rem;
     }
 
     .section-title p {
-      color: var(--text-muted);
-      font-size: 1.15rem;
-      max-width: 650px;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 660px;
       margin: 0 auto;
+      line-height: 1.7;
     }
 
     /* Buttons */
@@ -117,111 +151,189 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       padding: 0.85rem 1.75rem;
+      font-family: var(--font-body);
       font-weight: 600;
+      font-size: 0.95rem;
       border-radius: var(--radius-md);
       transition: var(--transition);
       cursor: pointer;
       border: none;
-      font-size: 1rem;
       text-decoration: none;
+      line-height: 1.4;
     }
 
-    .btn-primary {
-      background-color: var(--secondary);
-      color: var(--primary-dark);
-      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+    .btn-gold {
+      background: linear-gradient(135deg, #E0BC78 0%, #CFA052 50%, #B88B42 100%);
+      color: var(--navy-dark);
+      box-shadow: 0 4px 16px rgba(207, 160, 82, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.25);
     }
-    .btn-primary:hover {
-      background-color: var(--secondary-light);
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #EBD094 0%, #DFBA73 50%, #CFA052 100%);
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-      color: var(--primary-dark);
+      box-shadow: 0 8px 24px rgba(207, 160, 82, 0.45);
+      color: var(--navy-dark);
     }
 
     .btn-secondary {
-      background-color: rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      backdrop-filter: blur(5px);
+      background: rgba(255, 255, 255, 0.08);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
     }
     .btn-secondary:hover {
-      background-color: #ffffff;
-      color: var(--primary-dark);
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.35);
       transform: translateY(-2px);
+      color: #FFFFFF;
     }
 
     .btn-outline {
-      background-color: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
+      background: transparent;
+      color: var(--navy);
+      border: 1.5px solid var(--border-subtle);
     }
     .btn-outline:hover {
-      background-color: var(--primary);
-      color: #ffffff;
+      border-color: var(--gold);
+      color: var(--gold-dark);
+      background: rgba(207, 160, 82, 0.04);
+      transform: translateY(-1px);
     }
 
-    /* Top Navigation Bar */
+    .btn-outline-gold {
+      background: transparent;
+      color: var(--gold-dark);
+      border: 1.5px solid var(--gold);
+    }
+    .btn-outline-gold:hover {
+      background: var(--gold);
+      color: var(--navy-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Floating Badges */
+    .floating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--gold-subtle);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-border);
+    }
+
+    .floating-badge.dark {
+      background: rgba(14, 34, 56, 0.85);
+      color: var(--gold-light);
+      border-color: rgba(207, 160, 82, 0.4);
+    }
+
+    /* ==========================================================================
+       Sticky Header with Glassmorphism
+       ========================================================================== */
     .navbar {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+      box-shadow: 0 2px 10px rgba(14, 34, 56, 0.03);
+      transition: var(--transition);
     }
 
     .nav-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 72px;
+      height: 78px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      font-weight: 800;
-      font-size: 1.25rem;
-      color: var(--primary);
+      gap: 0.85rem;
+      color: var(--navy);
     }
 
-    .brand-icon {
-      width: 40px;
-      height: 40px;
-      fill: var(--primary);
+    .brand-emblem {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--evergreen) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 2px 8px rgba(207, 160, 82, 0.2);
+    }
+
+    .brand-emblem svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--gold);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+      line-height: 1.1;
+    }
+
+    .brand-sub {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 700;
     }
 
     .nav-links {
       display: flex;
-      gap: 1.75rem;
+      gap: 1.85rem;
       list-style: none;
     }
 
     .nav-links a {
-      color: var(--text-main);
-      font-weight: 500;
-      font-size: 0.95rem;
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.02em;
       position: relative;
+      padding: 0.5rem 0;
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--primary);
+    .nav-links a:hover {
+      color: var(--navy);
     }
 
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: -4px;
-      left: 0;
+      bottom: 0;
+      left: 50%;
       width: 0;
       height: 2px;
-      background-color: var(--secondary);
+      background: var(--gold);
       transition: var(--transition);
+      transform: translateX(-50%);
+      border-radius: 2px;
     }
 
     .nav-links a:hover::after {
@@ -231,52 +343,58 @@
     .nav-cta {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .menu-toggle {
       display: none;
       background: none;
-      border: none;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
       cursor: pointer;
       padding: 0.5rem;
     }
 
     .menu-toggle span {
       display: block;
-      width: 25px;
-      height: 3px;
-      background-color: var(--primary);
+      width: 22px;
+      height: 2px;
+      background-color: var(--navy);
       margin: 4px 0;
       border-radius: 2px;
       transition: var(--transition);
     }
 
-    /* Hero Section */
+    /* ==========================================================================
+       Hero Section (Grand Charity Gala Atmosphere)
+       ========================================================================== */
     .hero {
       position: relative;
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #204b39 100%);
-      color: #ffffff;
-      padding: 6.5rem 0 5rem;
+      background: radial-gradient(circle at 50% 10%, rgba(207, 160, 82, 0.14) 0%, transparent 60%),
+                  radial-gradient(circle at 85% 80%, rgba(27, 48, 34, 0.7) 0%, transparent 55%),
+                  linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 55%, var(--evergreen-dark) 100%);
+      color: #FFFFFF;
+      padding: 7rem 0 5.5rem;
       overflow: hidden;
+      border-bottom: 2px solid var(--gold-border);
     }
 
     .hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
-                        radial-gradient(circle at 80% 70%, rgba(45, 106, 79, 0.3) 0%, transparent 50%);
+      inset: 0;
+      background-image: 
+        radial-gradient(1px 1px at 25px 25px, rgba(255, 255, 255, 0.08) 1px, transparent 0),
+        radial-gradient(1px 1px at 75px 75px, rgba(207, 160, 82, 0.12) 1px, transparent 0);
+      background-size: 100px 100px;
+      opacity: 0.55;
       pointer-events: none;
     }
 
     .hero-content {
       position: relative;
-      z-index: 1;
-      max-width: 850px;
+      z-index: 2;
+      max-width: 900px;
       margin: 0 auto;
       text-align: center;
     }
@@ -284,32 +402,46 @@
     .hero-tag {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 0.4rem 1.25rem;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--secondary-light);
-      margin-bottom: 1.5rem;
-      backdrop-filter: blur(4px);
+      gap: 0.6rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--gold-border);
+      padding: 0.45rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.75rem;
+      backdrop-filter: blur(8px);
     }
 
     .hero h1 {
-      font-family: var(--font-serif);
-      font-size: 3.5rem;
+      font-family: var(--font-display);
+      font-size: 3.8rem;
+      font-weight: 700;
       line-height: 1.15;
-      margin-bottom: 1.25rem;
-      color: #ffffff;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      letter-spacing: 0.02em;
+      margin-bottom: 1.35rem;
+      color: #FFFFFF;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #FFFFFF 20%, #E0BC78 70%, #CFA052 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .hero-subtitle {
       font-size: 1.25rem;
-      color: #e0ece4;
-      margin-bottom: 2.5rem;
-      line-height: 1.6;
+      color: #CBD5E1;
+      margin-bottom: 2.75rem;
+      line-height: 1.75;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      font-weight: 300;
     }
 
     .hero-actions {
@@ -317,19 +449,20 @@
       justify-content: center;
       gap: 1.25rem;
       flex-wrap: wrap;
-      margin-bottom: 3.5rem;
+      margin-bottom: 3.75rem;
     }
 
-    /* Hero Key Stats / Badges */
+    /* Key Details Bar */
     .hero-details-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      backdrop-filter: blur(8px);
+      gap: 1rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-xl);
+      padding: 1.6rem 1.2rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
     }
 
     .hero-detail-item {
@@ -338,39 +471,47 @@
       align-items: center;
       text-align: center;
       padding: 0.5rem;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-detail-item:last-child {
+      border-right: none;
     }
 
     .hero-detail-icon {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.6rem;
+      margin-bottom: 0.45rem;
+      color: var(--gold-light);
     }
 
     .hero-detail-label {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #b7d5c4;
+      letter-spacing: 0.14em;
+      color: #94A3B8;
+      font-weight: 600;
       margin-bottom: 0.25rem;
     }
 
     .hero-detail-val {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #FFFFFF;
+      letter-spacing: 0.01em;
     }
 
-    /* Countdown Section */
+    /* Live Countdown */
     .countdown-wrapper {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      margin-top: 3.25rem;
+      padding-top: 2.25rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .countdown-title {
-      font-size: 0.9rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--secondary-light);
+      letter-spacing: 0.22em;
+      color: var(--gold-light);
       margin-bottom: 1.25rem;
       font-weight: 700;
     }
@@ -382,35 +523,40 @@
     }
 
     .countdown-box {
-      background: rgba(0, 0, 0, 0.35);
-      border: 1px solid rgba(212, 175, 55, 0.3);
-      padding: 1rem 1.5rem;
+      background: rgba(10, 22, 35, 0.65);
+      border: 1px solid var(--gold-border);
+      padding: 1.1rem 1.6rem;
       border-radius: var(--radius-md);
-      min-width: 90px;
+      min-width: 95px;
       text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
 
     .countdown-number {
-      font-size: 2.25rem;
-      font-weight: 800;
-      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 2.35rem;
+      font-weight: 700;
+      color: #FFFFFF;
       line-height: 1;
-      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.04em;
     }
 
     .countdown-unit {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #d1d5db;
+      letter-spacing: 0.16em;
+      color: var(--gold-light);
       margin-top: 0.5rem;
+      font-weight: 600;
     }
 
-    /* Year Highlights Stats Strip */
+    /* ==========================================================================
+       Stats Strip (Clean Heritage Strip)
+       ========================================================================== */
     .stats-strip {
-      background-color: #ffffff;
-      padding: 3rem 0;
-      border-bottom: 1px solid var(--border-color);
+      background-color: var(--card-white);
+      padding: 3.25rem 0;
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     .stats-grid {
@@ -422,27 +568,31 @@
 
     .stat-card {
       padding: 1rem;
+      position: relative;
     }
 
     .stat-number {
-      font-family: var(--font-serif);
-      font-size: 2.75rem;
+      font-family: var(--font-display);
+      font-size: 2.85rem;
       font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.25rem;
+      color: var(--navy);
+      line-height: 1.1;
+      margin-bottom: 0.35rem;
     }
 
     .stat-label {
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 0.8rem;
+      font-weight: 700;
       color: var(--text-muted);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.12em;
     }
 
-    /* Schedule / Program */
+    /* ==========================================================================
+       Schedule & Program Timeline (Refined Gala Order of Events)
+       ========================================================================== */
     .schedule-grid {
-      max-width: 900px;
+      max-width: 920px;
       margin: 0 auto;
       position: relative;
     }
@@ -450,11 +600,11 @@
     .schedule-grid::before {
       content: '';
       position: absolute;
-      top: 20px;
-      bottom: 20px;
-      left: 140px;
+      top: 25px;
+      bottom: 25px;
+      left: 145px;
       width: 2px;
-      background: var(--border-color);
+      background: linear-gradient(180deg, var(--gold) 0%, rgba(207, 160, 82, 0.2) 100%);
     }
 
     .timeline-item {
@@ -465,111 +615,133 @@
     }
 
     .timeline-time {
-      width: 120px;
+      width: 125px;
+      font-family: var(--font-display);
       font-weight: 700;
-      color: var(--primary);
+      color: var(--navy);
       text-align: right;
-      padding-right: 1.5rem;
+      padding-right: 1.85rem;
       font-size: 1.05rem;
       flex-shrink: 0;
+      padding-top: 0.35rem;
     }
 
     .timeline-dot {
       width: 18px;
       height: 18px;
       border-radius: 50%;
-      background: var(--secondary);
-      border: 3px solid #ffffff;
-      box-shadow: 0 0 0 2px var(--primary);
+      background: var(--gold);
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 0 0 2px var(--navy);
       position: absolute;
-      left: 132px;
-      top: 4px;
+      left: 137px;
+      top: 8px;
       z-index: 2;
     }
 
     .timeline-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      margin-left: 2.5rem;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-color);
+      background: var(--card-white);
+      border-radius: var(--radius-lg);
+      padding: 1.6rem 1.85rem;
+      margin-left: 2.75rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-subtle);
       flex-grow: 1;
       transition: var(--transition);
     }
 
     .timeline-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--secondary);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold);
     }
 
     .timeline-card h3 {
+      font-family: var(--font-display);
       font-size: 1.25rem;
-      color: var(--primary-dark);
-      margin-bottom: 0.4rem;
+      color: var(--navy);
+      margin-bottom: 0.45rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
     }
 
     .timeline-tag {
-      font-size: 0.75rem;
-      padding: 0.2rem 0.6rem;
-      background: rgba(27, 67, 50, 0.1);
-      color: var(--primary);
-      border-radius: 4px;
-      font-weight: 600;
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      padding: 0.25rem 0.65rem;
+      background: rgba(14, 34, 56, 0.05);
+      color: var(--navy);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .timeline-card p {
-      color: var(--text-muted);
+      color: var(--text-secondary);
       font-size: 0.95rem;
+      line-height: 1.65;
     }
 
-    /* Eagle Scout & Honors */
+    /* ==========================================================================
+       Eagle Scout Spotlight (Executive Tribute Frame)
+       ========================================================================== */
     .honors-section {
-      background-color: #f1f5f3;
+      background: linear-gradient(180deg, #F8FAFC 0%, #EEF2F6 100%);
+      position: relative;
     }
 
     .eagle-spotlight {
-      background: linear-gradient(135deg, #ffffff 0%, #fefcf6 100%);
-      border: 2px solid var(--secondary);
-      border-radius: var(--radius-lg);
-      padding: 3rem 2rem;
-      box-shadow: var(--shadow-md);
+      background: linear-gradient(145deg, #FFFFFF 0%, #FAFBFD 100%);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-xl);
+      padding: 3.5rem 2.5rem;
+      box-shadow: var(--shadow-card);
       margin-bottom: 3.5rem;
       position: relative;
+    }
+
+    .eagle-spotlight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
     }
 
     .eagle-badge-banner {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: var(--secondary);
-      color: var(--primary-dark);
+      background: var(--gold);
+      color: var(--navy-dark);
       font-weight: 800;
-      padding: 0.4rem 1.25rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
+      padding: 0.4rem 1.4rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 1.5rem;
+      letter-spacing: 0.14em;
+      margin-bottom: 1.35rem;
     }
 
     .eagle-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 1.75rem;
-      margin-top: 2rem;
+      margin-top: 2.5rem;
     }
 
     .eagle-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 1.75rem;
+      padding: 1.85rem;
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
       display: flex;
@@ -578,23 +750,23 @@
 
     .eagle-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--secondary);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold);
     }
 
     .eagle-scout-header {
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.15rem;
       margin-bottom: 1rem;
     }
 
     .eagle-avatar {
-      width: 52px;
-      height: 52px;
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
-      background: rgba(212, 175, 55, 0.15);
-      border: 2px solid var(--secondary);
+      background: rgba(207, 160, 82, 0.12);
+      border: 1.5px solid var(--gold);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -603,33 +775,39 @@
     }
 
     .eagle-info h4 {
-      font-size: 1.2rem;
-      color: var(--primary-dark);
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--navy);
       margin-bottom: 0.2rem;
     }
 
     .eagle-info span {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--text-muted);
+      font-weight: 500;
     }
 
     .eagle-project {
-      margin-top: 0.75rem;
-      padding-top: 0.75rem;
-      border-top: 1px solid var(--border-color);
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border-light);
       font-size: 0.9rem;
-      color: var(--text-main);
+      color: var(--text-secondary);
       flex-grow: 1;
+      line-height: 1.6;
     }
 
     .eagle-project-title {
       font-weight: 700;
-      color: var(--primary-light);
+      color: var(--navy);
       display: block;
       margin-bottom: 0.35rem;
     }
 
-    /* Menu & Dining Section */
+    /* ==========================================================================
+       Dinner Menu (5-Star Catered Dining)
+       ========================================================================== */
     .menu-cards-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -637,21 +815,27 @@
     }
 
     .menu-course-card {
-      background: var(--card-bg);
-      border-radius: var(--radius-lg);
-      padding: 2.25rem;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-color);
-      position: relative;
+      background: var(--card-white);
+      border-radius: var(--radius-xl);
+      padding: 2.4rem 2rem;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-subtle);
       display: flex;
       flex-direction: column;
+      transition: var(--transition);
+    }
+
+    .menu-course-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold-border);
     }
 
     .menu-course-header {
       text-align: center;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1rem;
-      border-bottom: 2px dashed var(--border-color);
+      margin-bottom: 1.6rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-light);
     }
 
     .menu-icon {
@@ -660,120 +844,225 @@
     }
 
     .menu-course-header h3 {
-      font-family: var(--font-serif);
-      color: var(--primary-dark);
-      font-size: 1.4rem;
+      font-family: var(--font-display);
+      color: var(--navy);
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
     }
 
     .menu-item-list {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 1.25rem;
+      gap: 1.35rem;
       flex-grow: 1;
-    }
-
-    .menu-item {
-      display: flex;
-      flex-direction: column;
     }
 
     .menu-item-name {
       font-weight: 700;
-      color: var(--text-main);
+      color: var(--text-primary);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 0.5rem;
+      font-size: 0.95rem;
     }
 
     .dietary-badge {
-      font-size: 0.7rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 600;
+      font-size: 0.68rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      background: #e9ecef;
-      color: #495057;
+      background: var(--slate-ground);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-subtle);
     }
 
-    .dietary-badge.gf { background: #e3f2fd; color: #0d47a1; }
-    .dietary-badge.v { background: #e8f5e9; color: #1b5e20; }
+    .dietary-badge.gf { background: #F0FDF4; color: #166534; border-color: #BBF7D0; }
+    .dietary-badge.v { background: #FEFCE8; color: #854D0E; border-color: #FEF08A; }
 
     .menu-item-desc {
       font-size: 0.85rem;
       color: var(--text-muted);
-      margin-top: 0.25rem;
+      margin-top: 0.35rem;
+      line-height: 1.55;
     }
 
     .menu-note-box {
-      margin-top: 2.5rem;
-      background: rgba(212, 175, 55, 0.1);
-      border-left: 4px solid var(--secondary);
-      padding: 1.25rem 1.75rem;
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-top: 2.75rem;
+      background: var(--card-white);
+      border: 1px solid var(--gold-border);
+      border-left: 4px solid var(--gold);
+      padding: 1.4rem 1.85rem;
+      border-radius: var(--radius-md);
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 1.25rem;
       font-size: 0.95rem;
+      color: var(--text-secondary);
+      box-shadow: var(--shadow-sm);
     }
 
-    /* RSVP & Ticket Calculator Section */
+    /* ==========================================================================
+       RSVP & Ticket UI (Elevated Cards & Modern Form Design)
+       ========================================================================== */
     .rsvp-section {
-      background: linear-gradient(180deg, #ffffff 0%, #f4f8f5 100%);
+      background: linear-gradient(180deg, #FFFFFF 0%, #F1F5F9 100%);
     }
 
     .rsvp-box {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg);
-      border: 1px solid var(--border-color);
+      background: #FFFFFF;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-hover);
+      border: 1px solid var(--border-subtle);
       overflow: hidden;
-      max-width: 960px;
+      max-width: 1040px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 1fr 340px;
+      grid-template-columns: 1fr 370px;
     }
 
     .rsvp-form-pane {
-      padding: 3rem;
+      padding: 3rem 3rem;
     }
 
     .rsvp-summary-pane {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-      color: #ffffff;
-      padding: 3rem 2rem;
+      background: linear-gradient(145deg, var(--navy-dark) 0%, var(--navy) 60%, var(--evergreen-dark) 100%);
+      color: #FFFFFF;
+      padding: 3rem 2.25rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
     }
 
+    /* Ticket Selection Cards */
+    .ticket-tier-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .ticket-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+    }
+
+    .ticket-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card);
+      border-color: var(--gold);
+    }
+
+    .ticket-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .ticket-card-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .ticket-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* Pill-shaped Quantity Selector */
+    .qty-capsule {
+      display: inline-flex;
+      align-items: center;
+      background: var(--slate-ground);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 3px 6px;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      transition: var(--transition);
+    }
+
+    .qty-capsule:focus-within {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 2px var(--gold-glow);
+    }
+
+    .qty-btn {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: none;
+      background: #FFFFFF;
+      color: var(--navy);
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+    }
+
+    .qty-btn:hover {
+      background: var(--gold);
+      color: var(--navy-dark);
+    }
+
+    .qty-val {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      min-width: 22px;
+      text-align: center;
+      color: var(--navy);
+    }
+
+    /* Form Fields (12px border-radius, gold focus rings) */
     .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.35rem;
     }
 
     .form-label {
       display: block;
       font-weight: 600;
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      color: var(--text-main);
+      font-size: 0.88rem;
+      margin-bottom: 0.45rem;
+      color: var(--navy);
     }
 
     .form-control {
       width: 100%;
-      padding: 0.75rem 1rem;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-sm);
-      font-family: inherit;
+      padding: 12px 16px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      font-family: var(--font-body);
       font-size: 0.95rem;
+      background: #FFFFFF;
+      color: var(--text-primary);
       transition: var(--transition);
     }
 
     .form-control:focus {
       outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(207, 160, 82, 0.25);
     }
 
     .form-row {
@@ -782,71 +1071,38 @@
       gap: 1.25rem;
     }
 
-    .counter-group {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .counter-info h5 {
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .counter-info span {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .counter-controls {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .counter-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1px solid var(--border-color);
-      background: #ffffff;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: var(--transition);
-    }
-
-    .counter-btn:hover {
-      background: var(--light-bg);
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    .counter-val {
-      font-weight: 700;
-      font-size: 1.1rem;
-      min-width: 24px;
-      text-align: center;
-    }
-
+    /* Summary Callout Box */
     .summary-title {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      letter-spacing: 0.04em;
       margin-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
       padding-bottom: 1rem;
+      color: #FFFFFF;
+    }
+
+    .summary-badge-headcount {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(207, 160, 82, 0.15);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.75rem;
     }
 
     .summary-lines {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.85rem;
+      gap: 1rem;
       margin-bottom: 2rem;
     }
 
@@ -854,155 +1110,193 @@
       display: flex;
       justify-content: space-between;
       font-size: 0.95rem;
-      color: #e0ece4;
+      color: #CBD5E1;
+    }
+
+    .summary-line span:last-child {
+      font-weight: 600;
+      color: #FFFFFF;
     }
 
     .summary-total {
-      border-top: 2px dashed rgba(255, 255, 255, 0.3);
-      padding-top: 1.25rem;
+      border-top: 1px dashed rgba(207, 160, 82, 0.4);
+      padding-top: 1.35rem;
       margin-top: 1rem;
     }
 
+    .summary-total-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
     .summary-total-amount {
-      font-size: 2.25rem;
+      font-family: var(--font-display);
+      font-size: 2.6rem;
       font-weight: 800;
-      color: var(--secondary-light);
+      color: #FFFFFF;
+      line-height: 1.1;
+      margin-top: 0.25rem;
     }
 
     .payment-notice {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 1rem;
-      border-radius: var(--radius-sm);
-      font-size: 0.85rem;
-      line-height: 1.4;
-      margin-top: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.1rem;
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      line-height: 1.5;
+      margin-top: 1.75rem;
+      color: #94A3B8;
     }
 
-    /* Silent Auction & Fundraiser */
+    /* ==========================================================================
+       Silent Auction (Executive Charity Auction)
+       ========================================================================== */
     .auction-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
 
     .auction-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg);
+      background: var(--card-white);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-card);
       transition: var(--transition);
       display: flex;
       flex-direction: column;
+      position: relative;
     }
 
     .auction-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold-border);
+    }
+
+    .auction-img-holder {
+      height: 190px;
+      background: radial-gradient(circle at 50% 30%, rgba(207, 160, 82, 0.2) 0%, transparent 60%),
+                  linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--evergreen-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: #FFFFFF;
+      font-size: 3.5rem;
+      border-bottom: 1px solid var(--gold-border);
     }
 
     .auction-badge {
       position: absolute;
       top: 1rem;
       right: 1rem;
-      background: rgba(0, 0, 0, 0.7);
-      color: var(--secondary-light);
-      padding: 0.3rem 0.75rem;
-      border-radius: 50px;
-      font-size: 0.75rem;
-      font-weight: 700;
-    }
-
-    .auction-img-holder {
-      height: 180px;
-      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      color: #ffffff;
-      font-size: 3.5rem;
     }
 
     .auction-body {
-      padding: 1.5rem;
+      padding: 1.75rem;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
     }
 
     .auction-title {
-      font-size: 1.2rem;
+      font-family: var(--font-display);
+      font-size: 1.15rem;
       font-weight: 700;
-      color: var(--primary-dark);
+      color: var(--navy);
       margin-bottom: 0.5rem;
+      line-height: 1.35;
     }
 
     .auction-desc {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 1.25rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.35rem;
       flex-grow: 1;
+      line-height: 1.6;
     }
 
     .auction-footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border-color);
+      padding-top: 1.15rem;
+      border-top: 1px solid var(--border-light);
     }
 
     .auction-bid-label {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       color: var(--text-muted);
       text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
     }
 
     .auction-bid-val {
-      font-size: 1.25rem;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
       font-weight: 800;
-      color: var(--primary);
+      color: var(--navy);
     }
 
-    /* Photo Gallery */
-    .gallery-filter-tabs {
+    /* ==========================================================================
+       Photo Gallery with Segmented Pill Controls
+       ========================================================================== */
+    .gallery-filter-wrapper {
       display: flex;
       justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
-      flex-wrap: wrap;
+      margin-bottom: 2.75rem;
+    }
+
+    .gallery-filter-tabs {
+      display: inline-flex;
+      background: #E2E8F0;
+      padding: 5px;
+      border-radius: var(--radius-pill);
+      gap: 4px;
+      border: 1px solid var(--border-subtle);
     }
 
     .filter-tab {
-      padding: 0.5rem 1.25rem;
-      border: 1px solid var(--border-color);
-      background: #ffffff;
-      border-radius: 50px;
+      padding: 0.55rem 1.4rem;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-pill);
       cursor: pointer;
+      font-family: var(--font-body);
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
       transition: var(--transition);
     }
 
-    .filter-tab.active,
-    .filter-tab:hover {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
+    .filter-tab.active {
+      background: var(--navy);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(14, 34, 56, 0.2);
+    }
+
+    .filter-tab:hover:not(.active) {
+      color: var(--navy);
     }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.75rem;
     }
 
     .gallery-card {
-      background: #ffffff;
-      border-radius: var(--radius-md);
+      background: var(--card-white);
+      border-radius: var(--radius-lg);
       overflow: hidden;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border-subtle);
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
       cursor: pointer;
@@ -1010,7 +1304,8 @@
 
     .gallery-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-card);
+      border-color: var(--gold-border);
     }
 
     .gallery-card-thumb {
@@ -1019,50 +1314,55 @@
       align-items: center;
       justify-content: center;
       font-size: 3rem;
-      color: #ffffff;
+      color: #FFFFFF;
       position: relative;
     }
 
     .gallery-card-info {
-      padding: 1.25rem;
+      padding: 1.4rem;
     }
 
     .gallery-card-info h4 {
+      font-family: var(--font-display);
       font-size: 1.05rem;
-      color: var(--primary-dark);
+      font-weight: 700;
+      color: var(--navy);
       margin-bottom: 0.35rem;
     }
 
     .gallery-card-info p {
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: var(--text-secondary);
+      line-height: 1.55;
     }
 
-    /* Guestbook & Tributes */
+    /* ==========================================================================
+       Guestbook / Tributes Wall
+       ========================================================================== */
     .guestbook-section {
-      background: #f8fbf9;
+      background: #F1F5F9;
     }
 
     .tribute-columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
+      gap: 2.75rem;
     }
 
     .tribute-wall {
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
-      max-height: 520px;
+      max-height: 540px;
       overflow-y: auto;
       padding-right: 0.5rem;
     }
 
     .tribute-card {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
+      background: var(--card-white);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 1.25rem 1.5rem;
+      padding: 1.4rem 1.6rem;
       box-shadow: var(--shadow-sm);
     }
 
@@ -1075,35 +1375,40 @@
 
     .tribute-author {
       font-weight: 700;
-      color: var(--primary-dark);
+      color: var(--navy);
       font-size: 0.95rem;
     }
 
     .tribute-role {
-      font-size: 0.75rem;
-      background: rgba(212, 175, 55, 0.15);
-      color: var(--secondary-dark);
-      padding: 0.15rem 0.5rem;
-      border-radius: 4px;
-      font-weight: 600;
+      font-size: 0.72rem;
+      background: var(--gold-subtle);
+      color: var(--gold-dark);
+      border: 1px solid var(--gold-border);
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-pill);
+      font-weight: 700;
+      letter-spacing: 0.04em;
     }
 
     .tribute-body {
-      font-size: 0.9rem;
-      color: var(--text-main);
+      font-size: 0.92rem;
+      color: var(--text-secondary);
       font-style: italic;
+      line-height: 1.6;
     }
 
     .tribute-time {
       font-size: 0.75rem;
-      color: #9ca3af;
+      color: var(--text-muted);
       margin-top: 0.5rem;
       text-align: right;
     }
 
-    /* FAQ Accordion */
+    /* ==========================================================================
+       FAQ Accordion & Venue Card
+       ========================================================================== */
     .faq-container {
-      max-width: 800px;
+      max-width: 820px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -1111,27 +1416,28 @@
     }
 
     details.faq-item {
-      background: #ffffff;
-      border: 1px solid var(--border-color);
+      background: var(--card-white);
+      border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
       overflow: hidden;
       transition: var(--transition);
     }
 
     details.faq-item[open] {
-      border-color: var(--primary-light);
+      border-color: var(--gold);
       box-shadow: var(--shadow-sm);
     }
 
     summary.faq-question {
-      padding: 1.25rem 1.5rem;
+      padding: 1.35rem 1.6rem;
       font-weight: 700;
-      color: var(--primary-dark);
+      color: var(--navy);
       cursor: pointer;
       list-style: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      font-size: 1rem;
     }
 
     summary.faq-question::-webkit-details-marker {
@@ -1140,42 +1446,40 @@
 
     summary.faq-question::after {
       content: '+';
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 400;
-      color: var(--secondary);
-      transition: transform 0.2s ease;
+      color: var(--gold);
+      transition: transform 0.25s ease;
     }
 
     details[open] summary.faq-question::after {
       content: '−';
-      transform: rotate(0);
     }
 
     .faq-answer {
-      padding: 0 1.5rem 1.5rem;
-      color: var(--text-muted);
+      padding: 0 1.6rem 1.5rem;
+      color: var(--text-secondary);
       font-size: 0.95rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
-    /* Venue & Map Information */
     .venue-card {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-color);
-      padding: 2.5rem;
-      box-shadow: var(--shadow-md);
+      background: var(--card-white);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-subtle);
+      padding: 2.75rem;
+      box-shadow: var(--shadow-card);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
+      gap: 2.75rem;
       align-items: center;
-      margin-top: 3rem;
+      margin-top: 3.5rem;
     }
 
     .venue-details h3 {
-      font-family: var(--font-serif);
-      font-size: 1.8rem;
-      color: var(--primary-dark);
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      color: var(--navy);
       margin-bottom: 0.75rem;
     }
 
@@ -1184,51 +1488,57 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      margin: 1.5rem 0;
+      margin: 1.75rem 0;
     }
 
     .venue-meta li {
       display: flex;
       align-items: flex-start;
-      gap: 0.75rem;
+      gap: 0.85rem;
       font-size: 0.95rem;
+      color: var(--text-secondary);
     }
 
     .venue-meta-icon {
-      color: var(--secondary-dark);
-      font-size: 1.2rem;
+      color: var(--gold);
+      font-size: 1.3rem;
       line-height: 1;
     }
 
     .map-placeholder {
-      background: linear-gradient(135deg, #1b4332 0%, #0d281e 100%);
-      border-radius: var(--radius-md);
-      height: 280px;
+      background: radial-gradient(circle at 50% 30%, rgba(207, 160, 82, 0.2) 0%, transparent 60%),
+                  linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--evergreen-dark) 100%);
+      border-radius: var(--radius-lg);
+      height: 290px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
+      color: #FFFFFF;
       text-align: center;
       padding: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--gold-border);
+      box-shadow: var(--shadow-card);
     }
 
-    /* Modal / Dialog */
+    /* ==========================================================================
+       Modals & Dialogs
+       ========================================================================== */
     dialog.app-dialog {
-      border: none;
-      border-radius: var(--radius-lg);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-xl);
       padding: 0;
-      max-width: 550px;
+      max-width: 540px;
       width: 90%;
       margin: auto;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
-      background: #ffffff;
+      box-shadow: 0 25px 60px -15px rgba(14, 34, 56, 0.4);
+      background: #FFFFFF;
     }
 
     dialog.app-dialog::backdrop {
-      background: rgba(10, 25, 18, 0.75);
-      backdrop-filter: blur(4px);
+      background: rgba(7, 19, 32, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
     .dialog-inner {
@@ -1243,9 +1553,9 @@
     }
 
     .dialog-title {
-      font-family: var(--font-serif);
+      font-family: var(--font-display);
       font-size: 1.6rem;
-      color: var(--primary-dark);
+      color: var(--navy);
     }
 
     .dialog-close {
@@ -1257,79 +1567,87 @@
       line-height: 1;
     }
 
-    /* Footer */
+    /* ==========================================================================
+       Footer (Deep Heritage Navy & Evergreen)
+       ========================================================================== */
     .footer {
-      background-color: var(--primary-dark);
-      color: #e0ece4;
-      padding: 4.5rem 0 2rem;
-      border-top: 4px solid var(--secondary);
+      background: linear-gradient(145deg, var(--navy-dark) 0%, var(--navy) 50%, var(--evergreen-dark) 100%);
+      color: #CBD5E1;
+      padding: 5rem 0 2.25rem;
+      border-top: 3px solid var(--gold);
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr;
-      gap: 3rem;
+      gap: 3.5rem;
       margin-bottom: 3.5rem;
     }
 
     .footer-brand h3 {
-      font-family: var(--font-serif);
-      font-size: 1.6rem;
-      color: #ffffff;
-      margin-bottom: 0.75rem;
+      font-family: var(--font-display);
+      font-size: 1.65rem;
+      color: #FFFFFF;
+      margin-bottom: 0.85rem;
+      letter-spacing: 0.04em;
     }
 
     .footer-creed {
       font-style: italic;
-      color: #9cb8a9;
-      font-size: 0.95rem;
-      line-height: 1.6;
-      max-width: 480px;
-      margin-top: 1rem;
+      color: #94A3B8;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      max-width: 500px;
+      margin-top: 1.25rem;
+      border-left: 2px solid var(--gold);
+      padding-left: 1rem;
     }
 
     .footer-col h4 {
-      color: #ffffff;
-      font-size: 1.05rem;
-      margin-bottom: 1.25rem;
+      font-family: var(--font-display);
+      color: #FFFFFF;
+      font-size: 1rem;
+      margin-bottom: 1.35rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.1em;
     }
 
     .footer-links {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
     .footer-links a {
-      color: #b7d5c4;
-      font-size: 0.95rem;
+      color: #94A3B8;
+      font-size: 0.92rem;
     }
     .footer-links a:hover {
-      color: var(--secondary);
+      color: var(--gold-light);
     }
 
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       padding-top: 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       font-size: 0.85rem;
-      color: #8faea0;
+      color: #64748B;
     }
 
-    /* Print Styles */
+    /* ==========================================================================
+       Print Optimization
+       ========================================================================== */
     @media print {
       body {
-        background: #ffffff;
+        background: #FFFFFF;
         color: #000000;
-        font-size: 11pt;
+        font-size: 10.5pt;
       }
       .navbar, .hero-actions, .countdown-wrapper, .menu-toggle,
-      .rsvp-section, .guestbook-section, .filter-tab,
+      .rsvp-section, .guestbook-section, .gallery-filter-wrapper,
       #rsvp, #tributes, .footer, .btn, .payment-notice {
         display: none !important;
       }
@@ -1337,6 +1655,7 @@
         background: none !important;
         color: #000000 !important;
         padding: 1rem 0 !important;
+        border-bottom: 1px solid #000000 !important;
       }
       .hero h1 {
         color: #000000 !important;
@@ -1346,7 +1665,7 @@
         color: #333333 !important;
       }
       .hero-details-bar {
-        border: 1px solid #000000;
+        border: 1px solid #CCCCCC;
         background: none;
       }
       .section {
@@ -1355,72 +1674,81 @@
       }
       .timeline-card, .eagle-card, .menu-course-card {
         box-shadow: none !important;
-        border: 1px solid #ccc !important;
+        border: 1px solid #CCCCCC !important;
       }
     }
 
-    /* Responsive Adjustments */
+    /* ==========================================================================
+       Responsive Rules
+       ========================================================================== */
     @media (max-width: 992px) {
-      .hero h1 { font-size: 2.75rem; }
+      .hero h1 { font-size: 3rem; }
       .hero-details-bar { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .hero-detail-item:nth-child(2) { border-right: none; }
       .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
       .menu-cards-grid { grid-template-columns: 1fr; }
       .rsvp-box { grid-template-columns: 1fr; }
       .tribute-columns { grid-template-columns: 1fr; }
       .venue-card { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
 
     @media (max-width: 768px) {
+      .section { padding: var(--section-pad-mobile) 0; }
       .nav-links {
         display: none;
         position: absolute;
-        top: 72px;
+        top: 78px;
         left: 0;
         right: 0;
-        background: #ffffff;
+        background: #FFFFFF;
         flex-direction: column;
-        padding: 1.5rem;
-        border-bottom: 1px solid var(--border-color);
-        box-shadow: var(--shadow-md);
+        padding: 1.75rem;
+        border-bottom: 1px solid var(--border-subtle);
+        box-shadow: var(--shadow-card);
       }
       .nav-links.open { display: flex; }
       .menu-toggle { display: block; }
-      .hero h1 { font-size: 2.2rem; }
+      .hero h1 { font-size: 2.35rem; }
       .hero-subtitle { font-size: 1.05rem; }
       .schedule-grid::before { left: 20px; }
       .timeline-item { flex-direction: column; padding-left: 45px; }
       .timeline-time { text-align: left; width: auto; padding: 0 0 0.5rem 0; }
       .timeline-dot { left: 12px; }
       .timeline-card { margin-left: 0; }
-      .rsvp-form-pane, .rsvp-summary-pane { padding: 1.75rem; }
+      .rsvp-form-pane, .rsvp-summary-pane { padding: 2rem 1.5rem; }
       .form-row { grid-template-columns: 1fr; }
-      .countdown-grid { gap: 0.5rem; }
-      .countdown-box { min-width: 70px; padding: 0.75rem 0.5rem; }
-      .countdown-number { font-size: 1.6rem; }
+      .countdown-grid { gap: 0.65rem; }
+      .countdown-box { min-width: 72px; padding: 0.85rem 0.65rem; }
+      .countdown-number { font-size: 1.75rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Sticky Luxury Navigation -->
   <header class="navbar" role="banner">
     <div class="container nav-container">
-      <a href="#top" class="brand" aria-label="Troop 170 Annual Banquet Home">
-        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2L14.5 8.5L21.5 9.5L16.5 14.5L18 21.5L12 18L6 21.5L7.5 14.5L2.5 9.5L9.5 8.5L12 2Z" />
-        </svg>
-        <span>Troop 170 • 2026</span>
+      <a href="#top" class="brand" aria-label="Troop 170 Annual Gala Home">
+        <div class="brand-emblem" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L14.5 8.5L21.5 9.5L16.5 14.5L18 21.5L12 18L6 21.5L7.5 14.5L2.5 9.5L9.5 8.5L12 2Z" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">TROOP 170</span>
+          <span class="brand-sub">ANNUAL GALA • 2026</span>
+        </div>
       </a>
 
       <nav aria-label="Main Navigation">
         <ul class="nav-links" id="navLinks">
           <li><a href="#overview">Overview</a></li>
           <li><a href="#schedule">Program</a></li>
-          <li><a href="#honors">Eagle Scouts</a></li>
+          <li><a href="#honors">Eagle Class</a></li>
           <li><a href="#menu">Menu</a></li>
-          <li><a href="#rsvp">RSVP</a></li>
-          <li><a href="#auction">Silent Auction</a></li>
+          <li><a href="#rsvp">Registration</a></li>
+          <li><a href="#auction">Auction</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#tributes">Guestbook</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -1428,8 +1756,8 @@
       </nav>
 
       <div class="nav-cta">
-        <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="window.print()" title="Print Program Guide">🖨️ Print Program</button>
-        <a href="#rsvp" class="btn btn-primary" style="padding: 0.55rem 1.25rem; font-size: 0.9rem;">RSVP Now</a>
+        <button class="btn btn-outline" style="padding: 0.55rem 1rem; font-size: 0.85rem;" onclick="window.print()" title="Print Program Guide">🖨️ Program</button>
+        <a href="#rsvp" class="btn btn-gold" style="padding: 0.6rem 1.35rem; font-size: 0.9rem;">Reserve Seats</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <span></span>
           <span></span>
@@ -1443,15 +1771,15 @@
   <section class="hero" id="top">
     <div class="container hero-content">
       <div class="hero-tag">
-        <span>⚜️</span> Annual Awards Banquet & Court of Honor
+        <span>⚜️</span> 64th Annual Executive Awards Gala & Court of Honor
       </div>
-      <h1>Troop 170 Annual Banquet 2026</h1>
+      <h1>Troop 170 <span>Annual Banquet</span> 2026</h1>
       <p class="hero-subtitle">
-        Join us in honoring a remarkable year of leadership, backcountry adventure, community service, and celebrating our newest Eagle Scouts.
+        An evening of distinction celebrating exemplary backcountry leadership, extraordinary service, and the formal investiture of the Eagle Scout Class of 2026.
       </p>
 
       <div class="hero-actions">
-        <a href="#rsvp" class="btn btn-primary">
+        <a href="#rsvp" class="btn btn-gold">
           <span>🎟️</span> Reserve Your Seats
         </a>
         <button class="btn btn-secondary" id="calendarBtn">
@@ -1466,29 +1794,29 @@
       <div class="hero-details-bar" id="overview">
         <div class="hero-detail-item">
           <div class="hero-detail-icon">📅</div>
-          <span class="hero-detail-label">Date</span>
+          <span class="hero-detail-label">Evening Date</span>
           <span class="hero-detail-val">Saturday, Nov 14, 2026</span>
         </div>
         <div class="hero-detail-item">
           <div class="hero-detail-icon">⏰</div>
-          <span class="hero-detail-label">Reception & Dinner</span>
+          <span class="hero-detail-label">Reception & Gala</span>
           <span class="hero-detail-val">5:30 PM – 9:00 PM</span>
         </div>
         <div class="hero-detail-item">
-          <div class="hero-detail-icon">📍</div>
-          <span class="hero-detail-label">Location</span>
-          <span class="hero-detail-val">Grand Ballroom & Grounds</span>
+          <div class="hero-detail-icon">🏛️</div>
+          <span class="hero-detail-label">Grand Venue</span>
+          <span class="hero-detail-val">St. John Grand Hall</span>
         </div>
         <div class="hero-detail-item">
           <div class="hero-detail-icon">👔</div>
-          <span class="hero-detail-label">Attire</span>
+          <span class="hero-detail-label">Dress Code</span>
           <span class="hero-detail-val">Class A / Semi-Formal</span>
         </div>
       </div>
 
       <!-- Live Dynamic Countdown -->
       <div class="countdown-wrapper">
-        <div class="countdown-title">⏳ Countdown to Banquet Night</div>
+        <div class="countdown-title">⏳ Countdown to Gala Evening</div>
         <div class="countdown-grid" id="countdownGrid">
           <div class="countdown-box">
             <div class="countdown-number" id="countDays">--</div>
@@ -1517,31 +1845,31 @@
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-number">1,420+</div>
-          <div class="stat-label">Service Hours Given</div>
+          <div class="stat-label">Service Hours Rendered</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">58</div>
-          <div class="stat-label">Ranks & Badges Earned</div>
+          <div class="stat-label">Ranks & Badges Awarded</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">38</div>
-          <div class="stat-label">Nights Camped Out</div>
+          <div class="stat-label">Wilderness Nights Camped</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">6</div>
-          <div class="stat-label">New Eagle Scouts</div>
+          <div class="stat-label">New Eagle Scouts Inducted</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Program & Schedule -->
+  <!-- Order of Events Program -->
   <section class="section" id="schedule">
     <div class="container">
       <div class="section-title">
         <span class="section-badge">Evening Timeline</span>
         <h2>Order of Events</h2>
-        <p>A full schedule celebrating Scout spirit, camaraderie, tradition, and service.</p>
+        <p>A ceremonial program celebrating Scout spirit, brotherly fellowship, and distinguished service.</p>
       </div>
 
       <div class="schedule-grid">
@@ -1550,7 +1878,7 @@
           <div class="timeline-dot"></div>
           <div class="timeline-card">
             <h3>Gathering & Fellowship Reception <span class="timeline-tag">Social</span></h3>
-            <p>Welcome reception, guest check-in, patrol photo booth, and silent auction viewing. Display of Troop memorabilia and High Adventure gear.</p>
+            <p>Welcome reception, guest registration, silent auction viewing, and display of commemorative Troop memorabilia.</p>
           </div>
         </div>
 
@@ -1558,8 +1886,8 @@
           <div class="timeline-time">6:15 PM</div>
           <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <h3>Opening Ceremony & Color Guard <span class="timeline-tag">Ceremonial</span></h3>
-            <p>Presentation of the Colors by the Senior Patrol, recital of the Scout Oath and Scout Law, and the Invocation by the Troop Chaplain.</p>
+            <h3>Presentation of Colors & Invocation <span class="timeline-tag">Ceremonial</span></h3>
+            <p>Formal presentation of Colors by the Senior Patrol, recitation of the Scout Oath and Scout Law, and the invocation by the Chaplain.</p>
           </div>
         </div>
 
@@ -1567,8 +1895,8 @@
           <div class="timeline-time">6:30 PM</div>
           <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <h3>Banquet Dinner Service <span class="timeline-tag">Dining</span></h3>
-            <p>Full catered dinner featuring slow-roasted beef, lemon herb chicken, roasted garden vegetables, dessert buffet, and coffee bar.</p>
+            <h3>Catered Banquet Dinner Service <span class="timeline-tag">Dining</span></h3>
+            <p>Full executive dinner featuring carved herb roast beef, lemon thyme chicken, artisan harvest salad, and celebration cake.</p>
           </div>
         </div>
 
@@ -1577,7 +1905,7 @@
           <div class="timeline-dot"></div>
           <div class="timeline-card">
             <h3>Year in Review: 2026 Expeditions <span class="timeline-tag">Presentation</span></h3>
-            <p>Multimedia highlights from Summer Camp at Resica Falls, Adirondack Canoe Trek, Appalachian Trail backpacking, and district camporees.</p>
+            <p>Multimedia documentary chronicling the Resica Falls encampment, Adirondack High Peaks expedition, and service initiatives.</p>
           </div>
         </div>
 
@@ -1585,8 +1913,8 @@
           <div class="timeline-time">7:45 PM</div>
           <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <h3>Rank Advancement & Court of Honor <span class="timeline-tag">Awards</span></h3>
-            <p>Conferral of Scout, Tenderfoot, Second Class, First Class, Star, and Life ranks. Presentation of the Honor Patrol Streamer and adult volunteer recognition.</p>
+            <h3>Court of Honor & Rank Advancement <span class="timeline-tag">Awards</span></h3>
+            <p>Conferral of Tenderfoot through Life ranks, Honor Patrol streamer presentation, and adult committee recognitions.</p>
           </div>
         </div>
 
@@ -1595,7 +1923,7 @@
           <div class="timeline-dot"></div>
           <div class="timeline-card">
             <h3>Eagle Scout Court of Honor & Keynote <span class="timeline-tag">Eagle Tribute</span></h3>
-            <p>Spotlighting our 2026 Eagle Scouts, presentation of Eagle Neckerchiefs and parent pins, followed by the Eagle Charge and keynote remarks.</p>
+            <p>Formal tribute to the Eagle Scout Class of 2026, presentation of Eagle neckerchiefs and parent pins, followed by the Eagle Charge.</p>
           </div>
         </div>
 
@@ -1603,8 +1931,8 @@
           <div class="timeline-time">8:45 PM</div>
           <div class="timeline-dot"></div>
           <div class="timeline-card">
-            <h3>Silent Auction Wrap-Up & Closing <span class="timeline-tag">Finale</span></h3>
-            <p>Announcement of auction winners, Scoutmaster's Minute, the Scout Benediction, and formal retiring of the Colors.</p>
+            <h3>Silent Auction Consecration & Closing <span class="timeline-tag">Finale</span></h3>
+            <p>Announcement of winning auction patrons, Scoutmaster's Minute, the Scout Benediction, and retiring of the Colors.</p>
           </div>
         </div>
       </div>
@@ -1615,19 +1943,19 @@
   <section class="section honors-section" id="honors">
     <div class="container">
       <div class="section-title">
-        <span class="section-badge">Highest Rank</span>
+        <span class="section-badge">Highest Distinction</span>
         <h2>Eagle Scout Class of 2026</h2>
-        <p>Recognizing the dedication, leadership, and lasting community impact of Troop 170's newest Eagle Scouts.</p>
+        <p>Honoring the dedication, leadership, and community legacy of Troop 170's newest Eagle Scouts.</p>
       </div>
 
       <div class="eagle-spotlight">
         <div style="text-align: center;">
           <div class="eagle-badge-banner">🦅 The Trail to Eagle</div>
-          <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--primary-dark); margin-bottom: 0.5rem;">
-            Honoring Excellence in Leadership and Service
+          <h3 style="font-family: var(--font-display); font-size: 2.1rem; color: var(--navy); margin-bottom: 0.65rem;">
+            A Tradition of Service and Character
           </h3>
-          <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
-            Only 4% of all Scouts achieve the rank of Eagle. In 2026, Troop 170 proudly celebrates six extraordinary youth who completed over 800 hours of community leadership projects.
+          <p style="color: var(--text-secondary); max-width: 720px; margin: 0 auto; line-height: 1.75;">
+            Achieved by only four percent of all Scouts, the rank of Eagle represents years of disciplined effort. In 2026, Troop 170 proudly presents six extraordinary leaders who led over 800 hours of community impact projects.
           </p>
         </div>
 
@@ -1642,8 +1970,8 @@
               </div>
             </div>
             <div class="eagle-project">
-              <span class="eagle-project-title">Project: Community Park Trail Restoration</span>
-              Constructed 250 feet of all-weather trail boardwalk and planted native species to halt wetland erosion at Miller Nature Reserve.
+              <span class="eagle-project-title">Project: Nature Reserve Wetland Boardwalk</span>
+              Engineered 250 feet of all-weather elevated trail boardwalk and native root plantings to halt wetland erosion at Miller Nature Reserve.
             </div>
           </div>
 
@@ -1657,8 +1985,8 @@
               </div>
             </div>
             <div class="eagle-project">
-              <span class="eagle-project-title">Project: Elementary School Outdoor Library</span>
-              Designed and built two weather-resistant mini outdoor libraries and sensory reading benches for Oakridge Elementary.
+              <span class="eagle-project-title">Project: Elementary Outdoor Reading Pavilion</span>
+              Designed and erected dual weather-resistant mini outdoor libraries with sensory literacy benches for Oakridge Elementary.
             </div>
           </div>
 
@@ -1672,8 +2000,8 @@
               </div>
             </div>
             <div class="eagle-project">
-              <span class="eagle-project-title">Project: Veteran Memorial Cemetery Flag Staging</span>
-              Manufactured 12 bronze flag deposit bins and mapped 420 veteran gravesites with GPS markers for Memorial Day placements.
+              <span class="eagle-project-title">Project: Veterans Memorial Grave Staging</span>
+              Manufactured 12 bronze ceremonial flag deposit bins and cataloged 420 veteran gravesites with GPS beacons for Memorial Day.
             </div>
           </div>
 
@@ -1687,8 +2015,8 @@
               </div>
             </div>
             <div class="eagle-project">
-              <span class="eagle-project-title">Project: Wildlife Pollinator Sanctuary</span>
-              Installed 6 bee nesting hotels, 10 bat houses, and 1,000 square feet of drought-resistant wildflower beds at the County Arboretum.
+              <span class="eagle-project-title">Project: Arboretum Pollinator Sanctuary</span>
+              Installed 6 bee nesting hotels, 10 bat sanctuaries, and 1,000 square feet of drought-tolerant wildflowers at the County Arboretum.
             </div>
           </div>
 
@@ -1702,8 +2030,8 @@
               </div>
             </div>
             <div class="eagle-project">
-              <span class="eagle-project-title">Project: Food Pantry Cold Storage & Ramps</span>
-              Constructed ADA-compliant access ramps and insulated staging shelving for the Saint Jude Community Food Pantry.
+              <span class="eagle-project-title">Project: Food Pantry Cold Storage & Access</span>
+              Constructed ADA-compliant ingress ramps and heavy-duty cold storage sorting bays for the Saint Jude Community Food Pantry.
             </div>
           </div>
 
@@ -1717,8 +2045,8 @@
               </div>
             </div>
             <div class="eagle-project">
-              <span class="eagle-project-title">Project: Fire Dept Emergency Gear Storage</span>
-              Built modular, quick-deploy emergency medical equipment racks and gear lockers for Volunteer Fire Engine Station 4.
+              <span class="eagle-project-title">Project: Fire Dept Rapid-Deploy Lockers</span>
+              Fabricated modular, quick-deployment emergency medical lockers and rescue equipment racks for Fire Engine Station 4.
             </div>
           </div>
         </div>
@@ -1730,9 +2058,9 @@
   <section class="section" id="menu">
     <div class="container">
       <div class="section-title">
-        <span class="section-badge">Catered Dining</span>
-        <h2>The Banquet Menu</h2>
-        <p>A full, hearty dinner prepared fresh for our Scouts, leaders, families, and honored guests.</p>
+        <span class="section-badge">Gourmet Dining</span>
+        <h2>The Gala Dinner Menu</h2>
+        <p>A multi-course gourmet menu prepared fresh for our Scouts, adult leaders, families, and honored guests.</p>
       </div>
 
       <div class="menu-cards-grid">
@@ -1740,22 +2068,22 @@
         <div class="menu-course-card">
           <div class="menu-course-header">
             <div class="menu-icon">🥗</div>
-            <h3>Starters & Salads</h3>
+            <h3>Starters & Breads</h3>
           </div>
           <ul class="menu-item-list">
             <li class="menu-item">
               <div class="menu-item-name">
-                <span>Crisp Harvest Garden Salad</span>
+                <span>Artisan Harvest Garden Salad</span>
                 <span class="dietary-badge v">Veg / GF</span>
               </div>
-              <div class="menu-item-desc">Mixed garden greens, heirloom cherry tomatoes, English cucumber, candied pecans, house cider vinaigrette.</div>
+              <div class="menu-item-desc">Tender field greens, heirloom teardrop tomatoes, candied pecans, shaved pecorino, house spiced cider vinaigrette.</div>
             </li>
             <li class="menu-item">
               <div class="menu-item-name">
                 <span>Warm Hearth Rolls</span>
                 <span class="dietary-badge">Baked</span>
               </div>
-              <div class="menu-item-desc">Freshly baked artisan dinner rolls served with sweet honey butter.</div>
+              <div class="menu-item-desc">Freshly baked brioche and sourdough dinner rolls paired with whipped clover honey butter.</div>
             </li>
           </ul>
         </div>
@@ -1769,24 +2097,24 @@
           <ul class="menu-item-list">
             <li class="menu-item">
               <div class="menu-item-name">
-                <span>Herb-Crusted Roast Beef</span>
+                <span>Carved Herb-Crusted Sirloin</span>
                 <span class="dietary-badge gf">GF</span>
               </div>
-              <div class="menu-item-desc">Carved slow-roasted beef sirloin topped with a savory rosemary thyme au jus.</div>
+              <div class="menu-item-desc">Slow-roasted beef sirloin sliced to order, complemented by a rich rosemary-infused au jus and garlic potato puree.</div>
             </li>
             <li class="menu-item">
               <div class="menu-item-name">
-                <span>Lemon Thyme Grilled Chicken</span>
+                <span>Lemon Thyme French Breast</span>
                 <span class="dietary-badge gf">GF</span>
               </div>
-              <div class="menu-item-desc">Tender boneless chicken breast marinated in fresh herbs and citrus reduction.</div>
+              <div class="menu-item-desc">Grilled organic poultry breast finished with citrus herb reduction, paired with haricots verts.</div>
             </li>
             <li class="menu-item">
               <div class="menu-item-name">
-                <span>Wild Mushroom Risotto</span>
+                <span>Wild Forest Mushroom Risotto</span>
                 <span class="dietary-badge v">Veg / GF</span>
               </div>
-              <div class="menu-item-desc">Creamy Arborio rice with roasted foraged mushrooms, parmesan, and fresh herbs.</div>
+              <div class="menu-item-desc">Creamy Carnaroli rice simmered with foraged morels, shaved aged parmesan, and micro-herbs.</div>
             </li>
           </ul>
         </div>
@@ -1800,45 +2128,45 @@
           <ul class="menu-item-list">
             <li class="menu-item">
               <div class="menu-item-name">
-                <span>Troop 170 Celebration Cake</span>
-                <span class="dietary-badge">Special</span>
+                <span>Troop 170 Celebration Gateau</span>
+                <span class="dietary-badge">Signature</span>
               </div>
-              <div class="menu-item-desc">Layered vanilla and Dutch cocoa cake commemorating the Class of 2026.</div>
+              <div class="menu-item-desc">Layered Madagascar vanilla and dark cocoa gateau honoring the Eagle Scout Class of 2026.</div>
             </li>
             <li class="menu-item">
               <div class="menu-item-name">
-                <span>Campfire S'mores Mousse Cups</span>
-                <span class="dietary-badge">Scout Favorite</span>
+                <span>Campfire S'mores Mousse Parfait</span>
+                <span class="dietary-badge">Scout Tradition</span>
               </div>
-              <div class="menu-item-desc">Rich chocolate mousse, graham crust crumble, and toasted marshmallow creme.</div>
+              <div class="menu-item-desc">Velvety dark chocolate mousse, honey graham crumble, and fire-toasted marshmallow cream.</div>
             </li>
             <li class="menu-item">
               <div class="menu-item-name">
-                <span>Hot Cider & Coffee Bar</span>
-                <span class="dietary-badge">Warm</span>
+                <span>Spiced Cider & Espresso Bar</span>
+                <span class="dietary-badge">Beverage</span>
               </div>
-              <div class="menu-item-desc">Spiced mulled apple cider, iced sweet tea, lemonade, and freshly brewed coffee.</div>
+              <div class="menu-item-desc">Mulled Pennsylvania apple cider, sweet iced tea, artisan roast coffee, and fine herbal infusions.</div>
             </li>
           </ul>
         </div>
       </div>
 
       <div class="menu-note-box">
-        <span style="font-size: 1.5rem;">ℹ️</span>
+        <span style="font-size: 1.6rem; color: var(--gold);">ℹ️</span>
         <div>
-          <strong>Dietary & Allergy Accommodations:</strong> All meals are clearly labeled. Gluten-free, vegetarian, nut-free, and dairy-free options are fully prepared in a sanitized station. Please note special dietary requirements on your RSVP below!
+          <strong>Dietary & Allergy Protocol:</strong> All courses are prepared in accordance with high culinary standards. Gluten-free, vegetarian, nut-free, and halal accommodations are available. Please indicate special dietary requests on your reservation form below.
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RSVP & Ticket Calculator -->
+  <!-- RSVP & Ticket Calculator (Elevated Cards & Modern Form Design) -->
   <section class="section rsvp-section" id="rsvp">
     <div class="container">
       <div class="section-title">
-        <span class="section-badge">Reserve Your Table</span>
-        <h2>Banquet Registration & RSVP</h2>
-        <p>Please confirm your family's attendance by October 30, 2026 to ensure accurate catering counts.</p>
+        <span class="section-badge">Gala Registration</span>
+        <h2>Table Reservations & RSVP</h2>
+        <p>Kindly confirm attendance for your family and guests by October 30, 2026 to ensure exact culinary preparation.</p>
       </div>
 
       <div class="rsvp-box">
@@ -1846,7 +2174,7 @@
         <form class="rsvp-form-pane" id="rsvpForm">
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label" for="primaryName">Family / Scout Name *</label>
+              <label class="form-label" for="primaryName">Family / Attendee Name *</label>
               <input type="text" id="primaryName" class="form-control" placeholder="e.g. Miller Family / Alex Miller" required>
             </div>
             <div class="form-group">
@@ -1865,7 +2193,7 @@
                 <option value="Flaming Arrows">Flaming Arrows Patrol</option>
                 <option value="Leadership Corps">Troop Leadership / SPL / ASPL</option>
                 <option value="Adult Leaders">Adult Leader / Committee Member</option>
-                <option value="Alumni & Guests">Alumni / Honored Guest</option>
+                <option value="Alumni & Guests">Alumni / Honored Benefactor</option>
               </select>
             </div>
             <div class="form-group">
@@ -1874,127 +2202,142 @@
             </div>
           </div>
 
-          <!-- Counter Rows -->
-          <div style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
-            <label class="form-label">Number of Guests</label>
+          <!-- Elevated Ticket Selection Cards -->
+          <div style="margin-top: 1rem;">
+            <label class="form-label">Select Ticket Quantities</label>
 
-            <!-- Adult Guests -->
-            <div class="counter-group">
-              <div class="counter-info">
-                <h5>Adult Guests ($25)</h5>
-                <span>Parents, guardians, adult family members & leaders</span>
+            <div class="ticket-tier-list">
+              <!-- Tier 1: Adult Guests -->
+              <div class="ticket-card">
+                <div>
+                  <div class="ticket-card-header">
+                    <span class="ticket-card-title">Adult Gala Ticket ($25)</span>
+                    <span class="floating-badge">Full Evening Experience</span>
+                  </div>
+                  <div class="ticket-card-desc">Parents, adult family members, committee supporters, and alumni</div>
+                </div>
+                <div class="qty-capsule">
+                  <button type="button" class="qty-btn" onclick="updateCount('adults', -1)" aria-label="Decrease adult tickets">−</button>
+                  <span class="qty-val" id="adultsCount">2</span>
+                  <button type="button" class="qty-btn" onclick="updateCount('adults', 1)" aria-label="Increase adult tickets">+</button>
+                </div>
               </div>
-              <div class="counter-controls">
-                <button type="button" class="counter-btn" onclick="updateCount('adults', -1)">−</button>
-                <span class="counter-val" id="adultsCount">2</span>
-                <button type="button" class="counter-btn" onclick="updateCount('adults', 1)">+</button>
-              </div>
-            </div>
 
-            <!-- Youth Scouts -->
-            <div class="counter-group">
-              <div class="counter-info">
-                <h5>Troop 170 Scouts / Youth ($15)</h5>
-                <span>Active youth Scouts and siblings (Ages 5-17)</span>
+              <!-- Tier 2: Youth Scouts -->
+              <div class="ticket-card">
+                <div>
+                  <div class="ticket-card-header">
+                    <span class="ticket-card-title">Troop 170 Youth Scout ($15)</span>
+                    <span class="floating-badge">Honored Youth</span>
+                  </div>
+                  <div class="ticket-card-desc">Active youth Scouts and school-age siblings (Ages 5–17)</div>
+                </div>
+                <div class="qty-capsule">
+                  <button type="button" class="qty-btn" onclick="updateCount('youth', -1)" aria-label="Decrease youth tickets">−</button>
+                  <span class="qty-val" id="youthCount">1</span>
+                  <button type="button" class="qty-btn" onclick="updateCount('youth', 1)" aria-label="Increase youth tickets">+</button>
+                </div>
               </div>
-              <div class="counter-controls">
-                <button type="button" class="counter-btn" onclick="updateCount('youth', -1)">−</button>
-                <span class="counter-val" id="youthCount">1</span>
-                <button type="button" class="counter-btn" onclick="updateCount('youth', 1)">+</button>
-              </div>
-            </div>
 
-            <!-- Children under 5 & Eagle Honorees -->
-            <div class="counter-group">
-              <div class="counter-info">
-                <h5>Honored Eagles & Children under 5 (Free)</h5>
-                <span>2026 Eagle Honorees and small children</span>
-              </div>
-              <div class="counter-controls">
-                <button type="button" class="counter-btn" onclick="updateCount('free', -1)">−</button>
-                <span class="counter-val" id="freeCount">0</span>
-                <button type="button" class="counter-btn" onclick="updateCount('free', 1)">+</button>
+              <!-- Tier 3: Complimentary -->
+              <div class="ticket-card">
+                <div>
+                  <div class="ticket-card-header">
+                    <span class="ticket-card-title">2026 Eagle Honorees & Under 5 ($0)</span>
+                    <span class="floating-badge">Complimentary Honoree</span>
+                  </div>
+                  <div class="ticket-card-desc">Class of 2026 Eagle Scout inductees and toddler guests under 5</div>
+                </div>
+                <div class="qty-capsule">
+                  <button type="button" class="qty-btn" onclick="updateCount('free', -1)" aria-label="Decrease complimentary tickets">−</button>
+                  <span class="qty-val" id="freeCount">0</span>
+                  <button type="button" class="qty-btn" onclick="updateCount('free', 1)" aria-label="Increase complimentary tickets">+</button>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="dietary">Dietary Preferences & Allergies</label>
+            <label class="form-label" for="dietary">Dietary Preferences & Allergy Notifications</label>
             <input type="text" id="dietary" class="form-control" placeholder="e.g. 1 Vegetarian, 1 Gluten-Free, peanut allergy">
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="paymentMethod">Payment Preference</label>
+            <label class="form-label" for="paymentMethod">Payment Method</label>
             <select id="paymentMethod" class="form-control">
               <option value="Troop Scout Account / Scout Bucks">Deduct from Scout Account / Scout Bucks</option>
-              <option value="Zelle / Online Transfer">Zelle / Online Transfer to Troop 170 Treasury</option>
-              <option value="Check or Cash at the Door">Check / Cash at the Door on Banquet Night</option>
+              <option value="Zelle / Online Transfer">Zelle / Online Transfer to Troop Treasury</option>
+              <option value="Check or Cash at the Door">Check / Cash at Gala Reception</option>
             </select>
           </div>
 
-          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
-            <span>✓</span> Complete RSVP & Confirm Reservation
+          <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 0.5rem; padding: 1rem;">
+            <span>✓</span> Confirm Reservation & Proceed
           </button>
         </form>
 
         <!-- Summary Pane -->
         <div class="rsvp-summary-pane">
           <div>
-            <div class="summary-title">Ticket Summary</div>
+            <div class="summary-title">Reservation Summary</div>
+            <div class="summary-badge-headcount" id="summaryHeadcountBadge">
+              👥 <span id="summaryHeadcountText">3 Confirmed Attendees</span>
+            </div>
+
             <ul class="summary-lines">
               <li class="summary-line">
-                <span>Adult Tickets (<span id="sumAdultQty">2</span>x $25):</span>
+                <span>Adult Tickets (<span id="sumAdultQty">2</span> × $25):</span>
                 <span id="sumAdultTotal">$50.00</span>
               </li>
               <li class="summary-line">
-                <span>Youth Scout Tickets (<span id="sumYouthQty">1</span>x $15):</span>
+                <span>Youth Tickets (<span id="sumYouthQty">1</span> × $15):</span>
                 <span id="sumYouthTotal">$15.00</span>
               </li>
               <li class="summary-line">
-                <span>Eagle Honorees / Kids under 5:</span>
+                <span>Complimentary Guests:</span>
                 <span>$0.00</span>
               </li>
             </ul>
 
             <div class="summary-total">
-              <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #a3c9b6;">Total Reservation Due</div>
+              <div class="summary-total-label">Total Reservation Balance</div>
               <div class="summary-total-amount" id="sumGrandTotal">$65.00</div>
             </div>
           </div>
 
           <div class="payment-notice">
-            🔒 <strong>Troop Financial Policy:</strong> No Scout is ever excluded due to financial need. If confidential campership assistance is needed, please contact the Committee Chair directly.
+            🔒 <strong>Troop Financial Policy:</strong> No Scout is ever excluded due to financial circumstances. Confidential campership subsidies are available upon contacting the Committee Chair.
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Silent Auction & Troop Fundraiser -->
+  <!-- Silent Auction & Fundraiser Showcase -->
   <section class="section" id="auction">
     <div class="container">
       <div class="section-title">
-        <span class="section-badge">Troop 170 Fundraiser</span>
+        <span class="section-badge">Troop 170 Benefactor Auction</span>
         <h2>Silent Auction Showcase</h2>
-        <p>Bid on exclusive outdoor gear, handmade artisan crafts, and experiences. All proceeds fund 2027 Scout camperships and gear trailers.</p>
+        <p>Patron exclusive outdoor expeditions, handcrafted heirloom crafts, and equipment. All contributions fund 2027 campership endowments.</p>
       </div>
 
       <div class="auction-grid">
         <!-- Item 1 -->
         <div class="auction-card">
           <div class="auction-img-holder">
-            <span class="auction-badge">Handcrafted</span>
+            <span class="floating-badge dark auction-badge">Handcrafted</span>
             🦯
           </div>
           <div class="auction-body">
-            <div class="auction-title">Custom Carved Scoutmaster Hiking Staff</div>
-            <p class="auction-desc">Hand-carved hickory hiking stick with inlaid brass troop medallion, compass cap, and paracord grip crafted by local alumni.</p>
+            <div class="auction-title">Hand-Carved Scoutmaster Hickory Staff</div>
+            <p class="auction-desc">Turned seasoned hickory walking stick with inlaid bronze troop medallion, liquid compass cap, and custom paracord knotting.</p>
             <div class="auction-footer">
               <div>
-                <div class="auction-bid-label">Current Bid</div>
+                <div class="auction-bid-label">Current Pledge</div>
                 <div class="auction-bid-val" id="bid-1">$85.00</div>
               </div>
-              <button class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openBidModal('Custom Carved Scoutmaster Hiking Staff', 85, 'bid-1')">Bid / Pledge</button>
+              <button class="btn btn-outline-gold" style="padding: 0.45rem 1.15rem; font-size: 0.85rem;" onclick="openBidModal('Hand-Carved Scoutmaster Hickory Staff', 85, 'bid-1')">Pledge / Bid</button>
             </div>
           </div>
         </div>
@@ -2002,18 +2345,18 @@
         <!-- Item 2 -->
         <div class="auction-card">
           <div class="auction-img-holder">
-            <span class="auction-badge">Outdoor Gear</span>
+            <span class="floating-badge dark auction-badge">Camp Gourmet</span>
             🍳
           </div>
           <div class="auction-body">
-            <div class="auction-title">Lodge Cast Iron Camp Chef Deluxe Set</div>
-            <p class="auction-desc">Full 5-piece campfire cooking ensemble including 12" Dutch oven, skillet, lid lifter, tripod, and leather grill gloves.</p>
+            <div class="auction-title">Lodge Cast Iron Camp Chef Deluxe Suite</div>
+            <p class="auction-desc">Five-piece heritage cast iron collection featuring a 12-inch Dutch oven, dual-handled skillet, tripod, and buffalo leather gloves.</p>
             <div class="auction-footer">
               <div>
-                <div class="auction-bid-label">Current Bid</div>
+                <div class="auction-bid-label">Current Pledge</div>
                 <div class="auction-bid-val" id="bid-2">$120.00</div>
               </div>
-              <button class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openBidModal('Lodge Cast Iron Camp Chef Deluxe Set', 120, 'bid-2')">Bid / Pledge</button>
+              <button class="btn btn-outline-gold" style="padding: 0.45rem 1.15rem; font-size: 0.85rem;" onclick="openBidModal('Lodge Cast Iron Camp Chef Deluxe Suite', 120, 'bid-2')">Pledge / Bid</button>
             </div>
           </div>
         </div>
@@ -2021,18 +2364,18 @@
         <!-- Item 3 -->
         <div class="auction-card">
           <div class="auction-img-holder">
-            <span class="auction-badge">Experience</span>
+            <span class="floating-badge dark auction-badge">Waterside Cabin • 16 Bunk Cap</span>
             🛶
           </div>
           <div class="auction-body">
-            <div class="auction-title">Guided Delaware River Canoe Weekend</div>
-            <p class="auction-desc">Two-day river expedition for four people including boat rentals, safety gear, and gourmet dutch-oven campfire meals.</p>
+            <div class="auction-title">Delaware River Canoe Retreat & Cabin</div>
+            <p class="auction-desc">Two-day scenic expedition for family or patrol including outfitter canoe rentals, river safety guides, and gourmet fireside dinner.</p>
             <div class="auction-footer">
               <div>
-                <div class="auction-bid-label">Current Bid</div>
+                <div class="auction-bid-label">Current Pledge</div>
                 <div class="auction-bid-val" id="bid-3">$240.00</div>
               </div>
-              <button class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openBidModal('Guided Delaware River Canoe Weekend', 240, 'bid-3')">Bid / Pledge</button>
+              <button class="btn btn-outline-gold" style="padding: 0.45rem 1.15rem; font-size: 0.85rem;" onclick="openBidModal('Delaware River Canoe Retreat & Cabin', 240, 'bid-3')">Pledge / Bid</button>
             </div>
           </div>
         </div>
@@ -2040,18 +2383,18 @@
         <!-- Item 4 -->
         <div class="auction-card">
           <div class="auction-img-holder">
-            <span class="auction-badge">Patrol Keepsake</span>
+            <span class="floating-badge dark auction-badge">Heritage Heirloom</span>
             🧵
           </div>
           <div class="auction-body">
             <div class="auction-title">Troop 170 Commemorative Quilt</div>
-            <p class="auction-desc">Hand-stitched heirloom quilt featuring retired patrol badges, Philmont trek emblems, and anniversary camp patches from 1980–2026.</p>
+            <p class="auction-desc">Hand-stitched masterwork quilt featuring retired historic patrol insignias, Philmont expedition badges, and anniversary regalia (1962–2026).</p>
             <div class="auction-footer">
               <div>
-                <div class="auction-bid-label">Current Bid</div>
+                <div class="auction-bid-label">Current Pledge</div>
                 <div class="auction-bid-val" id="bid-4">$175.00</div>
               </div>
-              <button class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openBidModal('Troop 170 Commemorative Quilt', 175, 'bid-4')">Bid / Pledge</button>
+              <button class="btn btn-outline-gold" style="padding: 0.45rem 1.15rem; font-size: 0.85rem;" onclick="openBidModal('Troop 170 Commemorative Quilt', 175, 'bid-4')">Pledge / Bid</button>
             </div>
           </div>
         </div>
@@ -2059,86 +2402,88 @@
     </div>
   </section>
 
-  <!-- Photo Gallery -->
-  <section class="section" id="gallery" style="background-color: #f7faf8;">
+  <!-- Photo Gallery with Segmented Pill Controls -->
+  <section class="section" id="gallery" style="background-color: #F8FAFC;">
     <div class="container">
       <div class="section-title">
         <span class="section-badge">Memories of 2026</span>
         <h2>A Year on the Trail</h2>
-        <p>Snapshots from our patrol meetings, high adventure treks, winter campouts, and community service.</p>
+        <p>Portraits of grit, camaraderie, wilderness discovery, and community stewardship.</p>
       </div>
 
-      <div class="gallery-filter-tabs">
-        <button class="filter-tab active" onclick="filterGallery('all')">All Moments</button>
-        <button class="filter-tab" onclick="filterGallery('camp')">Summer Camp</button>
-        <button class="filter-tab" onclick="filterGallery('adventure')">High Adventure</button>
-        <button class="filter-tab" onclick="filterGallery('service')">Eagle & Service</button>
+      <div class="gallery-filter-wrapper">
+        <div class="gallery-filter-tabs">
+          <button class="filter-tab active" onclick="filterGallery('all')">All Moments</button>
+          <button class="filter-tab" onclick="filterGallery('camp')">Summer Camp</button>
+          <button class="filter-tab" onclick="filterGallery('adventure')">High Adventure</button>
+          <button class="filter-tab" onclick="filterGallery('service')">Eagle & Service</button>
+        </div>
       </div>
 
       <div class="gallery-grid" id="galleryGrid">
         <!-- Photo 1 -->
         <div class="gallery-card" data-category="camp">
-          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #2d6a4f, #1b4332);">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #1B3022, #0E2238);">
             🏕️
           </div>
           <div class="gallery-card-info">
             <h4>Resica Falls Summer Camp 2026</h4>
-            <p>Troop campsite assembly and first-year Scout swimming qualification milestones.</p>
+            <p>Troop encampment construction and first-year Scout aquatic swimming qualifications.</p>
           </div>
         </div>
 
         <!-- Photo 2 -->
         <div class="gallery-card" data-category="adventure">
-          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #1f3c88, #070d59);">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #0E2238, #163454);">
             🏔️
           </div>
           <div class="gallery-card-info">
             <h4>Adirondack High Peaks Expedition</h4>
-            <p>14-mile summit trek up Mount Marcy with 50-pound packs and backcountry navigation.</p>
+            <p>Fourteen-mile summit traverse over Mount Marcy with technical backcountry navigation.</p>
           </div>
         </div>
 
         <!-- Photo 3 -->
         <div class="gallery-card" data-category="service">
-          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #a47148, #603813);">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #78350F, #451A03);">
             🪵
           </div>
           <div class="gallery-card-info">
-            <h4>Miller Nature Boardwalk Service Project</h4>
-            <p>Troop work day installing erosion barriers and all-weather lumber framing.</p>
+            <h4>Miller Nature Boardwalk Project</h4>
+            <p>Troop mobilization day installing erosion retention framing and recycled lumber decks.</p>
           </div>
         </div>
 
         <!-- Photo 4 -->
         <div class="gallery-card" data-category="camp">
-          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #d4a373, #faedcd); color: #333;">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #B45309, #78350F); color: #FFFFFF;">
             🔥
           </div>
           <div class="gallery-card-info">
             <h4>Order of the Arrow Tap-Out Campfire</h4>
-            <p>Honoring 7 new Ordeal candidates during the ceremonial council flame ceremony.</p>
+            <p>Honoring seven new Ordeal candidates during the solemn ceremonial council fire.</p>
           </div>
         </div>
 
         <!-- Photo 5 -->
         <div class="gallery-card" data-category="adventure">
-          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #028090, #00a896);">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #0369A1, #075985);">
             🛶
           </div>
           <div class="gallery-card-info">
-            <h4>Whitewater Canoe Training</h4>
-            <p>Class II rapids handling and water rescue safety certifications on the Lehigh River.</p>
+            <h4>Whitewater Canoe Certification</h4>
+            <p>Class II rapids handling and river rescue safety certifications on the Lehigh River.</p>
           </div>
         </div>
 
         <!-- Photo 6 -->
         <div class="gallery-card" data-category="service">
-          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #6a4c93, #1982c4);">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #4C1D95, #312E81);">
             🥫
           </div>
           <div class="gallery-card-info">
             <h4>Scouting for Food Drive</h4>
-            <p>Collecting over 2,800 pounds of non-perishable goods for county neighborhood pantries.</p>
+            <p>Mobilizing patrols to collect 2,800 pounds of provisions for county food pantries.</p>
           </div>
         </div>
       </div>
@@ -2149,16 +2494,16 @@
   <section class="section guestbook-section" id="tributes">
     <div class="container">
       <div class="section-title">
-        <span class="section-badge">Scout Community</span>
+        <span class="section-badge">Scout Fellowship</span>
         <h2>Congratulatory Guestbook</h2>
-        <p>Leave a note of encouragement for our advancing Scouts, leaders, and Eagle candidates.</p>
+        <p>Inscribe a congratulatory tribute for advancing Scouts, devoted Scouters, and the Eagle Class of 2026.</p>
       </div>
 
       <div class="tribute-columns">
         <!-- New Message Form -->
-        <div style="background: #ffffff; padding: 2.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
-          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 1.25rem;">
-            Post a Message or Tribute
+        <div style="background: #FFFFFF; padding: 2.5rem; border-radius: var(--radius-xl); border: 1px solid var(--border-subtle); box-shadow: var(--shadow-card);">
+          <h3 style="font-family: var(--font-display); font-size: 1.45rem; color: var(--navy); margin-bottom: 1.25rem;">
+            Post a Message of Honor
           </h3>
           <form id="tributeForm">
             <div class="form-group">
@@ -2172,15 +2517,15 @@
                 <option value="Troop Alumni">Troop Alumni / Former Scout</option>
                 <option value="Assistant Scoutmaster">Adult Leader / ASM</option>
                 <option value="Fellow Scout">Fellow Scout / Patrol Member</option>
-                <option value="Grandparent / Family">Family Member & Supporter</option>
+                <option value="Grandparent / Family">Family Member & Benefactor</option>
               </select>
             </div>
             <div class="form-group">
               <label class="form-label" for="tributeText">Your Message *</label>
-              <textarea id="tributeText" class="form-control" rows="4" placeholder="Congratulations to our Scouts for an inspiring year of perseverance and brotherly duty! So proud of the Class of 2026 Eagles..." required></textarea>
+              <textarea id="tributeText" class="form-control" rows="4" placeholder="Congratulations to our advancing Scouts and the Eagle Class of 2026 for an inspiring year of perseverance and duty..." required></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%;">
-              <span>💬</span> Post Note to Guestbook
+            <button type="submit" class="btn btn-gold" style="width: 100%; padding: 0.95rem;">
+              <span>💬</span> Submit Tribute to Guestbook
             </button>
           </form>
         </div>
@@ -2194,7 +2539,7 @@
               <span class="tribute-role">Scoutmaster</span>
             </div>
             <div class="tribute-body">
-              "Watching this group of young leaders grow from nervous 11-year-olds pitching their first tents into capable, ethical leaders has been the honor of a lifetime. Here's to 2026!"
+              "Witnessing this group of young leaders mature from nervous tenderfeet into principled, self-reliant servants has been the greatest honor of my tenure. Congratulations to 2026!"
             </div>
             <div class="tribute-time">Today • 4:12 PM</div>
           </div>
@@ -2206,7 +2551,7 @@
               <span class="tribute-role">Troop Parent</span>
             </div>
             <div class="tribute-body">
-              "Congratulations to Alex and all the Eagle Scouts! Thank you to the dedicated leaders and merit badge counselors who guided the trail every step of the way."
+              "Congratulations to Alex and all the Eagle candidates! Heartfelt gratitude to the volunteer leaders and merit badge counselors who illuminated the path."
             </div>
             <div class="tribute-time">Yesterday • 8:30 PM</div>
           </div>
@@ -2218,7 +2563,7 @@
               <span class="tribute-role">Troop Alumni</span>
             </div>
             <div class="tribute-body">
-              "Once an Eagle, always an Eagle. Keep passing the torch forward, Troop 170!"
+              "Once an Eagle, always an Eagle. Guard the honor of the trail and keep the flame burning bright, Troop 170!"
             </div>
             <div class="tribute-time">Oct 6, 2026</div>
           </div>
@@ -2233,43 +2578,43 @@
       <div class="section-title">
         <span class="section-badge">Helpful Information</span>
         <h2>Frequently Asked Questions</h2>
-        <p>Everything you need to know about attendance, dress code, parking, and logistics.</p>
+        <p>Essential details regarding ceremonial protocol, dress code, parking, and logistics.</p>
       </div>
 
       <div class="faq-container">
         <details class="faq-item" open>
           <summary class="faq-question">What is the dress code for Scouts and guests?</summary>
           <div class="faq-answer">
-            <strong>For Youth Scouts:</strong> Full Class A (Field) Uniform is required. Please ensure merit badge sashes and rank neckerchiefs are worn for the formal Court of Honor photos.<br>
-            <strong>For Parents & Guests:</strong> Business casual or semi-formal attire is customary.
+            <strong>For Youth Scouts:</strong> Full Class A (Field) Uniform is mandatory. Merit badge sashes and formal neckerchiefs should be worn for the official Court of Honor portraiture.<br>
+            <strong>For Parents & Guests:</strong> Business casual or semi-formal gala attire is customary for this celebratory milestone.
           </div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">Can extended family, grandparents, and younger siblings attend?</summary>
+          <summary class="faq-question">May extended family, grandparents, and siblings attend?</summary>
           <div class="faq-answer">
-            Absolutely! The Annual Banquet is our premier family event of the year. Grandparents, aunts, uncles, and siblings are heartily welcomed. Children under 5 attend free of charge.
+            Yes, gladly. The Annual Banquet is our premier community fellowship event. Grandparents, relatives, and siblings are warmly welcomed. Toddlers under five attend compliments of the Troop.
           </div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">How does payment via Scout Account / Scout Bucks work?</summary>
+          <summary class="faq-question">How does settlement via Scout Account / Scout Bucks work?</summary>
           <div class="faq-answer">
-            Scouts who accumulated funds through popcorn sales, flower sales, or camp fundraisers can allocate their balance towards banquet tickets. Simply select "Deduct from Scout Account" during RSVP, and the Troop Scribe will confirm your balance.
+            Scouts who have earned funds through product sales or service fundraisers may allocate their internal Troop balance toward gala tickets. Select "Deduct from Scout Account" during RSVP, and our Troop Scribe will confirm your balance.
           </div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">What if our family has special dietary restrictions or allergies?</summary>
+          <summary class="faq-question">How are dietary restrictions and allergens accommodated?</summary>
           <div class="faq-answer">
-            Our caterer accommodates vegetarian, vegan, celiac / gluten-free, nut-free, and kosher/halal preferences. Please note the specific requirement in the designated field on the RSVP form.
+            Our culinary team accommodates vegetarian, vegan, celiac / gluten-free, nut-free, and halal requirements. Please describe any specific accommodations in the designated field on the reservation form.
           </div>
         </details>
 
         <details class="faq-item">
-          <summary class="faq-question">How does the Silent Auction work?</summary>
+          <summary class="faq-question">How will the Silent Auction bidding conclude?</summary>
           <div class="faq-answer">
-            Bids can be placed in advance on this website or in person on the bid sheets during the 5:30 PM reception. Bidding closes sharply at 8:45 PM. Winning bidders can settle via Cash, Check, or Zelle.
+            Pledges may be registered online in advance or in person at the display tables during the 5:30 PM reception. Bidding closes sharply at 8:45 PM. Winning bidders may settle via Cash, Check, or Zelle.
           </div>
         </details>
       </div>
@@ -2277,17 +2622,17 @@
       <!-- Venue & Map Card -->
       <div class="venue-card" id="venue">
         <div class="venue-details">
-          <span class="section-badge">Location & Parking</span>
+          <span class="section-badge">Venue & Ingress</span>
           <h3>St. John's Grand Fellowship Hall</h3>
-          <p style="color: var(--text-muted); margin-bottom: 1rem;">
-            Our 2026 banquet venue provides ample space, full audiovisual projection for the year-end video, and complimentary on-site parking.
+          <p style="color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.7;">
+            Our gala facility provides full audiovisual projection, an expansive banquet hall, and complimentary on-site parking for all attendees.
           </p>
 
           <ul class="venue-meta">
             <li>
               <span class="venue-meta-icon">📍</span>
               <div>
-                <strong>Address:</strong><br>
+                <strong>Physical Address:</strong><br>
                 450 Highland Avenue, Grand Hall Entrance<br>
                 Hometown, PA 19040
               </div>
@@ -2296,14 +2641,14 @@
               <span class="venue-meta-icon">🚗</span>
               <div>
                 <strong>Parking & Accessibility:</strong><br>
-                Free parking in the East and West lots. Fully ADA-compliant wheelchair access via the main front rotunda.
+                Complimentary parking across the East and West campus plazas. ADA-compliant step-free ingress via the central portico.
               </div>
             </li>
             <li>
               <span class="venue-meta-icon">📞</span>
               <div>
-                <strong>Questions:</strong><br>
-                Banquet Chairs: banquet@troop170.org • (555) 789-0170
+                <strong>Banquet Committee Inquiries:</strong><br>
+                banquet@troop170.org • (555) 789-0170
               </div>
             </li>
           </ul>
@@ -2314,14 +2659,14 @@
         </div>
 
         <div class="map-placeholder">
-          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏛️</div>
-          <h4 style="font-size: 1.3rem; margin-bottom: 0.25rem;">St. John's Grand Hall</h4>
-          <p style="font-size: 0.9rem; color: #b7d5c4; max-width: 280px; margin-bottom: 1.25rem;">
-            450 Highland Avenue, Banquet Pavilion
+          <div style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--gold);">🏛️</div>
+          <h4 style="font-family: var(--font-display); font-size: 1.35rem; margin-bottom: 0.35rem; color: #FFFFFF;">St. John's Grand Hall</h4>
+          <p style="font-size: 0.9rem; color: #CBD5E1; max-width: 290px; margin-bottom: 1.35rem;">
+            450 Highland Avenue, Gala Pavilion
           </p>
           <div style="display: flex; gap: 0.5rem;">
-            <span style="font-size: 0.75rem; background: rgba(255, 255, 255, 0.2); padding: 0.25rem 0.6rem; border-radius: 4px;">Main Lot Parking</span>
-            <span style="font-size: 0.75rem; background: rgba(255, 255, 255, 0.2); padding: 0.25rem 0.6rem; border-radius: 4px;">Hall Door B</span>
+            <span class="floating-badge dark">Main Campus Parking</span>
+            <span class="floating-badge dark">Grand Rotunda B</span>
           </div>
         </div>
       </div>
@@ -2332,21 +2677,21 @@
   <dialog class="app-dialog" id="rsvpSuccessDialog">
     <div class="dialog-inner">
       <div class="dialog-header">
-        <h3 class="dialog-title">🎉 Reservation Confirmed!</h3>
+        <h3 class="dialog-title">🎉 Reservation Confirmed</h3>
         <button class="dialog-close" onclick="closeDialog('rsvpSuccessDialog')">&times;</button>
       </div>
       <div id="rsvpDialogContent">
-        <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
-          Thank you for confirming your attendance! A confirmation record has been logged for our banquet committee.
+        <p style="margin-bottom: 1.35rem; color: var(--text-secondary); line-height: 1.6;">
+          Thank you for confirming your table reservation. A confirmation voucher has been registered with the Troop 170 banquet committee.
         </p>
-        <div style="background: var(--light-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
-          <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;" id="modalGuestName">The Scout Family</div>
-          <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;" id="modalGuestDetails">2 Adults, 1 Scout</div>
-          <div style="font-size: 0.9rem; font-weight: 600;" id="modalGuestTotal">Total: $65.00</div>
-          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;" id="modalGuestPayment">Payment: Scout Account</div>
+        <div style="background: var(--slate-ground); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.35rem; margin-bottom: 1.65rem;">
+          <div style="font-family: var(--font-display); font-weight: 700; color: var(--navy); font-size: 1.1rem; margin-bottom: 0.35rem;" id="modalGuestName">The Scout Family</div>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;" id="modalGuestDetails">2 Adults, 1 Scout</div>
+          <div style="font-size: 1rem; font-weight: 700; color: var(--gold-dark);" id="modalGuestTotal">Total: $65.00</div>
+          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.25rem;" id="modalGuestPayment">Payment: Scout Account</div>
         </div>
-        <div style="display: flex; gap: 0.75rem;">
-          <button class="btn btn-primary" style="flex: 1;" onclick="downloadCalendarEvent()">📅 Add to Calendar (.ics)</button>
+        <div style="display: flex; gap: 0.85rem;">
+          <button class="btn btn-gold" style="flex: 1;" onclick="downloadCalendarEvent()">📅 Add to Calendar (.ics)</button>
           <button class="btn btn-outline" style="flex: 1;" onclick="closeDialog('rsvpSuccessDialog')">Done</button>
         </div>
       </div>
@@ -2362,18 +2707,18 @@
       </div>
       <form id="bidForm">
         <input type="hidden" id="bidTargetSpanId">
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">
-          Current bid is <strong id="bidCurrentAmountText">$85.00</strong>. Enter your name and next bid (minimum +$5 increment).
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.35rem; line-height: 1.6;">
+          Current bid is <strong id="bidCurrentAmountText" style="color: var(--navy);">$85.00</strong>. Enter your name and next bid (minimum +$5 increment).
         </p>
         <div class="form-group">
-          <label class="form-label" for="bidderName">Your Name *</label>
+          <label class="form-label" for="bidderName">Your Full Name *</label>
           <input type="text" id="bidderName" class="form-control" placeholder="John Doe" required>
         </div>
         <div class="form-group">
           <label class="form-label" for="bidAmount">Bid Amount ($ USD) *</label>
           <input type="number" id="bidAmount" class="form-control" min="1" step="5" required>
         </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Submit Proxy Bid</button>
+        <button type="submit" class="btn btn-gold" style="width: 100%; margin-top: 0.5rem; padding: 0.9rem;">Submit Proxy Bid</button>
       </form>
     </div>
   </dialog>
@@ -2384,8 +2729,8 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <h3>Scouts BSA Troop 170</h3>
-          <p style="color: #c4d7cd; font-size: 0.95rem;">
-            Serving youth, developing lifelong character, outdoor leadership, and wilderness ethics since 1962. Chartered by Saint John's Community Association.
+          <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.7;">
+            Fostering ethical character, wilderness mastery, and servant leadership since 1962. Chartered by Saint John's Community Association.
           </p>
           <p class="footer-creed">
             "On my honor I will do my best to do my duty to God and my country and to obey the Scout Law; to help other people at all times; to keep myself physically strong, mentally awake, and morally straight."
@@ -2393,19 +2738,19 @@
         </div>
 
         <div class="footer-col">
-          <h4>Banquet Links</h4>
+          <h4>Gala Index</h4>
           <ul class="footer-links">
             <li><a href="#overview">Event Overview</a></li>
-            <li><a href="#schedule">Program Schedule</a></li>
+            <li><a href="#schedule">Program Timeline</a></li>
             <li><a href="#honors">Eagle Scout Class</a></li>
-            <li><a href="#menu">Dinner Menu</a></li>
-            <li><a href="#rsvp">Reserve Tickets</a></li>
+            <li><a href="#menu">Catered Menu</a></li>
+            <li><a href="#rsvp">Reserve Seats</a></li>
             <li><a href="#auction">Silent Auction</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Contact Troop 170</h4>
+          <h4>Troop Secretariat</h4>
           <ul class="footer-links">
             <li><a href="mailto:scoutmaster@troop170.org">scoutmaster@troop170.org</a></li>
             <li><a href="mailto:banquet@troop170.org">banquet@troop170.org</a></li>
@@ -2418,7 +2763,7 @@
       <div class="footer-bottom">
         <div>&copy; 2026 Scouts BSA Troop 170. All rights reserved.</div>
         <div>
-          <a href="#top" style="color: #e0ece4;">↑ Back to Top</a>
+          <a href="#top" style="color: var(--gold-light);">↑ Back to Top</a>
         </div>
       </div>
     </div>
@@ -2489,20 +2834,28 @@
       state[type] = Math.max(0, state[type] + delta);
 
       // Update counter UI
-      document.getElementById(`${type}Count`).innerText = state[type];
+      const countEl = document.getElementById(`${type}Count`);
+      if (countEl) countEl.innerText = state[type];
 
       // Update Summary UI
       const adultTotal = state.adults * state.adultPrice;
       const youthTotal = state.youth * state.youthPrice;
       const grandTotal = adultTotal + youthTotal;
+      const totalHeadcount = state.adults + state.youth + state.free;
 
-      document.getElementById('sumAdultQty').innerText = state.adults;
-      document.getElementById('sumAdultTotal').innerText = `$${adultTotal.toFixed(2)}`;
+      const sumAdultQtyEl = document.getElementById('sumAdultQty');
+      const sumAdultTotalEl = document.getElementById('sumAdultTotal');
+      const sumYouthQtyEl = document.getElementById('sumYouthQty');
+      const sumYouthTotalEl = document.getElementById('sumYouthTotal');
+      const sumGrandTotalEl = document.getElementById('sumGrandTotal');
+      const summaryHeadcountTextEl = document.getElementById('summaryHeadcountText');
 
-      document.getElementById('sumYouthQty').innerText = state.youth;
-      document.getElementById('sumYouthTotal').innerText = `$${youthTotal.toFixed(2)}`;
-
-      document.getElementById('sumGrandTotal').innerText = `$${grandTotal.toFixed(2)}`;
+      if (sumAdultQtyEl) sumAdultQtyEl.innerText = state.adults;
+      if (sumAdultTotalEl) sumAdultTotalEl.innerText = `$${adultTotal.toFixed(2)}`;
+      if (sumYouthQtyEl) sumYouthQtyEl.innerText = state.youth;
+      if (sumYouthTotalEl) sumYouthTotalEl.innerText = `$${youthTotal.toFixed(2)}`;
+      if (sumGrandTotalEl) sumGrandTotalEl.innerText = `$${grandTotal.toFixed(2)}`;
+      if (summaryHeadcountTextEl) summaryHeadcountTextEl.innerText = `${totalHeadcount} Confirmed ${totalHeadcount === 1 ? 'Attendee' : 'Attendees'}`;
     }
 
     // Form Submission
@@ -2576,7 +2929,9 @@
       const tabs = document.querySelectorAll('.filter-tab');
 
       tabs.forEach(tab => tab.classList.remove('active'));
-      event.target.classList.add('active');
+      if (event && event.target) {
+        event.target.classList.add('active');
+      }
 
       cards.forEach(card => {
         if (category === 'all' || card.getAttribute('data-category') === category) {
@@ -2594,7 +2949,7 @@
     function openBidModal(itemTitle, currentBid, targetElementId) {
       activeBidElementId = targetElementId;
       activeCurrentBid = currentBid;
-      document.getElementById('bidItemTitle').innerText = `Bid on: ${itemTitle}`;
+      document.getElementById('bidItemTitle').innerText = `Pledge on: ${itemTitle}`;
       document.getElementById('bidCurrentAmountText').innerText = `$${currentBid.toFixed(2)}`;
       
       const bidInput = document.getElementById('bidAmount');
@@ -2616,12 +2971,12 @@
         const el = document.getElementById(activeBidElementId);
         if (el) {
           el.innerText = `$${amount.toFixed(2)}`;
-          el.style.color = '#bc4749';
+          el.style.color = '#CFA052';
         }
       }
 
       closeDialog('bidDialog');
-      alert(`Proxy bid of $${amount.toFixed(2)} recorded for ${name}! Thank you for supporting Troop 170.`);
+      alert(`Proxy pledge of $${amount.toFixed(2)} recorded for ${name}! Thank you for supporting the Troop 170 endowment.`);
       document.getElementById('bidForm').reset();
     });
 
