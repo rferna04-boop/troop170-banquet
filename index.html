@@ -1034,33 +1034,132 @@
       .voucher-meta-grid { grid-template-columns: 1fr; }
     }
 
-    /* Print Stylesheet for Voucher */
+    /* Print Stylesheet for Single-Page Voucher */
     @media print {
-      body * {
-        visibility: hidden;
+      @page {
+        size: letter portrait;
+        margin: 10mm;
       }
-      #confirmation-modal, #confirmation-modal * {
-        visibility: visible;
-      }
-      #confirmation-modal {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        background: #fff !important;
-        display: block !important;
+      html, body {
+        margin: 0 !important;
         padding: 0 !important;
+        height: auto !important;
+        min-height: auto !important;
+        background: #ffffff !important;
+        color: #000000 !important;
+        overflow: visible !important;
       }
-      .modal-card {
-        border: none !important;
-        box-shadow: none !important;
-        max-width: 100% !important;
-      }
-      .modal-actions, .modal-close-btn {
+      /* Remove all page sections completely from print flow */
+      header,
+      section,
+      footer,
+      .modal-actions,
+      .modal-close-btn {
         display: none !important;
       }
+      body > *:not(#confirmation-modal) {
+        display: none !important;
+      }
+      #confirmation-modal {
+        display: block !important;
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        overflow: visible !important;
+      }
+      .modal-card {
+        display: block !important;
+        position: static !important;
+        border: 2px solid #0e2238 !important;
+        border-radius: 8px !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
       .voucher-printable-area {
-        padding: 10px 0 !important;
+        padding: 16px 20px !important;
+      }
+      .voucher-top {
+        display: flex !important;
+        align-items: center !important;
+        gap: 12px !important;
+        padding-bottom: 8px !important;
+        margin-bottom: 8px !important;
+        border-bottom: 2px solid #0e2238 !important;
+      }
+      .voucher-logo {
+        width: 50px !important;
+        height: 50px !important;
+      }
+      .voucher-title-wrap h3 {
+        font-size: 1.15rem !important;
+        line-height: 1.15 !important;
+        margin-bottom: 2px !important;
+      }
+      .voucher-title-wrap p {
+        font-size: 0.78rem !important;
+      }
+      .voucher-receipt-id-box {
+        padding: 6px 10px !important;
+        margin-bottom: 8px !important;
+        border: 1.5px solid #0e2238 !important;
+        background: #f8fafc !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .voucher-id-title {
+        font-size: 0.68rem !important;
+      }
+      .voucher-id-val {
+        font-size: 1.1rem !important;
+      }
+      .voucher-meta-grid {
+        margin-bottom: 8px !important;
+        gap: 6px !important;
+        font-size: 0.8rem !important;
+      }
+      .voucher-meta-item strong {
+        font-size: 0.7rem !important;
+      }
+      .voucher-table {
+        margin-bottom: 8px !important;
+        font-size: 0.8rem !important;
+      }
+      .voucher-table th {
+        background: #0e2238 !important;
+        color: #ffffff !important;
+        padding: 5px 8px !important;
+        font-size: 0.72rem !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .voucher-table td {
+        padding: 5px 8px !important;
+      }
+      .voucher-payment-box {
+        padding: 8px 10px !important;
+        margin-bottom: 8px !important;
+        font-size: 0.8rem !important;
+        border: 1px solid #94a3b8 !important;
+        background: #f8fafc !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .voucher-payment-box h4 {
+        font-size: 0.85rem !important;
+        margin-bottom: 2px !important;
       }
     }
   </style>
@@ -1770,32 +1869,149 @@
       if (counts.parent > 0) breakdownList.push(`${counts.parent} Parent Camper`);
       if (counts.volunteer > 0) breakdownList.push(`${counts.volunteer} Volunteer (${volunteerRole})`);
 
+      const totalTickets = calculateTotalTickets();
+      const passSummaryStr = breakdownList.join(', ');
+
       const payload = {
+        // Receipt ID in all common formats & header casings
+        receiptId: orderId,
+        receiptID: orderId,
+        receipt_id: orderId,
+        'Receipt ID': orderId,
+        'Receipt Id': orderId,
+        'receipt id': orderId,
+        receipt: orderId,
+        Receipt: orderId,
         orderId: orderId,
+        orderID: orderId,
+        order_id: orderId,
+        'Order ID': orderId,
+        'Order Id': orderId,
+        'order id': orderId,
+        confirmationId: orderId,
+        confirmationNumber: orderId,
+        id: orderId,
+
+        // Number of Pass Options / Passes Count
+        numberOfPassOptions: totalTickets,
+        number_of_pass_options: totalTickets,
+        'Number of Pass Options': totalTickets,
+        'number of pass options': totalTickets,
+        'Number Of Pass Options': totalTickets,
+        numberPassOptions: totalTickets,
+        totalPassOptions: totalTickets,
+        passOptionsCount: totalTickets,
+
+        numberOfPasses: totalTickets,
+        number_of_passes: totalTickets,
+        'Number of Passes': totalTickets,
+        'number of passes': totalTickets,
+        totalPasses: totalTickets,
+        total_passes: totalTickets,
+        'Total Passes': totalTickets,
+        totalTickets: totalTickets,
+        total_tickets: totalTickets,
+        'Total Tickets': totalTickets,
+        passCount: totalTickets,
+        pass_count: totalTickets,
+        'Pass Count': totalTickets,
+        ticketCount: totalTickets,
+        'Ticket Count': totalTickets,
+        numPasses: totalTickets,
+
+        // Pass Options Summary & Breakdown
+        passOptions: passSummaryStr,
+        'Pass Options': passSummaryStr,
+        pass_options: passSummaryStr,
+        'pass options': passSummaryStr,
+        passOptionsSummary: passSummaryStr,
+        passSummary: passSummaryStr,
+        'Pass Summary': passSummaryStr,
+        passes: passSummaryStr,
+        'Passes': passSummaryStr,
+        ticketSummary: passSummaryStr,
+        'Ticket Summary': passSummaryStr,
+        passBreakdown: passSummaryStr,
+        'Pass Breakdown': passSummaryStr,
+
+        // Breakdown by pass tier counts (numbers and strings)
+        troop: counts.troop,
+        troopScout: counts.troop,
+        troopScouts: counts.troop,
+        'Troop Scout Camping': counts.troop,
+        'Troop Scout': counts.troop,
+        'Troop Scouts': counts.troop,
+
+        aol_cabin: counts.aol_cabin,
+        aolCabin: counts.aol_cabin,
+        'AOL / Webelos Cabin Camping': counts.aol_cabin,
+        'AOL Cabin': counts.aol_cabin,
+
+        aol_day: counts.aol_day,
+        aolDay: counts.aol_day,
+        'AOL / Webelos Saturday Day Only': counts.aol_day,
+        'AOL Day': counts.aol_day,
+
+        banquet: counts.banquet,
+        banquetGuest: counts.banquet,
+        banquetGuests: counts.banquet,
+        'Banquet-Only Guest': counts.banquet,
+        'Banquet Guest': counts.banquet,
+        'Banquet Guests': counts.banquet,
+
+        leader: counts.leader,
+        adultLeader: counts.leader,
+        'Registered Adult Leader Camping': counts.leader,
+        'Registered Adult Leader': counts.leader,
+
+        parent: counts.parent,
+        parentCamping: counts.parent,
+        'Parent Camping': counts.parent,
+        'Parent Camper': counts.parent,
+
+        volunteer: counts.volunteer,
+        volunteerStaff: counts.volunteer,
+        volunteerSupportStaff: counts.volunteer,
+        'Volunteer Support Staff': counts.volunteer,
+        volunteerRole: volunteerRole,
+        'Volunteer Role': volunteerRole,
+
+        // Contact & Basic Info
         timestamp: new Date().toISOString(),
         name: primaryName,
         primaryName: primaryName,
+        'Primary Contact': primaryName,
+        'Full Name': primaryName,
+        'Name': primaryName,
         email: primaryEmail,
         primaryEmail: primaryEmail,
+        'Email Address': primaryEmail,
+        'Email': primaryEmail,
         phone: primaryPhone,
         primaryPhone: primaryPhone,
+        'Mobile Phone': primaryPhone,
+        'Phone Number': primaryPhone,
+        'Phone': primaryPhone,
         unit: affiliation,
         affiliation: affiliation,
+        'Unit': affiliation,
+        'Affiliation': affiliation,
         attendees: attendees,
+        'Attendees': attendees,
+        'Names of Attendees': attendees,
         dietary: dietary || 'None specified',
+        'Dietary Restrictions': dietary || 'None specified',
+        'Dietary': dietary || 'None specified',
         paymentMethod: selectedPaymentMethod,
-        volunteerRole: volunteerRole,
+        'Payment Method': selectedPaymentMethod,
+        'Payment Option': selectedPaymentMethod,
         total: totalCost,
         totalCost: totalCost,
-        passSummary: breakdownList.join(', '),
-        // Breakdown by pass counts
-        troop: counts.troop,
-        aol_cabin: counts.aol_cabin,
-        aol_day: counts.aol_day,
-        banquet: counts.banquet,
-        leader: counts.leader,
-        parent: counts.parent,
-        volunteer: counts.volunteer,
+        'Total': totalCost,
+        'Total Amount': totalCost,
+        'Total Cost': totalCost,
+
+        // Structured objects
         tickets: { ...counts },
         primaryContact: {
           name: primaryName,
@@ -1806,10 +2022,40 @@
 
       console.log("Submitting Registration Payload:", payload);
 
-      // Post JSON payload to Google Apps Script Webhook
+      // Post payload to Google Apps Script Webhook (both in URL query params for e.parameter and JSON body)
       if (GOOGLE_SCRIPT_WEBHOOK_URL && GOOGLE_SCRIPT_WEBHOOK_URL.trim() !== '') {
         try {
-          fetch(GOOGLE_SCRIPT_WEBHOOK_URL, {
+          let requestUrl = GOOGLE_SCRIPT_WEBHOOK_URL;
+          try {
+            const u = new URL(GOOGLE_SCRIPT_WEBHOOK_URL);
+            u.searchParams.set('receiptId', orderId);
+            u.searchParams.set('receiptID', orderId);
+            u.searchParams.set('Receipt ID', orderId);
+            u.searchParams.set('orderId', orderId);
+            u.searchParams.set('Order ID', orderId);
+            u.searchParams.set('numberOfPassOptions', totalTickets);
+            u.searchParams.set('number_of_pass_options', totalTickets);
+            u.searchParams.set('Number of Pass Options', totalTickets);
+            u.searchParams.set('numberOfPasses', totalTickets);
+            u.searchParams.set('totalPasses', totalTickets);
+            u.searchParams.set('passOptions', passSummaryStr);
+            u.searchParams.set('Pass Options', passSummaryStr);
+            u.searchParams.set('passSummary', passSummaryStr);
+            u.searchParams.set('name', primaryName);
+            u.searchParams.set('email', primaryEmail);
+            u.searchParams.set('phone', primaryPhone);
+            u.searchParams.set('total', totalCost);
+            u.searchParams.set('totalCost', totalCost);
+            u.searchParams.set('paymentMethod', selectedPaymentMethod);
+            u.searchParams.set('attendees', attendees);
+            u.searchParams.set('affiliation', affiliation);
+            u.searchParams.set('dietary', dietary || 'None specified');
+            requestUrl = u.toString();
+          } catch (urlErr) {
+            requestUrl = GOOGLE_SCRIPT_WEBHOOK_URL;
+          }
+
+          fetch(requestUrl, {
             method: 'POST',
             mode: 'no-cors',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
