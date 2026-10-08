@@ -1869,7 +1869,6 @@
       if (counts.parent > 0) breakdownList.push(`${counts.parent} Parent Camper`);
       if (counts.volunteer > 0) breakdownList.push(`${counts.volunteer} Volunteer (${volunteerRole})`);
 
-      const totalTickets = calculateTotalTickets();
       const passSummaryStr = breakdownList.join(', ');
 
       const payload = {
