@@ -1,0 +1,2674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troop 170 Annual Banquet & Court of Honor 2026</title>
+  <meta name="description" content="Official microsite for the Scouts BSA Troop 170 Annual Banquet & Court of Honor 2026. Join us in celebrating a year of leadership, rank advancement, and high adventure.">
+  <style>
+    /* CSS Custom Properties & Design Tokens */
+    :root {
+      --primary: #1b4332;
+      --primary-light: #2d6a4f;
+      --primary-dark: #081c15;
+      --secondary: #d4af37;
+      --secondary-light: #f3c959;
+      --secondary-dark: #aa841e;
+      --accent: #bc4749;
+      --accent-soft: #fdf0ed;
+      --navy: #1a2a3a;
+      --light-bg: #f8f9fa;
+      --card-bg: #ffffff;
+      --text-main: #2b2d42;
+      --text-muted: #6c757d;
+      --border-color: #e2e8f0;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-serif: Georgia, "Times New Roman", Garamond, serif;
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --transition: all 0.25s ease-in-out;
+    }
+
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--text-main);
+      background-color: var(--light-bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--primary-light);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    a:hover {
+      color: var(--secondary-dark);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-badge {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--secondary-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      border-radius: 50px;
+      margin-bottom: 0.75rem;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .section-title h2 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--primary-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background-color: var(--secondary);
+      color: var(--primary-dark);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.4);
+    }
+    .btn-primary:hover {
+      background-color: var(--secondary-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+      color: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(5px);
+    }
+    .btn-secondary:hover {
+      background-color: #ffffff;
+      color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    /* Top Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 800;
+      font-size: 1.25rem;
+      color: var(--primary);
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      fill: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--primary);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: var(--primary);
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #204b39 100%);
+      color: #ffffff;
+      padding: 6.5rem 0 5rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(45, 106, 79, 0.3) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.4rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--secondary-light);
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: #e0ece4;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      margin-bottom: 3.5rem;
+    }
+
+    /* Hero Key Stats / Badges */
+    .hero-details-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .hero-detail-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .hero-detail-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-detail-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #b7d5c4;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-detail-val {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    /* Countdown Section */
+    .countdown-wrapper {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .countdown-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--secondary-light);
+      margin-bottom: 1.25rem;
+      font-weight: 700;
+    }
+
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+    }
+
+    .countdown-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius-md);
+      min-width: 90px;
+      text-align: center;
+    }
+
+    .countdown-number {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown-unit {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #d1d5db;
+      margin-top: 0.5rem;
+    }
+
+    /* Year Highlights Stats Strip */
+    .stats-strip {
+      background-color: #ffffff;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .stat-card {
+      padding: 1rem;
+    }
+
+    .stat-number {
+      font-family: var(--font-serif);
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Schedule / Program */
+    .schedule-grid {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .schedule-grid::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      bottom: 20px;
+      left: 140px;
+      width: 2px;
+      background: var(--border-color);
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-time {
+      width: 120px;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: right;
+      padding-right: 1.5rem;
+      font-size: 1.05rem;
+      flex-shrink: 0;
+    }
+
+    .timeline-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--secondary);
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 2px var(--primary);
+      position: absolute;
+      left: 132px;
+      top: 4px;
+      z-index: 2;
+    }
+
+    .timeline-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      margin-left: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      flex-grow: 1;
+      transition: var(--transition);
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--secondary);
+    }
+
+    .timeline-card h3 {
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .timeline-tag {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      background: rgba(27, 67, 50, 0.1);
+      color: var(--primary);
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .timeline-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Eagle Scout & Honors */
+    .honors-section {
+      background-color: #f1f5f3;
+    }
+
+    .eagle-spotlight {
+      background: linear-gradient(135deg, #ffffff 0%, #fefcf6 100%);
+      border: 2px solid var(--secondary);
+      border-radius: var(--radius-lg);
+      padding: 3rem 2rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 3.5rem;
+      position: relative;
+    }
+
+    .eagle-badge-banner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--secondary);
+      color: var(--primary-dark);
+      font-weight: 800;
+      padding: 0.4rem 1.25rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+    }
+
+    .eagle-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2rem;
+    }
+
+    .eagle-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .eagle-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--secondary);
+    }
+
+    .eagle-scout-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .eagle-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(212, 175, 55, 0.15);
+      border: 2px solid var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .eagle-info h4 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .eagle-info span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .eagle-project {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+      font-size: 0.9rem;
+      color: var(--text-main);
+      flex-grow: 1;
+    }
+
+    .eagle-project-title {
+      font-weight: 700;
+      color: var(--primary-light);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    /* Menu & Dining Section */
+    .menu-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .menu-course-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-course-header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px dashed var(--border-color);
+    }
+
+    .menu-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-course-header h3 {
+      font-family: var(--font-serif);
+      color: var(--primary-dark);
+      font-size: 1.4rem;
+    }
+
+    .menu-item-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .menu-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-item-name {
+      font-weight: 700;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .dietary-badge {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      background: #e9ecef;
+      color: #495057;
+    }
+
+    .dietary-badge.gf { background: #e3f2fd; color: #0d47a1; }
+    .dietary-badge.v { background: #e8f5e9; color: #1b5e20; }
+
+    .menu-item-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .menu-note-box {
+      margin-top: 2.5rem;
+      background: rgba(212, 175, 55, 0.1);
+      border-left: 4px solid var(--secondary);
+      padding: 1.25rem 1.75rem;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* RSVP & Ticket Calculator Section */
+    .rsvp-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f4f8f5 100%);
+    }
+
+    .rsvp-box {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+    }
+
+    .rsvp-form-pane {
+      padding: 3rem;
+    }
+
+    .rsvp-summary-pane {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #ffffff;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(45, 106, 79, 0.15);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .counter-group {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .counter-info h5 {
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .counter-info span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .counter-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .counter-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: var(--transition);
+    }
+
+    .counter-btn:hover {
+      background: var(--light-bg);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .counter-val {
+      font-weight: 700;
+      font-size: 1.1rem;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .summary-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      padding-bottom: 1rem;
+    }
+
+    .summary-lines {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      margin-bottom: 2rem;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      color: #e0ece4;
+    }
+
+    .summary-total {
+      border-top: 2px dashed rgba(255, 255, 255, 0.3);
+      padding-top: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .summary-total-amount {
+      font-size: 2.25rem;
+      font-weight: 800;
+      color: var(--secondary-light);
+    }
+
+    .payment-notice {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      line-height: 1.4;
+      margin-top: 1.5rem;
+    }
+
+    /* Silent Auction & Fundraiser */
+    .auction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+    }
+
+    .auction-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .auction-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .auction-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0, 0, 0, 0.7);
+      color: var(--secondary-light);
+      padding: 0.3rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .auction-img-holder {
+      height: 180px;
+      background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      color: #ffffff;
+      font-size: 3.5rem;
+    }
+
+    .auction-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .auction-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .auction-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+
+    .auction-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .auction-bid-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .auction-bid-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    /* Photo Gallery */
+    .gallery-filter-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-tab {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border-color);
+      background: #ffffff;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .filter-tab.active,
+    .filter-tab:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-card {
+      background: #ffffff;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .gallery-card-thumb {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .gallery-card-info {
+      padding: 1.25rem;
+    }
+
+    .gallery-card-info h4 {
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .gallery-card-info p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Guestbook & Tributes */
+    .guestbook-section {
+      background: #f8fbf9;
+    }
+
+    .tribute-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    .tribute-wall {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-height: 520px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+    }
+
+    .tribute-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 1.25rem 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tribute-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .tribute-author {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+    }
+
+    .tribute-role {
+      font-size: 0.75rem;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--secondary-dark);
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .tribute-body {
+      font-size: 0.9rem;
+      color: var(--text-main);
+      font-style: italic;
+    }
+
+    .tribute-time {
+      font-size: 0.75rem;
+      color: #9ca3af;
+      margin-top: 0.5rem;
+      text-align: right;
+    }
+
+    /* FAQ Accordion */
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    details.faq-item {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    details.faq-item[open] {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow-sm);
+    }
+
+    summary.faq-question {
+      padding: 1.25rem 1.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary.faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    summary.faq-question::after {
+      content: '+';
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--secondary);
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary.faq-question::after {
+      content: '−';
+      transform: rotate(0);
+    }
+
+    .faq-answer {
+      padding: 0 1.5rem 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Venue & Map Information */
+    .venue-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+
+    .venue-details h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .venue-meta {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .venue-meta li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .venue-meta-icon {
+      color: var(--secondary-dark);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    .map-placeholder {
+      background: linear-gradient(135deg, #1b4332 0%, #0d281e 100%);
+      border-radius: var(--radius-md);
+      height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      text-align: center;
+      padding: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Modal / Dialog */
+    dialog.app-dialog {
+      border: none;
+      border-radius: var(--radius-lg);
+      padding: 0;
+      max-width: 550px;
+      width: 90%;
+      margin: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35);
+      background: #ffffff;
+    }
+
+    dialog.app-dialog::backdrop {
+      background: rgba(10, 25, 18, 0.75);
+      backdrop-filter: blur(4px);
+    }
+
+    .dialog-inner {
+      padding: 2.5rem;
+    }
+
+    .dialog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .dialog-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: var(--primary-dark);
+    }
+
+    .dialog-close {
+      background: none;
+      border: none;
+      font-size: 1.75rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      line-height: 1;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--primary-dark);
+      color: #e0ece4;
+      padding: 4.5rem 0 2rem;
+      border-top: 4px solid var(--secondary);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .footer-brand h3 {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: #ffffff;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-creed {
+      font-style: italic;
+      color: #9cb8a9;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 480px;
+      margin-top: 1rem;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: #b7d5c4;
+      font-size: 0.95rem;
+    }
+    .footer-links a:hover {
+      color: var(--secondary);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #8faea0;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff;
+        color: #000000;
+        font-size: 11pt;
+      }
+      .navbar, .hero-actions, .countdown-wrapper, .menu-toggle,
+      .rsvp-section, .guestbook-section, .filter-tab,
+      #rsvp, #tributes, .footer, .btn, .payment-notice {
+        display: none !important;
+      }
+      .hero {
+        background: none !important;
+        color: #000000 !important;
+        padding: 1rem 0 !important;
+      }
+      .hero h1 {
+        color: #000000 !important;
+        font-size: 24pt !important;
+      }
+      .hero-subtitle, .hero-tag, .hero-detail-val {
+        color: #333333 !important;
+      }
+      .hero-details-bar {
+        border: 1px solid #000000;
+        background: none;
+      }
+      .section {
+        padding: 1.5rem 0;
+        page-break-inside: avoid;
+      }
+      .timeline-card, .eagle-card, .menu-course-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+      }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 2.75rem; }
+      .hero-details-bar { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+      .menu-cards-grid { grid-template-columns: 1fr; }
+      .rsvp-box { grid-template-columns: 1fr; }
+      .tribute-columns { grid-template-columns: 1fr; }
+      .venue-card { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+        box-shadow: var(--shadow-md);
+      }
+      .nav-links.open { display: flex; }
+      .menu-toggle { display: block; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-subtitle { font-size: 1.05rem; }
+      .schedule-grid::before { left: 20px; }
+      .timeline-item { flex-direction: column; padding-left: 45px; }
+      .timeline-time { text-align: left; width: auto; padding: 0 0 0.5rem 0; }
+      .timeline-dot { left: 12px; }
+      .timeline-card { margin-left: 0; }
+      .rsvp-form-pane, .rsvp-summary-pane { padding: 1.75rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .countdown-grid { gap: 0.5rem; }
+      .countdown-box { min-width: 70px; padding: 0.75rem 0.5rem; }
+      .countdown-number { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar" role="banner">
+    <div class="container nav-container">
+      <a href="#top" class="brand" aria-label="Troop 170 Annual Banquet Home">
+        <svg class="brand-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2L14.5 8.5L21.5 9.5L16.5 14.5L18 21.5L12 18L6 21.5L7.5 14.5L2.5 9.5L9.5 8.5L12 2Z" />
+        </svg>
+        <span>Troop 170 • 2026</span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#schedule">Program</a></li>
+          <li><a href="#honors">Eagle Scouts</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#rsvp">RSVP</a></li>
+          <li><a href="#auction">Silent Auction</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#tributes">Guestbook</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-cta">
+        <button class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem;" onclick="window.print()" title="Print Program Guide">🖨️ Print Program</button>
+        <a href="#rsvp" class="btn btn-primary" style="padding: 0.55rem 1.25rem; font-size: 0.9rem;">RSVP Now</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="top">
+    <div class="container hero-content">
+      <div class="hero-tag">
+        <span>⚜️</span> Annual Awards Banquet & Court of Honor
+      </div>
+      <h1>Troop 170 Annual Banquet 2026</h1>
+      <p class="hero-subtitle">
+        Join us in honoring a remarkable year of leadership, backcountry adventure, community service, and celebrating our newest Eagle Scouts.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#rsvp" class="btn btn-primary">
+          <span>🎟️</span> Reserve Your Seats
+        </a>
+        <button class="btn btn-secondary" id="calendarBtn">
+          <span>📅</span> Add to Calendar (.ics)
+        </button>
+        <a href="#schedule" class="btn btn-secondary">
+          <span>📜</span> View Event Program
+        </a>
+      </div>
+
+      <!-- Quick Details Bar -->
+      <div class="hero-details-bar" id="overview">
+        <div class="hero-detail-item">
+          <div class="hero-detail-icon">📅</div>
+          <span class="hero-detail-label">Date</span>
+          <span class="hero-detail-val">Saturday, Nov 14, 2026</span>
+        </div>
+        <div class="hero-detail-item">
+          <div class="hero-detail-icon">⏰</div>
+          <span class="hero-detail-label">Reception & Dinner</span>
+          <span class="hero-detail-val">5:30 PM – 9:00 PM</span>
+        </div>
+        <div class="hero-detail-item">
+          <div class="hero-detail-icon">📍</div>
+          <span class="hero-detail-label">Location</span>
+          <span class="hero-detail-val">Grand Ballroom & Grounds</span>
+        </div>
+        <div class="hero-detail-item">
+          <div class="hero-detail-icon">👔</div>
+          <span class="hero-detail-label">Attire</span>
+          <span class="hero-detail-val">Class A / Semi-Formal</span>
+        </div>
+      </div>
+
+      <!-- Live Dynamic Countdown -->
+      <div class="countdown-wrapper">
+        <div class="countdown-title">⏳ Countdown to Banquet Night</div>
+        <div class="countdown-grid" id="countdownGrid">
+          <div class="countdown-box">
+            <div class="countdown-number" id="countDays">--</div>
+            <div class="countdown-unit">Days</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="countHours">--</div>
+            <div class="countdown-unit">Hours</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="countMins">--</div>
+            <div class="countdown-unit">Minutes</div>
+          </div>
+          <div class="countdown-box">
+            <div class="countdown-number" id="countSecs">--</div>
+            <div class="countdown-unit">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Strip -->
+  <section class="stats-strip" aria-label="Troop 2026 Year Highlights">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">1,420+</div>
+          <div class="stat-label">Service Hours Given</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">58</div>
+          <div class="stat-label">Ranks & Badges Earned</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">38</div>
+          <div class="stat-label">Nights Camped Out</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">6</div>
+          <div class="stat-label">New Eagle Scouts</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program & Schedule -->
+  <section class="section" id="schedule">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-badge">Evening Timeline</span>
+        <h2>Order of Events</h2>
+        <p>A full schedule celebrating Scout spirit, camaraderie, tradition, and service.</p>
+      </div>
+
+      <div class="schedule-grid">
+        <div class="timeline-item">
+          <div class="timeline-time">5:30 PM</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Gathering & Fellowship Reception <span class="timeline-tag">Social</span></h3>
+            <p>Welcome reception, guest check-in, patrol photo booth, and silent auction viewing. Display of Troop memorabilia and High Adventure gear.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">6:15 PM</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Opening Ceremony & Color Guard <span class="timeline-tag">Ceremonial</span></h3>
+            <p>Presentation of the Colors by the Senior Patrol, recital of the Scout Oath and Scout Law, and the Invocation by the Troop Chaplain.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">6:30 PM</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Banquet Dinner Service <span class="timeline-tag">Dining</span></h3>
+            <p>Full catered dinner featuring slow-roasted beef, lemon herb chicken, roasted garden vegetables, dessert buffet, and coffee bar.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">7:15 PM</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Year in Review: 2026 Expeditions <span class="timeline-tag">Presentation</span></h3>
+            <p>Multimedia highlights from Summer Camp at Resica Falls, Adirondack Canoe Trek, Appalachian Trail backpacking, and district camporees.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">7:45 PM</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Rank Advancement & Court of Honor <span class="timeline-tag">Awards</span></h3>
+            <p>Conferral of Scout, Tenderfoot, Second Class, First Class, Star, and Life ranks. Presentation of the Honor Patrol Streamer and adult volunteer recognition.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">8:15 PM</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Eagle Scout Court of Honor & Keynote <span class="timeline-tag">Eagle Tribute</span></h3>
+            <p>Spotlighting our 2026 Eagle Scouts, presentation of Eagle Neckerchiefs and parent pins, followed by the Eagle Charge and keynote remarks.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-time">8:45 PM</div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <h3>Silent Auction Wrap-Up & Closing <span class="timeline-tag">Finale</span></h3>
+            <p>Announcement of auction winners, Scoutmaster's Minute, the Scout Benediction, and formal retiring of the Colors.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eagle Scout Spotlight & Honors -->
+  <section class="section honors-section" id="honors">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-badge">Highest Rank</span>
+        <h2>Eagle Scout Class of 2026</h2>
+        <p>Recognizing the dedication, leadership, and lasting community impact of Troop 170's newest Eagle Scouts.</p>
+      </div>
+
+      <div class="eagle-spotlight">
+        <div style="text-align: center;">
+          <div class="eagle-badge-banner">🦅 The Trail to Eagle</div>
+          <h3 style="font-family: var(--font-serif); font-size: 2rem; color: var(--primary-dark); margin-bottom: 0.5rem;">
+            Honoring Excellence in Leadership and Service
+          </h3>
+          <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+            Only 4% of all Scouts achieve the rank of Eagle. In 2026, Troop 170 proudly celebrates six extraordinary youth who completed over 800 hours of community leadership projects.
+          </p>
+        </div>
+
+        <div class="eagle-grid">
+          <!-- Eagle Scout 1 -->
+          <div class="eagle-card">
+            <div class="eagle-scout-header">
+              <div class="eagle-avatar">🦅</div>
+              <div class="eagle-info">
+                <h4>Alex Rodriguez</h4>
+                <span>Senior Patrol Leader • Age 17</span>
+              </div>
+            </div>
+            <div class="eagle-project">
+              <span class="eagle-project-title">Project: Community Park Trail Restoration</span>
+              Constructed 250 feet of all-weather trail boardwalk and planted native species to halt wetland erosion at Miller Nature Reserve.
+            </div>
+          </div>
+
+          <!-- Eagle Scout 2 -->
+          <div class="eagle-card">
+            <div class="eagle-scout-header">
+              <div class="eagle-avatar">🦅</div>
+              <div class="eagle-info">
+                <h4>Liam Chen</h4>
+                <span>Troop Scribe & Guide • Age 16</span>
+              </div>
+            </div>
+            <div class="eagle-project">
+              <span class="eagle-project-title">Project: Elementary School Outdoor Library</span>
+              Designed and built two weather-resistant mini outdoor libraries and sensory reading benches for Oakridge Elementary.
+            </div>
+          </div>
+
+          <!-- Eagle Scout 3 -->
+          <div class="eagle-card">
+            <div class="eagle-scout-header">
+              <div class="eagle-avatar">🦅</div>
+              <div class="eagle-info">
+                <h4>Marcus Miller</h4>
+                <span>Quartermaster • Age 17</span>
+              </div>
+            </div>
+            <div class="eagle-project">
+              <span class="eagle-project-title">Project: Veteran Memorial Cemetery Flag Staging</span>
+              Manufactured 12 bronze flag deposit bins and mapped 420 veteran gravesites with GPS markers for Memorial Day placements.
+            </div>
+          </div>
+
+          <!-- Eagle Scout 4 -->
+          <div class="eagle-card">
+            <div class="eagle-scout-header">
+              <div class="eagle-avatar">🦅</div>
+              <div class="eagle-info">
+                <h4>Benjamin Foster</h4>
+                <span>Assistant Senior Patrol Leader • Age 17</span>
+              </div>
+            </div>
+            <div class="eagle-project">
+              <span class="eagle-project-title">Project: Wildlife Pollinator Sanctuary</span>
+              Installed 6 bee nesting hotels, 10 bat houses, and 1,000 square feet of drought-resistant wildflower beds at the County Arboretum.
+            </div>
+          </div>
+
+          <!-- Eagle Scout 5 -->
+          <div class="eagle-card">
+            <div class="eagle-scout-header">
+              <div class="eagle-avatar">🦅</div>
+              <div class="eagle-info">
+                <h4>Ethan Wright</h4>
+                <span>Junior Assistant Scoutmaster • Age 18</span>
+              </div>
+            </div>
+            <div class="eagle-project">
+              <span class="eagle-project-title">Project: Food Pantry Cold Storage & Ramps</span>
+              Constructed ADA-compliant access ramps and insulated staging shelving for the Saint Jude Community Food Pantry.
+            </div>
+          </div>
+
+          <!-- Eagle Scout 6 -->
+          <div class="eagle-card">
+            <div class="eagle-scout-header">
+              <div class="eagle-avatar">🦅</div>
+              <div class="eagle-info">
+                <h4>Samuel Davis</h4>
+                <span>Bugler & Instructor • Age 16</span>
+              </div>
+            </div>
+            <div class="eagle-project">
+              <span class="eagle-project-title">Project: Fire Dept Emergency Gear Storage</span>
+              Built modular, quick-deploy emergency medical equipment racks and gear lockers for Volunteer Fire Engine Station 4.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banquet Dinner Menu -->
+  <section class="section" id="menu">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-badge">Catered Dining</span>
+        <h2>The Banquet Menu</h2>
+        <p>A full, hearty dinner prepared fresh for our Scouts, leaders, families, and honored guests.</p>
+      </div>
+
+      <div class="menu-cards-grid">
+        <!-- Starters -->
+        <div class="menu-course-card">
+          <div class="menu-course-header">
+            <div class="menu-icon">🥗</div>
+            <h3>Starters & Salads</h3>
+          </div>
+          <ul class="menu-item-list">
+            <li class="menu-item">
+              <div class="menu-item-name">
+                <span>Crisp Harvest Garden Salad</span>
+                <span class="dietary-badge v">Veg / GF</span>
+              </div>
+              <div class="menu-item-desc">Mixed garden greens, heirloom cherry tomatoes, English cucumber, candied pecans, house cider vinaigrette.</div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name">
+                <span>Warm Hearth Rolls</span>
+                <span class="dietary-badge">Baked</span>
+              </div>
+              <div class="menu-item-desc">Freshly baked artisan dinner rolls served with sweet honey butter.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Main Entrées -->
+        <div class="menu-course-card">
+          <div class="menu-course-header">
+            <div class="menu-icon">🍽️</div>
+            <h3>Main Entrées</h3>
+          </div>
+          <ul class="menu-item-list">
+            <li class="menu-item">
+              <div class="menu-item-name">
+                <span>Herb-Crusted Roast Beef</span>
+                <span class="dietary-badge gf">GF</span>
+              </div>
+              <div class="menu-item-desc">Carved slow-roasted beef sirloin topped with a savory rosemary thyme au jus.</div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name">
+                <span>Lemon Thyme Grilled Chicken</span>
+                <span class="dietary-badge gf">GF</span>
+              </div>
+              <div class="menu-item-desc">Tender boneless chicken breast marinated in fresh herbs and citrus reduction.</div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name">
+                <span>Wild Mushroom Risotto</span>
+                <span class="dietary-badge v">Veg / GF</span>
+              </div>
+              <div class="menu-item-desc">Creamy Arborio rice with roasted foraged mushrooms, parmesan, and fresh herbs.</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Desserts & Beverages -->
+        <div class="menu-course-card">
+          <div class="menu-course-header">
+            <div class="menu-icon">🍰</div>
+            <h3>Desserts & Drinks</h3>
+          </div>
+          <ul class="menu-item-list">
+            <li class="menu-item">
+              <div class="menu-item-name">
+                <span>Troop 170 Celebration Cake</span>
+                <span class="dietary-badge">Special</span>
+              </div>
+              <div class="menu-item-desc">Layered vanilla and Dutch cocoa cake commemorating the Class of 2026.</div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name">
+                <span>Campfire S'mores Mousse Cups</span>
+                <span class="dietary-badge">Scout Favorite</span>
+              </div>
+              <div class="menu-item-desc">Rich chocolate mousse, graham crust crumble, and toasted marshmallow creme.</div>
+            </li>
+            <li class="menu-item">
+              <div class="menu-item-name">
+                <span>Hot Cider & Coffee Bar</span>
+                <span class="dietary-badge">Warm</span>
+              </div>
+              <div class="menu-item-desc">Spiced mulled apple cider, iced sweet tea, lemonade, and freshly brewed coffee.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="menu-note-box">
+        <span style="font-size: 1.5rem;">ℹ️</span>
+        <div>
+          <strong>Dietary & Allergy Accommodations:</strong> All meals are clearly labeled. Gluten-free, vegetarian, nut-free, and dairy-free options are fully prepared in a sanitized station. Please note special dietary requirements on your RSVP below!
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RSVP & Ticket Calculator -->
+  <section class="section rsvp-section" id="rsvp">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-badge">Reserve Your Table</span>
+        <h2>Banquet Registration & RSVP</h2>
+        <p>Please confirm your family's attendance by October 30, 2026 to ensure accurate catering counts.</p>
+      </div>
+
+      <div class="rsvp-box">
+        <!-- Form Pane -->
+        <form class="rsvp-form-pane" id="rsvpForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="primaryName">Family / Scout Name *</label>
+              <input type="text" id="primaryName" class="form-control" placeholder="e.g. Miller Family / Alex Miller" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Contact Email *</label>
+              <input type="email" id="email" class="form-control" placeholder="scoutmaster@troop170.org" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="patrol">Troop Patrol / Role</label>
+              <select id="patrol" class="form-control">
+                <option value="Thunderbirds">Thunderbird Patrol</option>
+                <option value="Iron Wolves">Iron Wolves Patrol</option>
+                <option value="Flying Falcons">Flying Falcons Patrol</option>
+                <option value="Flaming Arrows">Flaming Arrows Patrol</option>
+                <option value="Leadership Corps">Troop Leadership / SPL / ASPL</option>
+                <option value="Adult Leaders">Adult Leader / Committee Member</option>
+                <option value="Alumni & Guests">Alumni / Honored Guest</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="phone">Phone Number</label>
+              <input type="tel" id="phone" class="form-control" placeholder="(555) 234-5678">
+            </div>
+          </div>
+
+          <!-- Counter Rows -->
+          <div style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+            <label class="form-label">Number of Guests</label>
+
+            <!-- Adult Guests -->
+            <div class="counter-group">
+              <div class="counter-info">
+                <h5>Adult Guests ($25)</h5>
+                <span>Parents, guardians, adult family members & leaders</span>
+              </div>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" onclick="updateCount('adults', -1)">−</button>
+                <span class="counter-val" id="adultsCount">2</span>
+                <button type="button" class="counter-btn" onclick="updateCount('adults', 1)">+</button>
+              </div>
+            </div>
+
+            <!-- Youth Scouts -->
+            <div class="counter-group">
+              <div class="counter-info">
+                <h5>Troop 170 Scouts / Youth ($15)</h5>
+                <span>Active youth Scouts and siblings (Ages 5-17)</span>
+              </div>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" onclick="updateCount('youth', -1)">−</button>
+                <span class="counter-val" id="youthCount">1</span>
+                <button type="button" class="counter-btn" onclick="updateCount('youth', 1)">+</button>
+              </div>
+            </div>
+
+            <!-- Children under 5 & Eagle Honorees -->
+            <div class="counter-group">
+              <div class="counter-info">
+                <h5>Honored Eagles & Children under 5 (Free)</h5>
+                <span>2026 Eagle Honorees and small children</span>
+              </div>
+              <div class="counter-controls">
+                <button type="button" class="counter-btn" onclick="updateCount('free', -1)">−</button>
+                <span class="counter-val" id="freeCount">0</span>
+                <button type="button" class="counter-btn" onclick="updateCount('free', 1)">+</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="dietary">Dietary Preferences & Allergies</label>
+            <input type="text" id="dietary" class="form-control" placeholder="e.g. 1 Vegetarian, 1 Gluten-Free, peanut allergy">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="paymentMethod">Payment Preference</label>
+            <select id="paymentMethod" class="form-control">
+              <option value="Troop Scout Account / Scout Bucks">Deduct from Scout Account / Scout Bucks</option>
+              <option value="Zelle / Online Transfer">Zelle / Online Transfer to Troop 170 Treasury</option>
+              <option value="Check or Cash at the Door">Check / Cash at the Door on Banquet Night</option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+            <span>✓</span> Complete RSVP & Confirm Reservation
+          </button>
+        </form>
+
+        <!-- Summary Pane -->
+        <div class="rsvp-summary-pane">
+          <div>
+            <div class="summary-title">Ticket Summary</div>
+            <ul class="summary-lines">
+              <li class="summary-line">
+                <span>Adult Tickets (<span id="sumAdultQty">2</span>x $25):</span>
+                <span id="sumAdultTotal">$50.00</span>
+              </li>
+              <li class="summary-line">
+                <span>Youth Scout Tickets (<span id="sumYouthQty">1</span>x $15):</span>
+                <span id="sumYouthTotal">$15.00</span>
+              </li>
+              <li class="summary-line">
+                <span>Eagle Honorees / Kids under 5:</span>
+                <span>$0.00</span>
+              </li>
+            </ul>
+
+            <div class="summary-total">
+              <div style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: #a3c9b6;">Total Reservation Due</div>
+              <div class="summary-total-amount" id="sumGrandTotal">$65.00</div>
+            </div>
+          </div>
+
+          <div class="payment-notice">
+            🔒 <strong>Troop Financial Policy:</strong> No Scout is ever excluded due to financial need. If confidential campership assistance is needed, please contact the Committee Chair directly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Silent Auction & Troop Fundraiser -->
+  <section class="section" id="auction">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-badge">Troop 170 Fundraiser</span>
+        <h2>Silent Auction Showcase</h2>
+        <p>Bid on exclusive outdoor gear, handmade artisan crafts, and experiences. All proceeds fund 2027 Scout camperships and gear trailers.</p>
+      </div>
+
+      <div class="auction-grid">
+        <!-- Item 1 -->
+        <div class="auction-card">
+          <div class="auction-img-holder">
+            <span class="auction-badge">Handcrafted</span>
+            🦯
+          </div>
+          <div class="auction-body">
+            <div class="auction-title">Custom Carved Scoutmaster Hiking Staff</div>
+            <p class="auction-desc">Hand-carved hickory hiking stick with inlaid brass troop medallion, compass cap, and paracord grip crafted by local alumni.</p>
+            <div class="auction-footer">
+              <div>
+                <div class="auction-bid-label">Current Bid</div>
+                <div class="auction-bid-val" id="bid-1">$85.00</div>
+              </div>
+              <button class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openBidModal('Custom Carved Scoutmaster Hiking Staff', 85, 'bid-1')">Bid / Pledge</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="auction-card">
+          <div class="auction-img-holder">
+            <span class="auction-badge">Outdoor Gear</span>
+            🍳
+          </div>
+          <div class="auction-body">
+            <div class="auction-title">Lodge Cast Iron Camp Chef Deluxe Set</div>
+            <p class="auction-desc">Full 5-piece campfire cooking ensemble including 12" Dutch oven, skillet, lid lifter, tripod, and leather grill gloves.</p>
+            <div class="auction-footer">
+              <div>
+                <div class="auction-bid-label">Current Bid</div>
+                <div class="auction-bid-val" id="bid-2">$120.00</div>
+              </div>
+              <button class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openBidModal('Lodge Cast Iron Camp Chef Deluxe Set', 120, 'bid-2')">Bid / Pledge</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="auction-card">
+          <div class="auction-img-holder">
+            <span class="auction-badge">Experience</span>
+            🛶
+          </div>
+          <div class="auction-body">
+            <div class="auction-title">Guided Delaware River Canoe Weekend</div>
+            <p class="auction-desc">Two-day river expedition for four people including boat rentals, safety gear, and gourmet dutch-oven campfire meals.</p>
+            <div class="auction-footer">
+              <div>
+                <div class="auction-bid-label">Current Bid</div>
+                <div class="auction-bid-val" id="bid-3">$240.00</div>
+              </div>
+              <button class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openBidModal('Guided Delaware River Canoe Weekend', 240, 'bid-3')">Bid / Pledge</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="auction-card">
+          <div class="auction-img-holder">
+            <span class="auction-badge">Patrol Keepsake</span>
+            🧵
+          </div>
+          <div class="auction-body">
+            <div class="auction-title">Troop 170 Commemorative Quilt</div>
+            <p class="auction-desc">Hand-stitched heirloom quilt featuring retired patrol badges, Philmont trek emblems, and anniversary camp patches from 1980–2026.</p>
+            <div class="auction-footer">
+              <div>
+                <div class="auction-bid-label">Current Bid</div>
+                <div class="auction-bid-val" id="bid-4">$175.00</div>
+              </div>
+              <button class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.85rem;" onclick="openBidModal('Troop 170 Commemorative Quilt', 175, 'bid-4')">Bid / Pledge</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="section" id="gallery" style="background-color: #f7faf8;">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-badge">Memories of 2026</span>
+        <h2>A Year on the Trail</h2>
+        <p>Snapshots from our patrol meetings, high adventure treks, winter campouts, and community service.</p>
+      </div>
+
+      <div class="gallery-filter-tabs">
+        <button class="filter-tab active" onclick="filterGallery('all')">All Moments</button>
+        <button class="filter-tab" onclick="filterGallery('camp')">Summer Camp</button>
+        <button class="filter-tab" onclick="filterGallery('adventure')">High Adventure</button>
+        <button class="filter-tab" onclick="filterGallery('service')">Eagle & Service</button>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Photo 1 -->
+        <div class="gallery-card" data-category="camp">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #2d6a4f, #1b4332);">
+            🏕️
+          </div>
+          <div class="gallery-card-info">
+            <h4>Resica Falls Summer Camp 2026</h4>
+            <p>Troop campsite assembly and first-year Scout swimming qualification milestones.</p>
+          </div>
+        </div>
+
+        <!-- Photo 2 -->
+        <div class="gallery-card" data-category="adventure">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #1f3c88, #070d59);">
+            🏔️
+          </div>
+          <div class="gallery-card-info">
+            <h4>Adirondack High Peaks Expedition</h4>
+            <p>14-mile summit trek up Mount Marcy with 50-pound packs and backcountry navigation.</p>
+          </div>
+        </div>
+
+        <!-- Photo 3 -->
+        <div class="gallery-card" data-category="service">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #a47148, #603813);">
+            🪵
+          </div>
+          <div class="gallery-card-info">
+            <h4>Miller Nature Boardwalk Service Project</h4>
+            <p>Troop work day installing erosion barriers and all-weather lumber framing.</p>
+          </div>
+        </div>
+
+        <!-- Photo 4 -->
+        <div class="gallery-card" data-category="camp">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #d4a373, #faedcd); color: #333;">
+            🔥
+          </div>
+          <div class="gallery-card-info">
+            <h4>Order of the Arrow Tap-Out Campfire</h4>
+            <p>Honoring 7 new Ordeal candidates during the ceremonial council flame ceremony.</p>
+          </div>
+        </div>
+
+        <!-- Photo 5 -->
+        <div class="gallery-card" data-category="adventure">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #028090, #00a896);">
+            🛶
+          </div>
+          <div class="gallery-card-info">
+            <h4>Whitewater Canoe Training</h4>
+            <p>Class II rapids handling and water rescue safety certifications on the Lehigh River.</p>
+          </div>
+        </div>
+
+        <!-- Photo 6 -->
+        <div class="gallery-card" data-category="service">
+          <div class="gallery-card-thumb" style="background: linear-gradient(135deg, #6a4c93, #1982c4);">
+            🥫
+          </div>
+          <div class="gallery-card-info">
+            <h4>Scouting for Food Drive</h4>
+            <p>Collecting over 2,800 pounds of non-perishable goods for county neighborhood pantries.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital Guestbook / Tributes Wall -->
+  <section class="section guestbook-section" id="tributes">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-badge">Scout Community</span>
+        <h2>Congratulatory Guestbook</h2>
+        <p>Leave a note of encouragement for our advancing Scouts, leaders, and Eagle candidates.</p>
+      </div>
+
+      <div class="tribute-columns">
+        <!-- New Message Form -->
+        <div style="background: #ffffff; padding: 2.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem; color: var(--primary-dark); margin-bottom: 1.25rem;">
+            Post a Message or Tribute
+          </h3>
+          <form id="tributeForm">
+            <div class="form-group">
+              <label class="form-label" for="tributeAuthor">Your Name *</label>
+              <input type="text" id="tributeAuthor" class="form-control" placeholder="e.g. Dave & Sarah Miller" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="tributeRole">Your Affiliation</label>
+              <select id="tributeRole" class="form-control">
+                <option value="Troop Parent">Scout Parent / Guardian</option>
+                <option value="Troop Alumni">Troop Alumni / Former Scout</option>
+                <option value="Assistant Scoutmaster">Adult Leader / ASM</option>
+                <option value="Fellow Scout">Fellow Scout / Patrol Member</option>
+                <option value="Grandparent / Family">Family Member & Supporter</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="tributeText">Your Message *</label>
+              <textarea id="tributeText" class="form-control" rows="4" placeholder="Congratulations to our Scouts for an inspiring year of perseverance and brotherly duty! So proud of the Class of 2026 Eagles..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">
+              <span>💬</span> Post Note to Guestbook
+            </button>
+          </form>
+        </div>
+
+        <!-- Live Tributes Feed -->
+        <div class="tribute-wall" id="tributeWall">
+          <!-- Note 1 -->
+          <div class="tribute-card">
+            <div class="tribute-header">
+              <span class="tribute-author">Scoutmaster John Edwards</span>
+              <span class="tribute-role">Scoutmaster</span>
+            </div>
+            <div class="tribute-body">
+              "Watching this group of young leaders grow from nervous 11-year-olds pitching their first tents into capable, ethical leaders has been the honor of a lifetime. Here's to 2026!"
+            </div>
+            <div class="tribute-time">Today • 4:12 PM</div>
+          </div>
+
+          <!-- Note 2 -->
+          <div class="tribute-card">
+            <div class="tribute-header">
+              <span class="tribute-author">The Rodriguez Family</span>
+              <span class="tribute-role">Troop Parent</span>
+            </div>
+            <div class="tribute-body">
+              "Congratulations to Alex and all the Eagle Scouts! Thank you to the dedicated leaders and merit badge counselors who guided the trail every step of the way."
+            </div>
+            <div class="tribute-time">Yesterday • 8:30 PM</div>
+          </div>
+
+          <!-- Note 3 -->
+          <div class="tribute-card">
+            <div class="tribute-header">
+              <span class="tribute-author">Eagle Patrol (Alumni '18)</span>
+              <span class="tribute-role">Troop Alumni</span>
+            </div>
+            <div class="tribute-body">
+              "Once an Eagle, always an Eagle. Keep passing the torch forward, Troop 170!"
+            </div>
+            <div class="tribute-time">Oct 6, 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section & Venue Information -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-title">
+        <span class="section-badge">Helpful Information</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Everything you need to know about attendance, dress code, parking, and logistics.</p>
+      </div>
+
+      <div class="faq-container">
+        <details class="faq-item" open>
+          <summary class="faq-question">What is the dress code for Scouts and guests?</summary>
+          <div class="faq-answer">
+            <strong>For Youth Scouts:</strong> Full Class A (Field) Uniform is required. Please ensure merit badge sashes and rank neckerchiefs are worn for the formal Court of Honor photos.<br>
+            <strong>For Parents & Guests:</strong> Business casual or semi-formal attire is customary.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">Can extended family, grandparents, and younger siblings attend?</summary>
+          <div class="faq-answer">
+            Absolutely! The Annual Banquet is our premier family event of the year. Grandparents, aunts, uncles, and siblings are heartily welcomed. Children under 5 attend free of charge.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How does payment via Scout Account / Scout Bucks work?</summary>
+          <div class="faq-answer">
+            Scouts who accumulated funds through popcorn sales, flower sales, or camp fundraisers can allocate their balance towards banquet tickets. Simply select "Deduct from Scout Account" during RSVP, and the Troop Scribe will confirm your balance.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">What if our family has special dietary restrictions or allergies?</summary>
+          <div class="faq-answer">
+            Our caterer accommodates vegetarian, vegan, celiac / gluten-free, nut-free, and kosher/halal preferences. Please note the specific requirement in the designated field on the RSVP form.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">How does the Silent Auction work?</summary>
+          <div class="faq-answer">
+            Bids can be placed in advance on this website or in person on the bid sheets during the 5:30 PM reception. Bidding closes sharply at 8:45 PM. Winning bidders can settle via Cash, Check, or Zelle.
+          </div>
+        </details>
+      </div>
+
+      <!-- Venue & Map Card -->
+      <div class="venue-card" id="venue">
+        <div class="venue-details">
+          <span class="section-badge">Location & Parking</span>
+          <h3>St. John's Grand Fellowship Hall</h3>
+          <p style="color: var(--text-muted); margin-bottom: 1rem;">
+            Our 2026 banquet venue provides ample space, full audiovisual projection for the year-end video, and complimentary on-site parking.
+          </p>
+
+          <ul class="venue-meta">
+            <li>
+              <span class="venue-meta-icon">📍</span>
+              <div>
+                <strong>Address:</strong><br>
+                450 Highland Avenue, Grand Hall Entrance<br>
+                Hometown, PA 19040
+              </div>
+            </li>
+            <li>
+              <span class="venue-meta-icon">🚗</span>
+              <div>
+                <strong>Parking & Accessibility:</strong><br>
+                Free parking in the East and West lots. Fully ADA-compliant wheelchair access via the main front rotunda.
+              </div>
+            </li>
+            <li>
+              <span class="venue-meta-icon">📞</span>
+              <div>
+                <strong>Questions:</strong><br>
+                Banquet Chairs: banquet@troop170.org • (555) 789-0170
+              </div>
+            </li>
+          </ul>
+
+          <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <span>🗺️</span> Open in Google Maps
+          </a>
+        </div>
+
+        <div class="map-placeholder">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">🏛️</div>
+          <h4 style="font-size: 1.3rem; margin-bottom: 0.25rem;">St. John's Grand Hall</h4>
+          <p style="font-size: 0.9rem; color: #b7d5c4; max-width: 280px; margin-bottom: 1.25rem;">
+            450 Highland Avenue, Banquet Pavilion
+          </p>
+          <div style="display: flex; gap: 0.5rem;">
+            <span style="font-size: 0.75rem; background: rgba(255, 255, 255, 0.2); padding: 0.25rem 0.6rem; border-radius: 4px;">Main Lot Parking</span>
+            <span style="font-size: 0.75rem; background: rgba(255, 255, 255, 0.2); padding: 0.25rem 0.6rem; border-radius: 4px;">Hall Door B</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Dialog / Confirmation Modal -->
+  <dialog class="app-dialog" id="rsvpSuccessDialog">
+    <div class="dialog-inner">
+      <div class="dialog-header">
+        <h3 class="dialog-title">🎉 Reservation Confirmed!</h3>
+        <button class="dialog-close" onclick="closeDialog('rsvpSuccessDialog')">&times;</button>
+      </div>
+      <div id="rsvpDialogContent">
+        <p style="margin-bottom: 1.25rem; color: var(--text-muted);">
+          Thank you for confirming your attendance! A confirmation record has been logged for our banquet committee.
+        </p>
+        <div style="background: var(--light-bg); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem; margin-bottom: 1.5rem;">
+          <div style="font-weight: 700; color: var(--primary); margin-bottom: 0.25rem;" id="modalGuestName">The Scout Family</div>
+          <div style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;" id="modalGuestDetails">2 Adults, 1 Scout</div>
+          <div style="font-size: 0.9rem; font-weight: 600;" id="modalGuestTotal">Total: $65.00</div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 0.25rem;" id="modalGuestPayment">Payment: Scout Account</div>
+        </div>
+        <div style="display: flex; gap: 0.75rem;">
+          <button class="btn btn-primary" style="flex: 1;" onclick="downloadCalendarEvent()">📅 Add to Calendar (.ics)</button>
+          <button class="btn btn-outline" style="flex: 1;" onclick="closeDialog('rsvpSuccessDialog')">Done</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Bid Modal -->
+  <dialog class="app-dialog" id="bidDialog">
+    <div class="dialog-inner">
+      <div class="dialog-header">
+        <h3 class="dialog-title" id="bidItemTitle">Place Auction Bid</h3>
+        <button class="dialog-close" onclick="closeDialog('bidDialog')">&times;</button>
+      </div>
+      <form id="bidForm">
+        <input type="hidden" id="bidTargetSpanId">
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.25rem;">
+          Current bid is <strong id="bidCurrentAmountText">$85.00</strong>. Enter your name and next bid (minimum +$5 increment).
+        </p>
+        <div class="form-group">
+          <label class="form-label" for="bidderName">Your Name *</label>
+          <input type="text" id="bidderName" class="form-control" placeholder="John Doe" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="bidAmount">Bid Amount ($ USD) *</label>
+          <input type="number" id="bidAmount" class="form-control" min="1" step="5" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Submit Proxy Bid</button>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3>Scouts BSA Troop 170</h3>
+          <p style="color: #c4d7cd; font-size: 0.95rem;">
+            Serving youth, developing lifelong character, outdoor leadership, and wilderness ethics since 1962. Chartered by Saint John's Community Association.
+          </p>
+          <p class="footer-creed">
+            "On my honor I will do my best to do my duty to God and my country and to obey the Scout Law; to help other people at all times; to keep myself physically strong, mentally awake, and morally straight."
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Banquet Links</h4>
+          <ul class="footer-links">
+            <li><a href="#overview">Event Overview</a></li>
+            <li><a href="#schedule">Program Schedule</a></li>
+            <li><a href="#honors">Eagle Scout Class</a></li>
+            <li><a href="#menu">Dinner Menu</a></li>
+            <li><a href="#rsvp">Reserve Tickets</a></li>
+            <li><a href="#auction">Silent Auction</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact Troop 170</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:scoutmaster@troop170.org">scoutmaster@troop170.org</a></li>
+            <li><a href="mailto:banquet@troop170.org">banquet@troop170.org</a></li>
+            <li><a href="mailto:committee@troop170.org">committee@troop170.org</a></li>
+            <li><a href="#venue">Hall Location & Directions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Scouts BSA Troop 170. All rights reserved.</div>
+        <div>
+          <a href="#top" style="color: #e0ece4;">↑ Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Application Logic -->
+  <script>
+    // Configuration & State
+    const BANQUET_DATE = new Date("2026-11-14T17:30:00-05:00").getTime();
+
+    const state = {
+      adults: 2,
+      youth: 1,
+      free: 0,
+      adultPrice: 25,
+      youthPrice: 15
+    };
+
+    // Mobile Navigation Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      // Close menu when clicking link
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', false);
+        });
+      });
+    }
+
+    // Dynamic Live Countdown
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = BANQUET_DATE - now;
+
+      if (distance < 0) {
+        document.getElementById('countDays').innerText = "0";
+        document.getElementById('countHours').innerText = "0";
+        document.getElementById('countMins').innerText = "0";
+        document.getElementById('countSecs').innerText = "0";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('countDays').innerText = String(days);
+      document.getElementById('countHours').innerText = String(hours).padStart(2, '0');
+      document.getElementById('countMins').innerText = String(mins).padStart(2, '0');
+      document.getElementById('countSecs').innerText = String(secs).padStart(2, '0');
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // RSVP Ticket Calculation
+    function updateCount(type, delta) {
+      if (delta < 0 && state[type] <= 0) return;
+      state[type] = Math.max(0, state[type] + delta);
+
+      // Update counter UI
+      document.getElementById(`${type}Count`).innerText = state[type];
+
+      // Update Summary UI
+      const adultTotal = state.adults * state.adultPrice;
+      const youthTotal = state.youth * state.youthPrice;
+      const grandTotal = adultTotal + youthTotal;
+
+      document.getElementById('sumAdultQty').innerText = state.adults;
+      document.getElementById('sumAdultTotal').innerText = `$${adultTotal.toFixed(2)}`;
+
+      document.getElementById('sumYouthQty').innerText = state.youth;
+      document.getElementById('sumYouthTotal').innerText = `$${youthTotal.toFixed(2)}`;
+
+      document.getElementById('sumGrandTotal').innerText = `$${grandTotal.toFixed(2)}`;
+    }
+
+    // Form Submission
+    const rsvpForm = document.getElementById('rsvpForm');
+    if (rsvpForm) {
+      rsvpForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('primaryName').value;
+        const totalGuests = state.adults + state.youth + state.free;
+        const grandTotal = (state.adults * state.adultPrice) + (state.youth * state.youthPrice);
+        const payment = document.getElementById('paymentMethod').value;
+
+        // Populate Modal
+        document.getElementById('modalGuestName').innerText = name;
+        document.getElementById('modalGuestDetails').innerText = 
+          `${state.adults} Adults, ${state.youth} Scouts, ${state.free} Honorees/Kids (${totalGuests} Total)`;
+        document.getElementById('modalGuestTotal').innerText = `Total Due: $${grandTotal.toFixed(2)}`;
+        document.getElementById('modalGuestPayment').innerText = `Payment Method: ${payment}`;
+
+        // Open Dialog
+        const dialog = document.getElementById('rsvpSuccessDialog');
+        if (dialog && typeof dialog.showModal === 'function') {
+          dialog.showModal();
+        } else {
+          alert(`Thank you ${name}! Your RSVP for ${totalGuests} guests ($${grandTotal.toFixed(2)}) has been confirmed.`);
+        }
+      });
+    }
+
+    // Close Dialog Helper
+    function closeDialog(id) {
+      const dialog = document.getElementById(id);
+      if (dialog && typeof dialog.close === 'function') {
+        dialog.close();
+      }
+    }
+
+    // Download Calendar .ICS File
+    function downloadCalendarEvent() {
+      const icsData = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Troop 170//Annual Banquet 2026//EN',
+        'BEGIN:VEVENT',
+        'UID:troop170-banquet-2026@troop170.org',
+        'DTSTAMP:20261007T120000Z',
+        'DTSTART:20261114T223000Z',
+        'DTEND:20261115T020000Z',
+        'SUMMARY:Scouts BSA Troop 170 Annual Banquet & Court of Honor 2026',
+        'DESCRIPTION:Join Troop 170 celebrating leadership\\, Eagle Scouts\\, and a year of adventure. Full Class A Field Uniform for Scouts.',
+        'LOCATION:St. John Grand Hall\\, 450 Highland Ave\\, Hometown PA',
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([icsData], { type: 'text/calendar;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute('download', 'Troop170_Banquet_2026.ics');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    document.getElementById('calendarBtn')?.addEventListener('click', downloadCalendarEvent);
+
+    // Gallery Filter
+    function filterGallery(category) {
+      const cards = document.querySelectorAll('.gallery-card');
+      const tabs = document.querySelectorAll('.filter-tab');
+
+      tabs.forEach(tab => tab.classList.remove('active'));
+      event.target.classList.add('active');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Silent Auction Bid Modal
+    let activeBidElementId = null;
+    let activeCurrentBid = 0;
+
+    function openBidModal(itemTitle, currentBid, targetElementId) {
+      activeBidElementId = targetElementId;
+      activeCurrentBid = currentBid;
+      document.getElementById('bidItemTitle').innerText = `Bid on: ${itemTitle}`;
+      document.getElementById('bidCurrentAmountText').innerText = `$${currentBid.toFixed(2)}`;
+      
+      const bidInput = document.getElementById('bidAmount');
+      bidInput.min = currentBid + 5;
+      bidInput.value = currentBid + 5;
+
+      const dialog = document.getElementById('bidDialog');
+      if (dialog && typeof dialog.showModal === 'function') {
+        dialog.showModal();
+      }
+    }
+
+    document.getElementById('bidForm')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('bidderName').value;
+      const amount = parseFloat(document.getElementById('bidAmount').value);
+
+      if (activeBidElementId && !isNaN(amount)) {
+        const el = document.getElementById(activeBidElementId);
+        if (el) {
+          el.innerText = `$${amount.toFixed(2)}`;
+          el.style.color = '#bc4749';
+        }
+      }
+
+      closeDialog('bidDialog');
+      alert(`Proxy bid of $${amount.toFixed(2)} recorded for ${name}! Thank you for supporting Troop 170.`);
+      document.getElementById('bidForm').reset();
+    });
+
+    // Digital Guestbook Submit
+    const tributeForm = document.getElementById('tributeForm');
+    const tributeWall = document.getElementById('tributeWall');
+
+    if (tributeForm && tributeWall) {
+      tributeForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const author = document.getElementById('tributeAuthor').value;
+        const role = document.getElementById('tributeRole').value;
+        const text = document.getElementById('tributeText').value;
+
+        const newCard = document.createElement('div');
+        newCard.className = 'tribute-card';
+        newCard.style.animation = 'fadeIn 0.5s ease-in-out';
+        newCard.innerHTML = `
+          <div class="tribute-header">
+            <span class="tribute-author">${escapeHtml(author)}</span>
+            <span class="tribute-role">${escapeHtml(role)}</span>
+          </div>
+          <div class="tribute-body">
+            "${escapeHtml(text)}"
+          </div>
+          <div class="tribute-time">Just now</div>
+        `;
+
+        tributeWall.prepend(newCard);
+        tributeForm.reset();
+      });
+    }
+
+    function escapeHtml(string) {
+      return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+        return ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;',
+          '/': '&#x2F;',
+          '`': '&#x60;',
+          '=': '&#x3D;'
+        })[s];
+      });
+    }
+  </script>
+</body>
+</html>
