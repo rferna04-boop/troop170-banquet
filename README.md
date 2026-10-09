@@ -1,6 +1,6 @@
-# Scouts BSA Troop 170 - 2026 Annual Banquet & Court of Honor
+# Scouts BSA Troop 170 - 2026 Annual Banquet & Scout Presentations
 
-Official microsite and event portal for the **Scouts BSA Troop 170 Annual Awards Banquet & Court of Honor 2026**.
+Official microsite and event portal for the **Scouts BSA Troop 170 Annual Banquet & Scout Presentations 2026**.
 
 ## 🌲 Overview
 
