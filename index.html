@@ -14,43 +14,73 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --scout-navy: #0e2238;
-      --scout-navy-light: #16365a;
-      --scout-gold: #cfa052;
-      --scout-gold-hover: #b88b42;
-      --scout-gold-light: rgba(207, 160, 82, 0.15);
-      --forest-dark: #1b3022;
-      --forest-light: #2d4f38;
-      --neutral-bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text-main: #1e293b;
-      --text-muted: #64748b;
-      --border: #e2e8f0;
-      --radius: 12px;
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 8px 24px rgba(14, 34, 56, 0.08);
-      --shadow-lg: 0 16px 36px rgba(14, 34, 56, 0.14);
+      /* 1. Color Palette & Brand Tokens */
+      --scout-navy: #0A192F;
+      --scout-navy-surface: #0E2238;
+      --scout-navy-light: #16365A;
+      --scout-navy-hover: #1E3D60;
+      
+      --scout-gold: #E5A823;
+      --scout-gold-hover: #D49B1E;
+      --scout-gold-accent: #D4AF37;
+      --scout-gold-light: rgba(229, 168, 35, 0.12);
+      --scout-gold-subtle: rgba(229, 168, 35, 0.08);
+      --scout-gold-glow: rgba(229, 168, 35, 0.28);
+
+      --forest-dark: #1B3022;
+      --forest-light: #2D4F38;
+      --forest-tint: rgba(27, 48, 34, 0.08);
+
+      --neutral-bg: #F8FAFC;
+      --neutral-subtle: #F1F5F9;
+      --card-bg: #FFFFFF;
+
+      --text-main: #0F172A;
+      --text-muted: #64748B;
+      --text-light: #94A3B8;
+
+      --border: #E2E8F0;
+      --border-input: #CBD5E1;
+      --border-focus: #E5A823;
+
+      --radius-sm: 6px;
+      --radius: 10px;
+      --radius-lg: 14px;
+      --radius-pill: 9999px;
+
+      --shadow-sm: 0 1px 3px rgba(10, 25, 47, 0.05), 0 1px 2px rgba(10, 25, 47, 0.04);
+      --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --shadow-card-hover: 0 10px 24px rgba(10, 25, 47, 0.09);
+      --shadow-md: 0 6px 18px rgba(10, 25, 47, 0.08);
+      --shadow-lg: 0 16px 36px rgba(10, 25, 47, 0.14);
+      --shadow-gold: 0 4px 14px rgba(229, 168, 35, 0.35);
+      --shadow-gold-hover: 0 6px 20px rgba(229, 168, 35, 0.45);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       color: var(--text-main);
       background-color: var(--neutral-bg);
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Header & Navigation */
     header {
       position: sticky;
       top: 0;
-      background: rgba(14, 34, 56, 0.96);
-      backdrop-filter: blur(10px);
+      background: rgba(10, 25, 47, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       z-index: 1000;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
@@ -61,6 +91,38 @@
       justify-content: space-between;
       align-items: center;
       padding: 0.85rem 1.5rem;
+      gap: 1.2rem;
+    }
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .nav-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .nav-back-link:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.12);
+      border-color: var(--scout-gold);
+      transform: translateY(-1px);
+    }
+    .nav-divider {
+      width: 1px;
+      height: 26px;
+      background: rgba(255, 255, 255, 0.15);
     }
     .brand {
       display: flex;
@@ -80,7 +142,7 @@
       flex-shrink: 0;
       transition: transform 0.25s ease;
     }
-    .brand:hover .brand-logo { transform: scale(1.06); }
+    .brand:hover .brand-logo { transform: scale(1.05); }
     .brand-info {
       display: flex;
       flex-direction: column;
@@ -102,16 +164,18 @@
       font-weight: 500;
       letter-spacing: 0.4px;
       text-transform: uppercase;
+      margin-top: 1px;
     }
     .brand-badge {
       background: var(--scout-gold);
       color: var(--scout-navy);
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       padding: 2px 7px;
       border-radius: 4px;
       font-weight: 700;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      letter-spacing: 0.3px;
+      font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
     .nav-links {
       display: flex;
@@ -122,24 +186,33 @@
       color: #cbd5e1;
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--scout-gold); }
     .btn-ticket-nav {
       background: var(--scout-gold);
-      color: var(--scout-navy);
-      padding: 0.55rem 1.2rem;
+      color: var(--scout-navy) !important;
+      padding: 0.55rem 1.25rem;
       border-radius: 8px;
       font-weight: 700;
       text-decoration: none;
+      box-shadow: 0 2px 8px rgba(229, 168, 35, 0.3);
       transition: all 0.2s;
+      white-space: nowrap;
     }
-    .btn-ticket-nav:hover { background: var(--scout-gold-hover); transform: translateY(-1px); }
+    .btn-ticket-nav:hover {
+      background: var(--scout-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold);
+    }
+    .btn-ticket-nav-mobile {
+      display: none;
+    }
 
     /* Hero Section */
     .hero {
-      background: linear-gradient(rgba(14, 34, 56, 0.88), rgba(27, 48, 34, 0.93)),
+      background: linear-gradient(rgba(10, 25, 47, 0.88), rgba(27, 48, 34, 0.92)),
                   url('https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1920&q=80') center/cover;
       color: #fff;
       padding: 5rem 1.5rem 4.5rem;
@@ -163,25 +236,25 @@
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(8px);
       padding: 5px;
-      border: 3px solid rgba(207, 160, 82, 0.75);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px rgba(207, 160, 82, 0.25);
+      border: 3px solid var(--scout-gold);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 24px var(--scout-gold-glow);
       transition: transform 0.3s ease, border-color 0.3s ease;
     }
     .hero-logo:hover {
       transform: scale(1.05) rotate(1deg);
-      border-color: var(--scout-gold);
+      border-color: #ffd066;
     }
     .hero-pill {
       display: inline-block;
-      background: rgba(207, 160, 82, 0.18);
+      background: rgba(229, 168, 35, 0.16);
       border: 1px solid var(--scout-gold);
       color: var(--scout-gold);
       padding: 5px 16px;
       border-radius: 50px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.06em;
       margin-bottom: 1.2rem;
     }
     .hero h1 {
@@ -197,8 +270,8 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: linear-gradient(135deg, rgba(207, 160, 82, 0.25), rgba(27, 48, 34, 0.35));
-      border: 1px solid rgba(207, 160, 82, 0.6);
+      background: linear-gradient(135deg, rgba(229, 168, 35, 0.22), rgba(27, 48, 34, 0.35));
+      border: 1px solid rgba(229, 168, 35, 0.6);
       padding: 0.75rem 1.8rem;
       border-radius: 50px;
       margin-bottom: 1.5rem;
@@ -245,14 +318,14 @@
     }
     .date-card-hero.featured {
       border: 1px solid var(--scout-gold);
-      background: rgba(207, 160, 82, 0.14);
+      background: rgba(229, 168, 35, 0.14);
     }
     .date-badge-label {
       font-size: 0.75rem;
       text-transform: uppercase;
       font-weight: 700;
       color: var(--scout-gold);
-      letter-spacing: 0.8px;
+      letter-spacing: 0.06em;
       margin-bottom: 4px;
     }
     .date-card-hero h4 {
@@ -279,15 +352,15 @@
       padding: 0.9rem 2.2rem;
       font-size: 1.02rem;
       font-weight: 700;
-      border-radius: 8px;
+      border-radius: 9px;
       text-decoration: none;
-      transition: all 0.2s;
-      box-shadow: 0 4px 14px rgba(207, 160, 82, 0.4);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-gold);
     }
     .btn-primary:hover {
       background: var(--scout-gold-hover);
       transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(207, 160, 82, 0.5);
+      box-shadow: var(--shadow-gold-hover);
     }
     .btn-secondary {
       background: rgba(255, 255, 255, 0.08);
@@ -296,7 +369,7 @@
       padding: 0.85rem 1.9rem;
       font-size: 1rem;
       font-weight: 600;
-      border-radius: 8px;
+      border-radius: 9px;
       text-decoration: none;
       transition: all 0.2s;
     }
@@ -336,7 +409,7 @@
       padding: 2rem;
       text-align: center;
       margin-bottom: 3rem;
-      border: 1px solid rgba(207, 160, 82, 0.3);
+      border: 1px solid rgba(229, 168, 35, 0.35);
       box-shadow: var(--shadow-md);
     }
     .why-mission-banner h3 {
@@ -365,11 +438,12 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s;
     }
     .hook-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
+      box-shadow: var(--shadow-card-hover);
     }
     .hook-card.scout-card {
       border-top: 4px solid var(--forest-light);
@@ -381,7 +455,7 @@
       font-size: 0.75rem;
       text-transform: uppercase;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 0.06em;
       margin-bottom: 8px;
     }
     .scout-card .hook-card-tag { color: var(--forest-light); }
@@ -428,6 +502,7 @@
     /* Ticket & Pass Selector Grid */
     .tickets-section {
       background: var(--neutral-bg);
+      border-bottom: 1px solid var(--border);
     }
     .tickets-grid {
       display: grid;
@@ -444,16 +519,21 @@
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s;
     }
     .ticket-card:hover {
       transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 10px 24px rgba(10, 25, 47, 0.09);
       border-color: #cbd5e1;
     }
     .ticket-card.featured {
       border: 2px solid var(--scout-gold);
-      box-shadow: 0 6px 20px rgba(207, 160, 82, 0.15);
+      box-shadow: 0 6px 20px rgba(229, 168, 35, 0.16);
+    }
+    .ticket-card.featured:hover {
+      box-shadow: 0 10px 26px rgba(229, 168, 35, 0.24);
+      transform: translateY(-3px);
     }
     .card-badge {
       position: absolute;
@@ -466,7 +546,8 @@
       padding: 2px 10px;
       border-radius: 50px;
       border: 1px solid var(--scout-gold);
-      letter-spacing: 0.3px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
     .card-badge.badge-green {
       background: var(--forest-dark);
@@ -482,7 +563,7 @@
       margin-bottom: 1rem;
     }
     .tier-name {
-      font-size: 1.12rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--scout-navy);
       line-height: 1.3;
@@ -491,7 +572,7 @@
     .tier-price {
       font-size: 2rem;
       font-weight: 800;
-      color: var(--forest-dark);
+      color: var(--scout-navy);
       display: flex;
       align-items: baseline;
       gap: 6px;
@@ -507,6 +588,9 @@
       margin-bottom: 1.2rem;
       min-height: 48px;
       line-height: 1.45;
+    }
+    .tier-desc strong {
+      color: var(--scout-navy);
     }
     .tier-note {
       font-size: 0.78rem;
@@ -550,7 +634,7 @@
     }
     .qty-display {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--scout-navy);
       min-width: 24px;
       text-align: center;
@@ -568,12 +652,13 @@
       color: var(--scout-navy);
       margin-bottom: 4px;
       text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
     .volunteer-select {
       width: 100%;
-      padding: 6px 8px;
-      font-size: 0.82rem;
-      border: 1px solid var(--border);
+      padding: 7px 10px;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-input);
       border-radius: 6px;
       background: #fff;
       font-family: inherit;
@@ -585,7 +670,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 2.5rem;
-      box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-card);
       max-width: 840px;
       margin: auto;
     }
@@ -601,19 +686,22 @@
       font-size: 0.9rem;
       font-weight: 600;
       color: var(--scout-navy);
+      letter-spacing: 0.01em;
     }
     .form-group input, .form-group select, .form-group textarea {
-      padding: 0.8rem 1rem;
-      border: 1px solid var(--border);
+      padding: 12px 14px;
+      border: 1px solid var(--border-input);
       border-radius: 8px;
       font-family: inherit;
       font-size: 0.95rem;
+      color: var(--text-main);
+      background: #FFFFFF;
       transition: border-color 0.2s, box-shadow 0.2s;
     }
     .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
       outline: none;
       border-color: var(--scout-gold);
-      box-shadow: 0 0 0 3px rgba(207, 160, 82, 0.25);
+      box-shadow: 0 0 0 3px rgba(229, 168, 35, 0.25);
     }
 
     /* Payment Option Cards */
@@ -632,7 +720,7 @@
       align-items: flex-start;
       gap: 12px;
       transition: all 0.2s;
-      background: #fafafa;
+      background: #FAFAFA;
     }
     .payment-option-card:hover {
       border-color: #cbd5e1;
@@ -640,8 +728,8 @@
     }
     .payment-option-card.active {
       border-color: var(--scout-gold);
-      background: rgba(207, 160, 82, 0.08);
-      box-shadow: 0 4px 12px rgba(207, 160, 82, 0.12);
+      background: rgba(229, 168, 35, 0.08);
+      box-shadow: 0 4px 12px rgba(229, 168, 35, 0.14);
     }
     .payment-option-card input[type="radio"] {
       margin-top: 3px;
@@ -660,7 +748,7 @@
     }
 
     .order-summary {
-      background: var(--neutral-bg);
+      background: var(--neutral-subtle);
       border: 1px solid var(--border);
       border-radius: 10px;
       padding: 1.4rem;
@@ -677,28 +765,28 @@
       max-width: 500px;
     }
     .summary-total {
-      font-size: 2rem;
+      font-size: 2.1rem;
       font-weight: 800;
-      color: var(--forest-dark);
+      color: var(--scout-navy);
       font-family: 'Cinzel', serif;
     }
     .btn-submit {
       width: 100%;
-      background: var(--scout-navy);
-      color: #fff;
+      background: var(--scout-gold);
+      color: var(--scout-navy);
       padding: 1.1rem;
       border: none;
-      border-radius: 8px;
+      border-radius: 9px;
       font-size: 1.1rem;
       font-weight: 700;
       cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-      box-shadow: var(--shadow-sm);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-gold);
     }
     .btn-submit:hover {
-      background: var(--scout-navy-light);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
+      background: var(--scout-gold-hover);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-gold-hover);
     }
 
     /* Confirmation Modal & Printable Voucher */
@@ -929,7 +1017,7 @@
       border-radius: var(--radius);
       border: 1px solid var(--border);
       padding: 2.2rem;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-card);
     }
     .schedule-card h3 {
       font-family: 'Cinzel', serif;
@@ -961,7 +1049,7 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: var(--shadow-sm);
+      box-shadow: var(--shadow-card);
     }
     .logistics-info { padding: 2.5rem; }
     .logistics-item { margin-bottom: 1.5rem; }
@@ -969,7 +1057,7 @@
     .logistics-item p { font-size: 0.9rem; color: var(--text-muted); }
     .map-frame iframe { width: 100%; height: 100%; min-height: 380px; border: 0; }
 
-    /* Sponsors & Supporters */
+    /* Supporters & Charter Organization */
     .sponsors-wrap {
       display: flex;
       justify-content: center;
@@ -983,26 +1071,35 @@
       font-weight: 700;
       font-size: 1.05rem;
       color: var(--text-muted);
-      border: 2px dashed var(--border);
+      border: 2px dashed #CBD5E1;
       padding: 1.2rem 2.2rem;
       border-radius: 8px;
+      background: #FFFFFF;
+      transition: all 0.2s;
+    }
+    .sponsor-box:hover {
+      border-color: var(--scout-gold);
+      color: var(--scout-navy);
+      transform: translateY(-2px);
     }
 
     /* Footer */
     footer {
       background: var(--scout-navy);
       color: #94a3b8;
-      padding: 3rem 1.5rem;
+      padding: 3.5rem 1.5rem;
       font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
     .footer-wrapper {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 1.8rem;
       text-align: left;
       flex-wrap: wrap;
+      max-width: 900px;
+      margin: auto;
     }
     .footer-logo {
       width: 68px;
@@ -1011,26 +1108,70 @@
       object-fit: contain;
       filter: drop-shadow(0 3px 8px rgba(0, 0, 0, 0.45));
       flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .footer-logo:hover {
+      transform: scale(1.06);
     }
     .footer-text h3 {
       font-family: 'Cinzel', serif;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: #ffffff;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
     }
-    .footer-text p {
+    .footer-charter {
+      color: var(--scout-gold);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+    .footer-links {
       color: #94a3b8;
       font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-    footer a { color: var(--scout-gold); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 500;
+    }
+    .footer-links a:hover {
+      color: var(--scout-gold);
+      text-decoration: underline;
+    }
+    .footer-sep {
+      color: rgba(255, 255, 255, 0.25);
+    }
 
     /* Responsive */
+    @media (max-width: 960px) {
+      .nav-divider { display: none; }
+      .brand-town { display: none; }
+    }
     @media (max-width: 768px) {
       .form-group-grid, .schedule-grid, .logistics-wrapper, .payment-options-grid { grid-template-columns: 1fr; }
+      .nav-container { padding: 0.75rem 1rem; }
       .nav-links { display: none; }
+      .nav-back-link { display: none; }
+      .btn-ticket-nav-mobile {
+        display: inline-flex;
+        background: var(--scout-gold);
+        color: var(--scout-navy);
+        padding: 0.5rem 0.95rem;
+        border-radius: 7px;
+        font-weight: 700;
+        font-size: 0.82rem;
+        text-decoration: none;
+        box-shadow: 0 2px 6px rgba(229, 168, 35, 0.3);
+      }
       .hero-logo { width: 110px; height: 110px; }
       .footer-wrapper { text-align: center; flex-direction: column; gap: 1rem; }
+      .footer-links { justify-content: center; }
       .voucher-meta-grid { grid-template-columns: 1fr; }
     }
 
@@ -1169,23 +1310,30 @@
   <!-- Navigation -->
   <header>
     <div class="nav-container">
-      <a href="#" class="brand" aria-label="Troop 170 Home">
-        <img src="images/troop-170-logo.png" alt="Troop 170 Logo" class="brand-logo" width="44" height="44">
-        <div class="brand-info">
-          <div class="brand-name">
-            TROOP 170 <span class="brand-badge">FOUNDED 1962</span>
+      <div class="brand-group">
+        <a href="https://troop170.org" class="nav-back-link" title="Return to Troop 170 Official Site">
+          &larr; Back to Troop170.org
+        </a>
+        <div class="nav-divider"></div>
+        <a href="#" class="brand" aria-label="Troop 170 Banquet Home">
+          <img src="images/troop-170-logo.png" alt="Troop 170 Logo" class="brand-logo" width="44" height="44">
+          <div class="brand-info">
+            <div class="brand-name">
+              TROOP 170 <span class="brand-badge">FARMINGTON, CT</span>
+            </div>
+            <div class="brand-town">Farmington &bull; Unionville &bull; Serving Youth Since 1928</div>
           </div>
-          <div class="brand-town">Unionville &bull; Farmington, CT</div>
-        </div>
-      </a>
+        </a>
+      </div>
       <nav class="nav-links">
         <a href="#about">The Revival</a>
         <a href="#why">Why Attend</a>
         <a href="#tickets">Passes &amp; RSVP</a>
         <a href="#schedule">Agenda</a>
         <a href="#logistics">Location</a>
-        <a href="#tickets" class="btn-ticket-nav">RSVP Now</a>
+        <a href="#tickets" class="btn-ticket-nav">Reserve Tickets</a>
       </nav>
+      <a href="#tickets" class="btn-ticket-nav-mobile">Reserve Tickets</a>
     </div>
   </header>
 
@@ -1731,11 +1879,17 @@
   <footer>
     <div class="container">
       <div class="footer-wrapper">
-        <img src="images/troop-170-logo.png" alt="Troop 170 Scouting America Emblem" class="footer-logo" width="68" height="68" loading="lazy">
+        <a href="https://troop170.org" class="footer-logo-link" aria-label="Visit troop170.org">
+          <img src="images/troop-170-logo.png" alt="Troop 170 Scouting America Crest" class="footer-logo" width="68" height="68" loading="lazy">
+        </a>
         <div class="footer-text">
-          <h3>Troop 170 &bull; Unionville &amp; Farmington, CT</h3>
-          <p>Scouting America &bull; Founded 1962</p>
-          <p style="margin-top:6px">For registration, dietary, or sponsorship inquiries, contact <a href="mailto:leadership@troop170.org">Troop 170 Leadership</a>.</p>
+          <h3>Scouts BSA Troop 170 &bull; Farmington &amp; Unionville, Connecticut</h3>
+          <p class="footer-charter">Chartered by the Farmington Community &bull; Serving Youth Since 1928</p>
+          <p class="footer-links">
+            <a href="https://troop170.org" target="_blank" rel="noopener noreferrer">Visit Official Troop Website (troop170.org) &rarr;</a>
+            <span class="footer-sep">&bull;</span>
+            <a href="mailto:leadership@troop170.org">Contact Leadership</a>
+          </p>
         </div>
       </div>
     </div>
