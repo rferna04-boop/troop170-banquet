@@ -767,93 +767,448 @@
     }
 
     /* ==========================================================================
-       LUXURY TICKET VOUCHER MODAL
+       CONCERT / EVENT TICKET MODAL DISPLAY
        ========================================================================== */
     .modal-backdrop {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(4, 8, 13, 0.92);
+      background: rgba(4, 8, 13, 0.94);
       backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       z-index: 2000;
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
+      overflow-y: auto;
     }
     .modal-backdrop.open { display: flex; }
-    .luxury-voucher {
-      background: #0b141e;
-      border: 1px solid rgba(229, 179, 90, 0.4);
-      border-radius: 24px;
-      max-width: 620px;
+
+    .ticket-modal-container {
+      max-width: 840px;
       width: 100%;
-      box-shadow: 0 30px 90px rgba(0,0,0,0.8), 0 0 50px var(--gold-glow);
       position: relative;
-      overflow: hidden;
+      margin: auto;
     }
-    .voucher-top {
-      background: radial-gradient(circle at 50% 0%, rgba(229, 179, 90, 0.15) 0%, transparent 80%),
-                  rgba(14, 27, 43, 0.9);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 2.25rem 2.5rem;
-      text-align: center;
-    }
-    .voucher-top h4 {
-      font-family: var(--font-display);
-      font-size: 1.6rem;
+
+    .modal-close-x {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 36px;
+      height: 36px;
+      background: #0e1b2b;
+      border: 1px solid rgba(229, 179, 90, 0.5);
+      border-radius: 50%;
       color: #fff;
-      letter-spacing: 1px;
-    }
-    .voucher-code {
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 1.05rem;
-      color: var(--gold-primary);
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px dashed rgba(229, 179, 90, 0.5);
-      padding: 6px 16px;
-      border-radius: 6px;
-      margin-top: 1rem;
-      letter-spacing: 2px;
-    }
-    .voucher-content { padding: 2.5rem; }
-    .v-line {
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
       display: flex;
-      justify-content: space-between;
-      padding: 10px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.95rem;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.2s;
     }
-    .v-line span { color: var(--text-muted); }
-    .v-line strong { color: #fff; font-family: var(--font-mono); font-weight: 500; }
-    .v-notice {
-      background: rgba(229, 179, 90, 0.08);
-      border: 1px solid rgba(229, 179, 90, 0.2);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      margin: 1.5rem 0;
-      font-size: 0.88rem;
-      color: #f3c97e;
-    }
-    .v-actions { display: flex; gap: 1rem; }
-    .btn-v-print {
-      flex: 1;
+    .modal-close-x:hover {
       background: var(--gold-primary);
       color: #060b11;
+      transform: scale(1.1);
+    }
+
+    /* Authentic Concert / Event Ticket */
+    .concert-ticket {
+      display: flex;
+      flex-direction: row;
+      background: radial-gradient(circle at 10% 10%, rgba(229, 179, 90, 0.08) 0%, transparent 45%),
+                  radial-gradient(circle at 90% 90%, rgba(30, 58, 43, 0.25) 0%, transparent 50%),
+                  #0a1420;
+      border: 1.5px solid rgba(229, 179, 90, 0.45);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.85), 0 0 50px var(--gold-glow);
+      position: relative;
+    }
+
+    .ticket-main {
+      flex: 1;
+      padding: 2.2rem 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .ticket-brand-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1.1rem;
+    }
+
+    .ticket-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+      flex-shrink: 0;
+    }
+
+    .ticket-brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ticket-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: var(--gold-primary);
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .ticket-title {
+      font-family: var(--font-display);
+      font-size: 1.28rem;
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .ticket-sub {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      letter-spacing: 0.3px;
+      margin-top: 3px;
+    }
+
+    .ticket-venue-strip {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      padding: 0.85rem 1.15rem;
+      gap: 1rem;
+    }
+
+    .venue-cell {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .v-label {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      letter-spacing: 1.5px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .v-value {
+      font-size: 0.88rem;
+      color: #fff;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .t-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.95rem;
+    }
+
+    .t-item {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.3;
+    }
+
+    .t-k {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+
+    .t-v {
+      font-size: 0.95rem;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .t-v.mono {
+      font-family: var(--font-mono);
+      letter-spacing: 1.5px;
+    }
+
+    .t-v.gold { color: var(--gold-primary); }
+
+    .t-v.price {
+      font-size: 1.2rem;
+      color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    .t-v-text {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    .ticket-dietary-row {
+      background: rgba(229, 179, 90, 0.07);
+      border: 1px dashed rgba(229, 179, 90, 0.3);
+      padding: 0.6rem 0.9rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ticket-dietary-row .t-k { margin-bottom: 0; color: var(--gold-primary); }
+    .ticket-dietary-row .t-v-sm { font-size: 0.84rem; color: #f1f5f9; }
+
+    .ticket-security-footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+
+    /* Perforation Divider with Notches */
+    .ticket-perforation {
+      position: relative;
+      width: 0;
+      border-left: 2px dashed rgba(229, 179, 90, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .notch {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background: #04080d;
+      border-radius: 50%;
+      left: -14px;
+      z-index: 2;
+    }
+    .notch-top {
+      top: -14px;
+      border-bottom: 1.5px solid rgba(229, 179, 90, 0.45);
+    }
+    .notch-bottom {
+      bottom: -14px;
+      border-top: 1.5px solid rgba(229, 179, 90, 0.45);
+    }
+
+    /* Ticket Stub (Right) */
+    .ticket-stub {
+      width: 220px;
+      background: rgba(14, 27, 43, 0.92);
+      padding: 2.2rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .stub-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stub-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+
+    .stub-brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #fff;
+      letter-spacing: 1.5px;
+    }
+
+    .stub-pass-badge {
+      background: linear-gradient(135deg, var(--gold-primary) 0%, #b88636 100%);
+      color: #060b11;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.92rem;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      width: 100%;
+      box-shadow: 0 4px 14px var(--gold-glow);
+    }
+
+    .stub-details {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .stub-detail-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 3px;
+    }
+
+    .stub-detail-item span {
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      text-transform: uppercase;
+    }
+
+    .stub-detail-item strong {
+      color: #fff;
+      font-size: 0.78rem;
+    }
+
+    .stub-detail-item strong.gold {
+      color: var(--gold-primary);
+    }
+
+    .stub-barcode-block {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ticket-barcode-svg {
+      width: 100%;
+      height: 38px;
+      color: var(--gold-primary);
+    }
+
+    .stub-serial {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .stub-stamp {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(229, 179, 90, 0.7);
+      border: 1px dashed rgba(229, 179, 90, 0.35);
+      padding: 3px 8px;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    /* Payment Box Below Ticket */
+    .ticket-payment-box {
+      background: rgba(14, 27, 43, 0.95);
+      border: 1px solid rgba(229, 179, 90, 0.35);
+      border-radius: 14px;
+      padding: 1.15rem 1.5rem;
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: #e2e8f0;
+      line-height: 1.55;
+    }
+
+    .ticket-payment-box h4 {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      color: var(--gold-primary);
+      margin-bottom: 4px;
+    }
+
+    .ticket-payment-box code {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(229, 179, 90, 0.4);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      color: var(--gold-primary);
+      font-weight: 600;
+    }
+
+    /* Modal Action Buttons */
+    .ticket-modal-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .btn-ticket-print {
+      flex: 1;
+      background: linear-gradient(135deg, var(--gold-primary) 0%, #b88636 100%);
+      color: #060b11;
       border: none;
-      padding: 1rem;
+      padding: 0.95rem 1.5rem;
       border-radius: 10px;
       font-weight: 700;
+      font-size: 0.95rem;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 18px var(--gold-glow);
+      transition: all 0.2s ease;
     }
-    .btn-v-close {
-      background: rgba(255,255,255,0.08);
+    .btn-ticket-print:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(229, 179, 90, 0.45);
+    }
+
+    .btn-ticket-close {
+      background: rgba(255, 255, 255, 0.08);
       color: #fff;
-      border: none;
-      padding: 1rem 1.75rem;
+      border: 1px solid var(--border-subtle);
+      padding: 0.95rem 1.75rem;
       border-radius: 10px;
       font-weight: 600;
+      font-size: 0.95rem;
       cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-ticket-close:hover {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
     }
 
     footer {
@@ -891,6 +1246,231 @@
         text-decoration: none;
         box-shadow: 0 2px 10px var(--gold-glow);
         white-space: nowrap;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .concert-ticket { flex-direction: column; }
+      .ticket-perforation {
+        width: 100%;
+        height: 0;
+        border-left: none;
+        border-top: 2px dashed rgba(229, 179, 90, 0.4);
+      }
+      .notch { display: none; }
+      .ticket-stub { width: 100%; padding: 1.5rem; }
+      .ticket-venue-strip, .ticket-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ==========================================================================
+       DEDICATED PRINT STYLESHEET (CLEAN SINGLE-PAGE TICKET ONLY)
+       ========================================================================== */
+    @media print {
+      @page {
+        size: letter portrait;
+        margin: 12mm 12mm;
+      }
+
+      /* Clean reset for ink-friendly paper */
+      html, body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        height: auto !important;
+        min-height: auto !important;
+        overflow: visible !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      /* Hide ALL main website content, background glows, fixed navbars, and interactive controls */
+      body::before,
+      header,
+      .hero,
+      #why,
+      #reservations,
+      footer,
+      .ticket-modal-actions,
+      .modal-close-x {
+        display: none !important;
+      }
+
+      /* Render modal transparently in normal page flow */
+      .modal-backdrop {
+        display: block !important;
+        position: static !important;
+        inset: auto !important;
+        background: transparent !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+      }
+
+      .ticket-modal-container {
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      /* High-contrast ink-friendly concert ticket print layout */
+      .concert-ticket {
+        display: flex !important;
+        flex-direction: row !important;
+        background: #ffffff !important;
+        color: #0f172a !important;
+        border: 2px solid #0e2238 !important;
+        border-radius: 10px !important;
+        box-shadow: none !important;
+        margin: 0 0 14px 0 !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      .ticket-main {
+        background: #ffffff !important;
+        color: #0f172a !important;
+        padding: 16px 20px !important;
+        gap: 10px !important;
+      }
+
+      .ticket-brand-header {
+        border-bottom: 2px solid #0e2238 !important;
+        padding-bottom: 8px !important;
+      }
+
+      .ticket-logo {
+        filter: none !important;
+      }
+
+      .ticket-eyebrow {
+        color: #b88636 !important;
+      }
+
+      .ticket-title {
+        color: #0a192f !important;
+        font-size: 1.15rem !important;
+      }
+
+      .ticket-sub {
+        color: #475569 !important;
+      }
+
+      .ticket-venue-strip {
+        background: #f8fafc !important;
+        border: 1.5px solid #cbd5e1 !important;
+        color: #0f172a !important;
+        padding: 8px 12px !important;
+      }
+
+      .v-label, .t-k {
+        color: #64748b !important;
+      }
+
+      .v-value, .t-v {
+        color: #0a192f !important;
+      }
+
+      .t-v.gold, .t-v.price {
+        color: #b88636 !important;
+      }
+
+      .t-v-text {
+        color: #1e293b !important;
+      }
+
+      .ticket-security-footer {
+        border-top: 1px solid #e2e8f0 !important;
+        color: #64748b !important;
+        padding-top: 8px !important;
+      }
+
+      .ticket-perforation {
+        border-left: 2px dashed #94a3b8 !important;
+      }
+
+      .notch {
+        background: #ffffff !important;
+        border-color: #0e2238 !important;
+      }
+
+      .ticket-stub {
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border-left: 2px dashed #94a3b8 !important;
+        padding: 16px 12px !important;
+        width: 190px !important;
+      }
+
+      .stub-brand {
+        color: #0a192f !important;
+      }
+
+      .stub-pass-badge {
+        background: #0a192f !important;
+        color: #ffffff !important;
+        box-shadow: none !important;
+      }
+
+      .stub-detail-item span {
+        color: #64748b !important;
+      }
+
+      .stub-detail-item strong {
+        color: #0a192f !important;
+      }
+
+      .stub-detail-item strong.gold {
+        color: #b88636 !important;
+      }
+
+      .ticket-barcode-svg {
+        color: #000000 !important;
+        fill: #000000 !important;
+      }
+
+      .stub-serial {
+        color: #475569 !important;
+      }
+
+      .stub-stamp {
+        border-color: #94a3b8 !important;
+        color: #475569 !important;
+      }
+
+      .ticket-payment-box {
+        background: #f8fafc !important;
+        color: #0f172a !important;
+        border: 1.5px solid #0e2238 !important;
+        border-radius: 8px !important;
+        padding: 12px 16px !important;
+        margin-top: 10px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+
+      .ticket-payment-box h4 {
+        color: #0a192f !important;
+        margin-bottom: 4px !important;
+      }
+
+      .ticket-payment-box p {
+        color: #334155 !important;
+      }
+
+      .ticket-payment-box code {
+        background: #e2e8f0 !important;
+        color: #0a192f !important;
+        border: 1px solid #cbd5e1 !important;
       }
     }
   </style>
@@ -1187,44 +1767,161 @@
     </div>
   </section>
 
-  <!-- Luxury Ticket Voucher Modal -->
-  <div class="modal-backdrop" id="voucherModal">
-    <div class="luxury-voucher">
-      <div class="voucher-top">
-        <h4>Troop 170 Revival Pass</h4>
-        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">Dec 4–6, 2026 • Camp Workcoeman</p>
-        <div class="voucher-code" id="v-receipt">T170-REVIVAL-XXXXXX</div>
+  <!-- Concert Ticket Modal -->
+  <div class="modal-backdrop" id="voucherModal" role="dialog" aria-modal="true" aria-labelledby="t-event-title">
+    <div class="ticket-modal-container">
+      <button type="button" class="modal-close-x" onclick="closeVoucher()" aria-label="Close ticket">&times;</button>
+      
+      <!-- Authentic Concert / Event Ticket -->
+      <div class="concert-ticket">
+        <!-- Main Body (Left) -->
+        <div class="ticket-main">
+          <div class="ticket-brand-header">
+            <img src="images/troop-170-logo.png" alt="Troop 170 Logo" class="ticket-logo" width="54" height="54">
+            <div class="ticket-brand-text">
+              <span class="ticket-eyebrow">★ OFFICIAL ADMISSION PASS ★</span>
+              <h3 class="ticket-title" id="t-event-title">TROOP 170 • 2026 REVIVAL BANQUET &amp; CAMPOUT</h3>
+              <p class="ticket-sub">Scouts BSA • Farmington &amp; Unionville, CT • Serving Youth Since 1928</p>
+            </div>
+          </div>
+
+          <div class="ticket-venue-strip">
+            <div class="venue-cell">
+              <span class="v-label">DATE &amp; TIME</span>
+              <strong class="v-value">DEC 4–6, 2026 • SATURDAY BANQUET 4:00 PM – 8:00 PM</strong>
+            </div>
+            <div class="venue-cell">
+              <span class="v-label">LOCATION</span>
+              <strong class="v-value">CAMP WORKCOEMAN • NEW HARTFORD, CT</strong>
+            </div>
+          </div>
+
+          <div class="ticket-grid">
+            <div class="t-col">
+              <div class="t-item">
+                <span class="t-k">PRIMARY GUEST</span>
+                <strong class="t-v" id="t-name">--</strong>
+              </div>
+              <div class="t-item">
+                <span class="t-k">ORDER / PASS CODE</span>
+                <strong class="t-v mono gold" id="t-receipt">T170-REVIVAL-XXXXXX</strong>
+              </div>
+              <div class="t-item">
+                <span class="t-k">PARTY ATTENDEES</span>
+                <div class="t-v-text" id="t-attendees">--</div>
+              </div>
+            </div>
+
+            <div class="t-col">
+              <div class="t-item">
+                <span class="t-k">PASS BREAKDOWN</span>
+                <div class="t-v-text" id="t-breakdown">--</div>
+              </div>
+              <div class="t-item">
+                <span class="t-k">PAYMENT METHOD</span>
+                <strong class="t-v" id="t-payment">--</strong>
+              </div>
+              <div class="t-item">
+                <span class="t-k">TOTAL BALANCE DUE</span>
+                <strong class="t-v price" id="t-total">$0.00</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="ticket-dietary-row" id="t-dietary-wrap" style="display:none;">
+            <span class="t-k">DIETARY NOTES:</span>
+            <span class="t-v-sm" id="t-dietary">--</span>
+          </div>
+
+          <div class="ticket-security-footer">
+            <span>● NON-TRANSFERABLE</span>
+            <span>● PRESENT AT CAMP WORKCOEMAN MAIN DINING HALL CHECK-IN</span>
+            <span>● ADMIT PARTY IN FULL</span>
+          </div>
+        </div>
+
+        <!-- Perforation Divider with Circular Notches -->
+        <div class="ticket-perforation">
+          <div class="notch notch-top"></div>
+          <div class="perf-line"></div>
+          <div class="notch notch-bottom"></div>
+        </div>
+
+        <!-- Ticket Stub (Right) -->
+        <div class="ticket-stub">
+          <div class="stub-header">
+            <img src="images/troop-170-logo.png" alt="Troop 170 Crest" class="stub-logo" width="38" height="38">
+            <div class="stub-brand">TROOP 170</div>
+          </div>
+
+          <div class="stub-pass-badge" id="t-stub-count">ADMIT 1</div>
+          
+          <div class="stub-details">
+            <div class="stub-detail-item">
+              <span>VENUE</span>
+              <strong>WORKCOEMAN</strong>
+            </div>
+            <div class="stub-detail-item">
+              <span>DATE</span>
+              <strong>DEC 5, 2026</strong>
+            </div>
+            <div class="stub-detail-item">
+              <span>PASS ID</span>
+              <strong class="stub-id gold" id="t-stub-id">T170-XXXXXX</strong>
+            </div>
+          </div>
+
+          <!-- Vector Barcode -->
+          <div class="stub-barcode-block">
+            <svg class="ticket-barcode-svg" viewBox="0 0 200 44" preserveAspectRatio="none">
+              <rect x="0" y="0" width="3" height="44" fill="currentColor"/>
+              <rect x="5" y="0" width="2" height="44" fill="currentColor"/>
+              <rect x="10" y="0" width="4" height="44" fill="currentColor"/>
+              <rect x="17" y="0" width="2" height="44" fill="currentColor"/>
+              <rect x="22" y="0" width="5" height="44" fill="currentColor"/>
+              <rect x="30" y="0" width="2" height="44" fill="currentColor"/>
+              <rect x="35" y="0" width="4" height="44" fill="currentColor"/>
+              <rect x="42" y="0" width="5" height="44" fill="currentColor"/>
+              <rect x="50" y="0" width="2" height="44" fill="currentColor"/>
+              <rect x="55" y="0" width="4" height="44" fill="currentColor"/>
+              <rect x="62" y="0" width="3" height="44" fill="currentColor"/>
+              <rect x="68" y="0" width="6" height="44" fill="currentColor"/>
+              <rect x="77" y="0" width="2" height="44" fill="currentColor"/>
+              <rect x="82" y="0" width="4" height="44" fill="currentColor"/>
+              <rect x="89" y="0" width="3" height="44" fill="currentColor"/>
+              <rect x="95" y="0" width="5" height="44" fill="currentColor"/>
+              <rect x="103" y="0" width="2" height="44" fill="currentColor"/>
+              <rect x="108" y="0" width="6" height="44" fill="currentColor"/>
+              <rect x="117" y="0" width="3" height="44" fill="currentColor"/>
+              <rect x="123" y="0" width="4" height="44" fill="currentColor"/>
+              <rect x="130" y="0" width="2" height="44" fill="currentColor"/>
+              <rect x="135" y="0" width="5" height="44" fill="currentColor"/>
+              <rect x="143" y="0" width="3" height="44" fill="currentColor"/>
+              <rect x="149" y="0" width="6" height="44" fill="currentColor"/>
+              <rect x="158" y="0" width="2" height="44" fill="currentColor"/>
+              <rect x="163" y="0" width="4" height="44" fill="currentColor"/>
+              <rect x="170" y="0" width="5" height="44" fill="currentColor"/>
+              <rect x="178" y="0" width="3" height="44" fill="currentColor"/>
+              <rect x="184" y="0" width="2" height="44" fill="currentColor"/>
+              <rect x="189" y="0" width="6" height="44" fill="currentColor"/>
+              <rect x="198" y="0" width="2" height="44" fill="currentColor"/>
+            </svg>
+            <span class="stub-serial" id="t-stub-serial">*T170-REVIVAL*</span>
+          </div>
+
+          <div class="stub-stamp">CHECK-IN DESK COPY</div>
+        </div>
       </div>
-      <div class="voucher-content">
-        <div class="v-line">
-          <span>Primary Contact</span>
-          <strong id="v-name">--</strong>
-        </div>
-        <div class="v-line">
-          <span>Party Members</span>
-          <strong id="v-attendees" style="text-align:right; max-width:60%;">--</strong>
-        </div>
-        <div class="v-line">
-          <span>Pass Breakdown</span>
-          <strong id="v-breakdown">--</strong>
-        </div>
-        <div class="v-line">
-          <span>Payment Selected</span>
-          <strong id="v-payment">--</strong>
-        </div>
-        <div class="v-line" style="font-size:1.15rem; color:var(--gold-primary); margin-top:6px;">
-          <span>Total Balance</span>
-          <strong id="v-total">$0.00</strong>
-        </div>
 
-        <div class="v-notice" id="v-payment-note">
-          <strong>Venmo Instructions:</strong> Please send payment to <code>@Troop170-Farmington</code> with note: <em id="v-venmo-note">T170-REVIVAL</em> to finalize your reservation.
-        </div>
+      <!-- Payment / Check-in Guidance Card -->
+      <div class="ticket-payment-box" id="t-payment-note"></div>
 
-        <div class="v-actions">
-          <button type="button" class="btn-v-print" onclick="window.print()">Print / Save Voucher</button>
-          <button type="button" class="btn-v-close" onclick="closeVoucher()">Done</button>
-        </div>
+      <!-- Modal Actions (Hidden in Print) -->
+      <div class="ticket-modal-actions">
+        <button type="button" class="btn-ticket-print" onclick="window.print()">
+          <span style="font-size:1.15rem;">🖨️</span> Print / Save Ticket (PDF)
+        </button>
+        <button type="button" class="btn-ticket-close" onclick="closeVoucher()">Done</button>
       </div>
     </div>
   </div>
@@ -1323,13 +2020,15 @@
         console.warn("Webhook logging failed:", err);
       }
 
-      // Populate Voucher
-      document.getElementById('v-receipt').innerText = receiptId;
-      document.getElementById('v-name').innerText = payload.name;
-      document.getElementById('v-attendees').innerText = payload.attendees;
-      document.getElementById('v-payment').innerText = paymentMethod;
-      document.getElementById('v-total').innerText = `$${totalDue.toFixed(2)}`;
-      document.getElementById('v-venmo-note').innerText = receiptId;
+      // Populate Concert Ticket & Stub
+      document.getElementById('t-receipt').innerText = receiptId;
+      document.getElementById('t-stub-id').innerText = receiptId;
+      document.getElementById('t-stub-serial').innerText = `*${receiptId}*`;
+      document.getElementById('t-name').innerText = payload.name;
+      document.getElementById('t-attendees').innerText = payload.attendees;
+      document.getElementById('t-payment').innerText = paymentMethod;
+      document.getElementById('t-total').innerText = `$${totalDue.toFixed(2)}`;
+      document.getElementById('t-stub-count').innerText = `ADMIT ${totalCount}`;
 
       let breakdown = [];
       if (counts.troopScout > 0) breakdown.push(`${counts.troopScout} Troop Camper(s)`);
@@ -1339,25 +2038,45 @@
       if (counts.leaderCamp > 0) breakdown.push(`${counts.leaderCamp} Leader(s)`);
       if (counts.parentCamp > 0) breakdown.push(`${counts.parentCamp} Parent Camper(s)`);
       if (counts.staff > 0) breakdown.push(`${counts.staff} Staff`);
-      document.getElementById('v-breakdown').innerText = breakdown.join(', ');
+      document.getElementById('t-breakdown').innerText = breakdown.join(', ');
 
-      const noteEl = document.getElementById('v-payment-note');
-      if (paymentMethod === "Venmo" && totalDue > 0) {
-        noteEl.style.display = "block";
-      } else if (totalDue > 0) {
-        noteEl.style.display = "block";
-        noteEl.innerHTML = `<strong>Cash / Check:</strong> Please bring cash or check payable to <em>Troop 170</em> at check-in. Mention Receipt: <code>${receiptId}</code>.`;
+      const dietaryWrap = document.getElementById('t-dietary-wrap');
+      if (payload.dietary) {
+        dietaryWrap.style.display = 'flex';
+        document.getElementById('t-dietary').innerText = payload.dietary;
       } else {
-        noteEl.style.display = "none";
+        dietaryWrap.style.display = 'none';
+      }
+
+      const noteEl = document.getElementById('t-payment-note');
+      if (paymentMethod === "Venmo" && totalDue > 0) {
+        noteEl.innerHTML = `
+          <h4>📱 Next Step: Complete Venmo Payment</h4>
+          <p>Please open the Venmo app and send <strong>$${totalDue.toFixed(2)}</strong> to <strong>@Troop170-Farmington</strong>.</p>
+          <p style="margin-top:6px;">⚠️ <strong>Important:</strong> Enter Order ID <code>${receiptId}</code> in the Venmo payment note to reconcile your registration.</p>
+        `;
+      } else if (totalDue > 0) {
+        noteEl.innerHTML = `
+          <h4>💵 Payment Due at Check-In</h4>
+          <p>Your balance of <strong>$${totalDue.toFixed(2)}</strong> is payable upon arrival at the Camp Workcoeman main dining hall check-in desk.</p>
+          <p style="margin-top:6px;">Please bring cash or check payable to <strong>Troop 170</strong> with Order ID <code>${receiptId}</code> in the memo line.</p>
+        `;
+      } else {
+        noteEl.innerHTML = `
+          <h4>✅ Registration Confirmed</h4>
+          <p>No payment is due for this registration. Please bring this ticket with you to the Camp Workcoeman dining hall check-in desk.</p>
+        `;
       }
 
       document.getElementById('voucherModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
       submitBtn.disabled = false;
       submitBtn.innerText = "Complete Reservation & Generate Ticket";
     }
 
     function closeVoucher() {
       document.getElementById('voucherModal').classList.remove('open');
+      document.body.style.overflow = '';
       document.getElementById('rsvp-form').reset();
       Object.keys(counts).forEach(k => {
         counts[k] = 0;
@@ -1365,6 +2084,24 @@
       });
       renderSummary();
     }
+
+    // Close modal on click outside ticket
+    window.addEventListener('click', function(e) {
+      const modal = document.getElementById('voucherModal');
+      if (e.target === modal) {
+        closeVoucher();
+      }
+    });
+
+    // Close modal on Escape key
+    window.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        const modal = document.getElementById('voucherModal');
+        if (modal && modal.classList.contains('open')) {
+          closeVoucher();
+        }
+      }
+    });
   </script>
 </body>
 </html>
