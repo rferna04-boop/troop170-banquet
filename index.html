@@ -540,6 +540,109 @@
        TICKETING ENGINE & ARCHITECTURE
        ========================================================================== */
     .tickets-section { padding: 2rem 0 7rem; }
+
+    /* Safeguarding Youth & Lodging Callout */
+    .safeguarding-box {
+      background: radial-gradient(circle at 0% 0%, rgba(25, 71, 51, 0.35) 0%, rgba(14, 23, 36, 0.95) 70%);
+      border: 1px solid rgba(229, 179, 90, 0.3);
+      border-radius: var(--radius-md);
+      padding: 1.75rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+    .safeguarding-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gold-primary);
+    }
+    .safeguarding-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .sg-shield {
+      font-size: 2rem;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(229, 179, 90, 0.12);
+      border: 1px solid rgba(229, 179, 90, 0.3);
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      flex-shrink: 0;
+    }
+    .sg-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.5px;
+    }
+    .sg-subtitle {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+    .safeguarding-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+    .sg-item {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 1.15rem 1.25rem;
+      transition: border-color 0.2s ease;
+    }
+    .sg-item:hover {
+      border-color: rgba(229, 179, 90, 0.35);
+    }
+    .sg-item-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--gold-hover);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sg-item p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #cbd5e1;
+    }
+    .sg-item p strong {
+      color: #ffffff;
+    }
+    .t-badge.pack {
+      background: rgba(30, 80, 50, 0.5);
+      color: #9fe88d;
+      border-color: rgba(159, 232, 141, 0.35);
+    }
+    .t-badge.leader {
+      background: rgba(40, 60, 100, 0.5);
+      color: #93c5fd;
+      border-color: rgba(147, 197, 253, 0.35);
+    }
+
     .ticket-shelf {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1567,7 +1670,7 @@
           <ul class="hook-features">
             <li>
               <span class="hook-icon-check">✓</span>
-              <div><strong>Heated Cabin Lodging:</strong> Sleep warm and comfortable in Camp Workcoeman&rsquo;s historic heated cabins with bunkmates, evening camaraderie, and cracker barrel treats (optional winter tent camping is also available for scouts who want the outdoor challenge!).</div>
+              <div><strong>Heated Cabin Lodging:</strong> Sleep warm and comfortable in Camp Workcoeman&rsquo;s historic heated cabins with bunkmates, evening camaraderie, and cracker barrel treats (optional winter tent camping is also available for scouts who want the outdoor challenge!). <em>Note: A dedicated, heated cabin is reserved specifically for Female Scouters (Pack or Troop).</em></div>
             </li>
             <li>
               <span class="hook-icon-check">✓</span>
@@ -1622,6 +1725,31 @@
         <h2 class="section-title">Select Your Passes</h2>
       </div>
 
+      <!-- Safeguarding Youth & Lodging Compliance Callout -->
+      <div class="safeguarding-box">
+        <div class="safeguarding-header">
+          <div class="sg-shield">🛡️</div>
+          <div>
+            <h3 class="sg-title">Safeguarding Youth &amp; Lodging Compliance</h3>
+            <p class="sg-subtitle">Scouting America Guidelines &bull; Troop 170 Strict Compliance Standards</p>
+          </div>
+        </div>
+        <div class="safeguarding-grid">
+          <div class="sg-item">
+            <div class="sg-item-tag">⚜️ Troop Overnight Camping</div>
+            <p>Per Scouting America policy, <strong>all adults staying overnight with Troop Scouts must be fully registered Adult Leaders</strong> with active Youth Protection Training (YPT) and background verification. Non-registered Troop parents are warmly invited to join daytime activities and the Saturday Evening Banquet!</p>
+          </div>
+          <div class="sg-item">
+            <div class="sg-item-tag">🏕️ Pack Families (AOL &amp; Webelos)</div>
+            <p>Parents and legal guardians of attending AOL / Webelos Scouts <strong>are permitted and encouraged to camp overnight</strong> in designated family/pack cabins alongside their youth. One parent attends free with each registered AOL cabin camper.</p>
+          </div>
+          <div class="sg-item">
+            <div class="sg-item-tag">🌲 Female Scouter Accommodations</div>
+            <p>To ensure comfortable, compliant facilities for all volunteers, <strong>a dedicated heated cabin is reserved exclusively for Female Scouters</strong> (both Troop and Pack registered leaders and mothers).</p>
+          </div>
+        </div>
+      </div>
+
       <!-- Ticket Shelf Cards -->
       <div class="ticket-shelf">
         <div class="t-card featured">
@@ -1671,9 +1799,10 @@
         </div>
 
         <div class="t-card">
+          <span class="t-badge leader">BSA Registered</span>
           <div class="t-role">Registered Leader Camping</div>
           <div class="t-price">$0 <span>/ leader</span></div>
-          <div class="t-desc">Full weekend adult supervision, YPT oversight, and leadership. Dinner included.</div>
+          <div class="t-desc">For registered Adult Leaders with active YPT (Troop or Pack). Cabin lodging, meals, and banquet dinner included.</div>
           <div class="stepper">
             <button type="button" class="stepper-btn" onclick="updateQty('leaderCamp', -1)">−</button>
             <span class="stepper-val" id="qty-leaderCamp">0</span>
@@ -1682,9 +1811,10 @@
         </div>
 
         <div class="t-card">
-          <div class="t-role">Parent Camping</div>
+          <span class="t-badge pack">Pack Families Only</span>
+          <div class="t-role">Pack Parent Camping</div>
           <div class="t-price">$0 <span>/ parent</span></div>
-          <div class="t-desc">Accompanying parent / guardian camping for the weekend. Dinner included.</div>
+          <div class="t-desc">For parents/guardians accompanying an AOL/Webelos scout in the pack cabin. (Troop parents overnight must be registered leaders).</div>
           <div class="stepper">
             <button type="button" class="stepper-btn" onclick="updateQty('parentCamp', -1)">−</button>
             <span class="stepper-val" id="qty-parentCamp">0</span>
@@ -2036,7 +2166,7 @@
       if (counts.webelosDay > 0) breakdown.push(`${counts.webelosDay} Webelos Day`);
       if (counts.banquetGuest > 0) breakdown.push(`${counts.banquetGuest} Banquet Guest(s)`);
       if (counts.leaderCamp > 0) breakdown.push(`${counts.leaderCamp} Leader(s)`);
-      if (counts.parentCamp > 0) breakdown.push(`${counts.parentCamp} Parent Camper(s)`);
+      if (counts.parentCamp > 0) breakdown.push(`${counts.parentCamp} Pack Parent Camper(s)`);
       if (counts.staff > 0) breakdown.push(`${counts.staff} Staff`);
       document.getElementById('t-breakdown').innerText = breakdown.join(', ');
 
