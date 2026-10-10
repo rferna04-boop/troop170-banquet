@@ -15,14 +15,14 @@
        DESIGN SYSTEM TOKENS (Human-Centered Dark Luxury & Strict WCAG Contrast)
        ========================================================================== */
     :root {
-      --bg-base: #070b10;
-      --bg-surface: #0e1724;
+      --bg-base: #090e15;
+      --bg-surface: #0f1826;
       --bg-card: rgba(255, 255, 255, 0.03);
       --bg-card-hover: rgba(255, 255, 255, 0.06);
       
       --gold-primary: #e5b35a;
       --gold-hover: #f3c97e;
-      --gold-glow: rgba(229, 179, 90, 0.22);
+      --gold-glow: rgba(229, 179, 90, 0.28);
       
       --pine-glow: rgba(25, 71, 51, 0.38);
       --pine-accent: #1e3a2b;
@@ -57,16 +57,17 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Ambient Organic Glow Canvas */
+    /* Ambient Organic Glow Canvas - Warm Campfire & Pine Undertones */
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at 50% 0%, var(--pine-glow) 0%, transparent 55%),
-                  radial-gradient(circle at 90% 35%, rgba(14, 34, 56, 0.6) 0%, transparent 50%),
-                  radial-gradient(circle at 10% 75%, rgba(229, 179, 90, 0.07) 0%, transparent 45%);
+      background: radial-gradient(circle at 50% 5%, rgba(229, 179, 90, 0.2) 0%, transparent 55%),
+                  radial-gradient(circle at 85% 25%, rgba(200, 130, 50, 0.14) 0%, transparent 50%),
+                  radial-gradient(circle at 10% 45%, var(--pine-glow) 0%, transparent 50%),
+                  radial-gradient(circle at 75% 75%, rgba(229, 179, 90, 0.1) 0%, transparent 45%);
       pointer-events: none;
       z-index: 0;
     }
@@ -154,18 +155,85 @@
     }
 
     /* ==========================================================================
-       HERO SECTION
+       HERO SECTION WITH WARMTH & GRADIENT FADE
        ========================================================================== */
     .hero {
       padding: 10.5rem 0 5rem;
       position: relative;
+      overflow: hidden;
     }
+
+    .hero-bg-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+      /* Smooth gradient fade of image from behind the text to foreground/bottom */
+      mask-image: linear-gradient(180deg, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 1) 42%, 
+        rgba(0, 0, 0, 0.6) 70%, 
+        rgba(0, 0, 0, 0) 100%
+      );
+      -webkit-mask-image: linear-gradient(180deg, 
+        rgba(0, 0, 0, 1) 0%, 
+        rgba(0, 0, 0, 1) 42%, 
+        rgba(0, 0, 0, 0.6) 70%, 
+        rgba(0, 0, 0, 0) 100%
+      );
+    }
+
+    .hero-bg-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      opacity: 0.62;
+      filter: contrast(1.08) saturate(1.22) brightness(1.04);
+      transform: scale(1.02);
+    }
+
+    .hero-gradient-overlay {
+      position: absolute;
+      inset: 0;
+      background: 
+        /* Top dark scrim for navbar contrast, fading smoothly into warm photo */
+        linear-gradient(180deg, 
+          rgba(9, 14, 21, 0.88) 0%, 
+          rgba(9, 14, 21, 0.26) 18%, 
+          rgba(12, 19, 29, 0.42) 48%, 
+          rgba(9, 14, 21, 0.82) 80%, 
+          var(--bg-base) 100%
+        ),
+        /* Warm ambient gold & timber campfire glow centered behind "A Cherished Tradition" */
+        radial-gradient(ellipse at 50% 28%, 
+          rgba(229, 179, 90, 0.24) 0%, 
+          rgba(195, 125, 45, 0.15) 42%, 
+          transparent 75%
+        ),
+        /* Subtle contrast scrim centered behind title text for maximum legibility */
+        radial-gradient(ellipse at 35% 32%, 
+          rgba(9, 14, 21, 0.55) 0%, 
+          rgba(9, 14, 21, 0.18) 60%, 
+          transparent 85%
+        );
+    }
+
     .hero-meta {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: rgba(229, 179, 90, 0.08);
-      border: 1px solid rgba(229, 179, 90, 0.25);
+      background: rgba(15, 24, 38, 0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 179, 90, 0.35);
       padding: 6px 18px;
       border-radius: 100px;
       margin-bottom: 2rem;
@@ -196,21 +264,24 @@
       color: var(--text-hero);
       margin-bottom: 1.75rem;
       max-width: 980px;
+      text-shadow: 0 3px 24px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.9);
     }
     .hero-title em {
       font-style: italic;
       color: var(--gold-primary);
-      background: linear-gradient(135deg, #fff 20%, var(--gold-primary) 100%);
+      background: linear-gradient(135deg, #ffffff 20%, #fbd38d 60%, var(--gold-primary) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 18px rgba(0, 0, 0, 0.85));
     }
     .hero-subtitle {
       font-size: clamp(1.1rem, 2vw, 1.35rem);
-      color: var(--text-muted);
+      color: #f1f5f9;
       max-width: 780px;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.6;
       margin-bottom: 3.5rem;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9);
     }
 
     /* Asymmetric Date Bento Cards */
@@ -221,18 +292,21 @@
       margin-bottom: 3.5rem;
     }
     .date-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+      background: rgba(15, 24, 38, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: var(--radius-lg);
       padding: 2.25rem;
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       position: relative;
       overflow: hidden;
-      transition: border-color 0.3s, transform 0.3s;
+      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
     }
     .date-card:hover {
-      border-color: var(--border-light);
+      border-color: rgba(229, 179, 90, 0.45);
       transform: translateY(-2px);
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.45);
     }
     .date-card::after {
       content: "";
@@ -671,7 +745,7 @@
 
     @media (max-width: 900px) {
       .date-split-grid, .form-grid { grid-template-columns: 1fr; }
-      .bento-card.col-7, .bento-card.col-5 { grid-column: 12; }
+      .bento-card.col-7, .bento-card.col-5 { grid-column: span 12; }
       .field-wrap.full { grid-column: span 1; }
       .hero { padding-top: 8rem; }
       .checkout-board { padding: 2rem 1.5rem; }
@@ -698,6 +772,10 @@
 
   <!-- Hero Section -->
   <section class="hero">
+    <div class="hero-bg-container" aria-hidden="true">
+      <img src="images/banquet-hall-hero.jpg" alt="Troop 170 Camp Workcoeman Dining Hall Gathering" class="hero-bg-img" fetchpriority="high" decoding="async" />
+      <div class="hero-gradient-overlay"></div>
+    </div>
     <div class="container">
       <div class="hero-meta">
         <span class="pulse-dot"></span>
