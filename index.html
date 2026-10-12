@@ -401,6 +401,27 @@
       font-size: 0.95rem;
       color: var(--text-muted);
     }
+    .date-card-deadline {
+      margin-top: 1.15rem;
+      padding-top: 0.95rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+    }
+    .deadline-pill {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--gold-primary);
+      background: rgba(229, 179, 90, 0.12);
+      border: 1px solid rgba(229, 179, 90, 0.3);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      letter-spacing: 0.5px;
+      font-weight: 500;
+    }
 
     /* ==========================================================================
        "WHY WE GATHER" / THE MISSION DUAL HOOK SECTION
@@ -1634,6 +1655,9 @@
           </div>
           <div class="date-card-time">December 4–6, 2026</div>
           <div class="date-card-location">Friday 6:00 PM – Sunday 10:00 AM • Camp Workcoeman Cabins & Patrol Sites</div>
+          <div class="date-card-deadline">
+            <span class="deadline-pill">⏳ RSVP Due: Friday, Nov 13, 2026</span>
+          </div>
         </div>
         <div class="date-card">
           <div class="date-card-type">
@@ -1641,6 +1665,9 @@
           </div>
           <div class="date-card-time">Saturday, Dec 5, 2026</div>
           <div class="date-card-location">4:00 PM – 8:00 PM • Main Dining Hall • Traditional Turkey Dinner & Skits</div>
+          <div class="date-card-deadline">
+            <span class="deadline-pill">⏳ RSVP Due: Friday, Nov 13, 2026</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1697,7 +1724,7 @@
           <ul class="hook-features">
             <li>
               <span class="hook-icon-check">✓</span>
-              <div><strong>Scratch-Made Roast Turkey Dinner:</strong> Traditional roasted turkey dinner, savory stuffing, warm mashed potatoes, homemade gravy, and pies.</div>
+              <div><strong>Traditional Roast Turkey Dinner:</strong> Traditional roasted turkey dinner, savory stuffing, warm mashed potatoes and gravy, veggies, desserts and pies.</div>
             </li>
             <li>
               <span class="hook-icon-check">✓</span>
@@ -1721,7 +1748,7 @@
   <section class="tickets-section" id="reservations">
     <div class="container">
       <div class="section-headline">
-        <span class="section-eyebrow">Reservations & Passes</span>
+        <span class="section-eyebrow">Reservations & Passes &bull; RSVPs Due Nov 13</span>
         <h2 class="section-title">Select Your Passes</h2>
       </div>
 
@@ -1814,7 +1841,7 @@
           <span class="t-badge pack">Pack Families Only</span>
           <div class="t-role">Pack Parent Camping</div>
           <div class="t-price">$0 <span>/ parent</span></div>
-          <div class="t-desc">For parents/guardians accompanying an AOL/Webelos scout in the pack cabin. (Troop parents overnight must be registered leaders).</div>
+          <div class="t-desc">For parents/guardians accompanying an AOL/Webelos scout in the pack cabin. (Troop parents overnighting must be registered leaders).</div>
           <div class="stepper">
             <button type="button" class="stepper-btn" onclick="updateQty('parentCamp', -1)">−</button>
             <span class="stepper-val" id="qty-parentCamp">0</span>
