@@ -823,7 +823,7 @@
     }
     .payment-options {
       display: flex;
-      gap: 2.5rem;
+      gap: 1.25rem 2.25rem;
       margin-top: 1rem;
       flex-wrap: wrap;
     }
@@ -1907,6 +1907,10 @@
                 <input type="radio" name="paymentMethod" value="Cash / Check">
                 Cash or Check at Check-In
               </label>
+              <label class="custom-radio">
+                <input type="radio" name="paymentMethod" value="Scout Dollars">
+                Scout Dollars (Troop Account)
+              </label>
             </div>
           </div>
 
@@ -2211,6 +2215,12 @@
           <h4>📱 Next Step: Complete Venmo Payment</h4>
           <p>Please open the Venmo app and send <strong>$${totalDue.toFixed(2)}</strong> to <strong>@Troop170-Farmington</strong>.</p>
           <p style="margin-top:6px;">⚠️ <strong>Important:</strong> Enter Order ID <code>${receiptId}</code> in the Venmo payment note to reconcile your registration.</p>
+        `;
+      } else if (paymentMethod === "Scout Dollars" && totalDue > 0) {
+        noteEl.innerHTML = `
+          <h4>⚜️ Scout Dollars Payment</h4>
+          <p>Your balance of <strong>$${totalDue.toFixed(2)}</strong> will be deducted from your Scout Account.</p>
+          <p style="margin-top:6px;">The Troop Treasurer will reconcile this using Order ID <code>${receiptId}</code>. Please ensure your Scout Account has sufficient funds.</p>
         `;
       } else if (totalDue > 0) {
         noteEl.innerHTML = `
